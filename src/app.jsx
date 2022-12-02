@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import relateAndCompare from './relateAndCompare/relateAndCompare.jsx';
+import RelateAndCompare from './RelateAndCompare/relateAndCompare.jsx';
+import Reviews from './components/ratingsAndReviews/reviews.jsx'
+
 const App = () => {
   // const [ , ] = useState( );
 
@@ -10,9 +12,9 @@ const App = () => {
   return (
     <div>
       <div>Overview</div>
-      <relateAndCompare />
+      <RelateAndCompare />
       <div>Questions and Answers</div>
-      <div>Ratings and Reviews</div>
+      <Reviews />
     </div>
   )
 }
