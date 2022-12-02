@@ -2,7 +2,7 @@ import React from 'react';
 
 const RelateAndCompare = () => {
   return(
-    <div>Related & Compare</div>
+    <div>Related & Compared</div>
   )
 }
 
