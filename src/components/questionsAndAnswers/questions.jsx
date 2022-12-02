@@ -9,7 +9,7 @@ const Questions = () => {
 
   return (
     <div>
-      <h3>Questions and Answers</h3>
+      <h3>Questions & Answers</h3>
     </div>
   )
 }
