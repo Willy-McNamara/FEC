@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //capitalized file name
 
-const Reviews = () => {
+const Reviews = ({product}) => {
   // const [ , ] = useState( );
 
   // useEffect(() => {
