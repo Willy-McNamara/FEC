@@ -9,8 +9,8 @@ const Overview = () => {
 
   return (
     <div>
-      <div>Image gallery </div>
-      <div>Product information</div>
+      <div>Image gallery</div>
+      <div>Product information james</div>
       <div>Style selector</div>
       <div>Add to cart</div>
     </div>

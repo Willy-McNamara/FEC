@@ -4,7 +4,7 @@ import Reviews from './components/ratingsAndReviews/reviews.jsx'
 import Questions from './components/questionsAndAnswers/Questions.jsx'
 import Overview from './components/overview/overview.jsx'
 
-const App = () => {
+const App = ({product}) => {
   // const [ , ] = useState( );
 
   // useEffect(() => {
@@ -13,10 +13,10 @@ const App = () => {
 
   return (
     <div>
-      < Overview />
-      <RelateAndCompare />
-      <Questions />
-      <Reviews />
+      < Overview product={product}/>
+      <RelateAndCompare product={product}/>
+      <Questions product={product}/>
+      <Reviews product={product}/>
     </div>
   )
 }
