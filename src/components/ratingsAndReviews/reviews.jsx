@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+//capitalized file name
 
 const Reviews = () => {
   // const [ , ] = useState( );
