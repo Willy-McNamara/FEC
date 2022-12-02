@@ -15,7 +15,7 @@ const App = () => {
     <div>
       < Overview />
       <div>Related Items</div>
-      <Questions />
+      <div>Questions and Answers</div>
       <Reviews />
     </div>
   )
