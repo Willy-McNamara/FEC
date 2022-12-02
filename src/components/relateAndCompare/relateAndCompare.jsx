@@ -1,9 +1,9 @@
 import React from 'react';
 
-const relateAndCompare = () => {
+const RelateAndCompare = () => {
   return(
     <div>Related & Compare</div>
   )
 }
 
-export default relateAndCompare;
+export default RelateAndCompare;
