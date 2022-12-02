@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import RelateAndCompare from './RelateAndCompare/relateAndCompare.jsx';
 import Reviews from './components/ratingsAndReviews/reviews.jsx'
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
   return (
     <div>
       <div>Overview</div>
-      <div>Related Items</div>
+      <RelateAndCompare />
       <div>Questions and Answers</div>
       <Reviews />
     </div>
