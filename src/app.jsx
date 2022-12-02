@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Reviews from './components/ratingsAndReviews/reviews.jsx'
 
 const App = () => {
   // const [ , ] = useState( );
@@ -12,7 +13,7 @@ const App = () => {
       <div>Overview</div>
       <div>Related Items</div>
       <div>Questions and Answers</div>
-      <div>Ratings and Reviews</div>
+      <Reviews />
     </div>
   )
 }
