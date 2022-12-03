@@ -7,6 +7,7 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
 
   let [gallery, setGallery] = useState('init')
 
+  // This useEffect allows for the async build of the mini gallery
   useEffect(() => {
     if (gallery === 'init') {
       Promise.all(style.photos.map((photo, index) => {
@@ -29,7 +30,7 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
     return (<div>Rendering photo gallery...</div>)
   } else {
     return (
-      <div>
+      <div id="IG1">
         IG1
         <div>
           IG1b -- mini gallery
