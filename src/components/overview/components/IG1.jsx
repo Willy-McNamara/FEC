@@ -32,11 +32,11 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
     return (
       <div id="IG1">
         IG1
-        <div>
-          IG1b -- mini gallery
+        <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} currentIndex={currentIndex} indexHandler={indexHandler}/>
+        <div id="IG1a">
+          IG1a -- mini gallery
           {gallery}
         </div>
-        <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} currentIndex={currentIndex} indexHandler={indexHandler}/>
       </div>
     )
   }
