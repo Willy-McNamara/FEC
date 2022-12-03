@@ -30,4 +30,17 @@ const getAllProducts = (req, res, bodyParams) => {
   })
 }
 
+const getProductStyles = (req, res, bodyParams) => {
+  axios.get(apiURL + `/products/${req.params.id}/styles`, {headers: {'Authorization': APIKEY.APIKEY}})
+  .then((APIRes) => {
+    console.log('APIRes.data in getProductStyles', APIRes.data)
+    res.send(APIRes.data)
+    logInteraction(bodyParams)
+  })
+  .catch((err) => {
+    res.status(400).send(err)
+  })
+}
+
 module.exports.getAllProducts = getAllProducts
+module.exports.getProductStyles = getProductStyles

@@ -11,9 +11,10 @@ const App = ({product}) => {
 
   // }, [])
 
+
   return (
     <div>
-      < Overview product={product}/>
+      <Overview product={product}/>
       <RelateAndCompare product={product}/>
       <Questions product={product}/>
       <Reviews product={product}/>
