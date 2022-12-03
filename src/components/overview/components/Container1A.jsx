@@ -22,8 +22,7 @@ const Container1A = ({product, styles}) => {
 
   if (!zoom) {
     return(
-      <div>
-        Container1A
+      <div id="Container1A">
         <Container1Aa style={style} zoomHandler={zoomHandler}/>
         <Container1Ab product={product} style={style} styleHandler={styleHandler} />
       </div>

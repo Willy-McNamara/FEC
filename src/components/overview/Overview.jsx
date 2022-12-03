@@ -11,7 +11,7 @@ const Overview = ({product}) => {
     if (styles === 'init') {
       axios.get(`http://localhost:3001/productStyles/${product.id}`)
       .then((res) => {
-        console.log('res.data from get styles in Overview.jsx', res.data)
+        //console.log('res.data from get styles in Overview.jsx', res.data)
         setStyles(res.data.results)
       })
       .catch((err) => {
@@ -21,12 +21,18 @@ const Overview = ({product}) => {
     }
   }, [styles])
 
+  if (styles === 'init') {
+    return (
+      <h6>Fetching styles...</h6>
+    )
+  } else {
   return (
-    <div>
-      <Container1A product={product} styles={styles}/>
-      <Container1B product={product}/>
-    </div>
-  )
+      <div>
+        <Container1A product={product} styles={styles}/>
+        <Container1B product={product}/>
+      </div>
+    )
+  }
 }
 
 export default Overview;

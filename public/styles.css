@@ -1,0 +1,88 @@
+/* Made a style sheet! Using it loosely until we decide on some stuff as a group :) */
+
+/* GENERAL (applies to all widgets)*/
+
+/*
+  global
+  styles
+  will
+  go
+  here
+*/
+
+/*
+  Overview WIDGET
+*/
+
+#Container1A {
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+}
+
+#IG1 {
+  border-style: solid;
+  border-width: 1px;
+  padding: 3px;
+  display: grid;
+  grid-template-columns: 70px auto;
+  grid-template-rows: auto;
+}
+
+#IG1a { /* thumbnail gallery */
+  /* grid-column-start: 1;
+  grid-column-end: 2; */
+  grid-area: 1 / 1 / 1 / 2;
+  border-style: solid;
+  border-width: 0.5px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#IG1b {
+  /* grid-column-start: 1;
+  grid-column-end: 3; */
+  grid-area: 1 / 1 / 1 / 3;
+  justify-self: center;
+  align-self: center;
+  border-style: solid;
+  border-width: 0.5px;
+  display:grid;
+}
+
+#mainPhoto {
+  justify-self: center;
+  align-self: center;
+}
+
+#thumbNailPhoto {
+  height: 50px;
+  width: 60px;
+  align-self: center;
+  opacity: 0.4;
+}
+
+.mainThumbnail {
+  border-style: solid;
+  border-color: greenyellow;
+  opacity: 0.9 !important;
+}
+
+.hovered {
+  opacity: 0.7 !important;
+}
+
+/*
+  Relate And Compare WIDGET
+*/
+
+
+/*
+  Questions and Answers WIDGET
+*/
+
+
+/*
+  Ratings and Reviews WIDGET
+*/
