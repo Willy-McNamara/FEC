@@ -29,10 +29,8 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
   } else {
     return (
       <div id="IG1">
-        IG1
         <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} currentIndex={currentIndex} indexHandler={indexHandler}/>
         <div id="IG1a">
-          IG1a
           {gallery}
         </div>
       </div>

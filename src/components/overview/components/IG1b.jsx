@@ -6,8 +6,7 @@ const IG1b = ({currentPhoto, zoomHandler, currentIndex, indexHandler}) => {
 
   return (
     <div id="IG1b">
-      IG1b
-      <img id="mainPhoto" src={`${currentPhoto.url}`} style={{ height: 250, width: 300}}/>
+      <img id="mainPhoto" src={`${currentPhoto.url}`}/>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 const Container1B = ({product}) => {
 
   return (
-    <div>
+    <div id="Container1B">
       Container1B
       <h4>{product.slogan}</h4>
       <h6>{product.description}</h6>
