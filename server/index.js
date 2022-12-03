@@ -16,7 +16,12 @@ app.use(express.static(__dirname + '/../public'))
 // }) // some middleware that adds headers
 
 app.get('/products', (req, res) => {
-  model.getAllProducts(req, res)
+  let bodyParams = {
+    'element': 'index.jsx',
+    'widget': 'app',
+    'time': new Date()
+  }
+  model.getAllProducts(req, res, bodyParams)
   // .catch((err) => {
   //   console.log('error in app.get/products :', err)
   //   res.status(400).send(err)

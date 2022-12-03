@@ -1,0 +1,32 @@
+Whenever making a new route in index.js to handle your Axios requests from the client side, be sure to include a bodyParams object in the format below with the correct information substitude for the values...
+
+For example, if posting a new Review, your bodyParams in the specific route in server/index.js should look something like this:
+
+app.post('/SOME ROUTE THAT INDICATES WHAT YOUR REQUEST IS', (req, res) => {
+  let bodyParams = {
+    'element': 'NAME OF ELEMENT WHERE THE CALL FOR A REVIEW TO BE ADDED ORIGINATES',
+    'widget': 'NAME OF YOUR PARTICULAR MODULE',
+    'time': new Date()
+  }
+  model.getAllProducts(req, res, bodyParams)
+})
+
+make sure you pass bodyParams to your model.METHOD which is setup to handle the necessary API interaction.
+
+Continuing the example, here is what that might look like in model/index.js:
+
+const addOneReview = (req, res, bodyParams) => {
+  axios.get(apiURL + '/whateverReviewAPI', {headers: {'Authorization': APIKEY.APIKEY}})
+  .then((APIRes) => {
+    res.send(APIRes.data)
+    logInteraction(bodyParams) <-- THIS MUST HAPPEN!
+  })
+  .catch((err) => {
+    res.status(400).send(err)
+  })
+}
+
+
+and that is it! you should see a log in your server console that says the interaction was sucessfully logged.
+
+:)
