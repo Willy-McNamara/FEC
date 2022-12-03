@@ -60,11 +60,13 @@
   height: 50px;
   width: 60px;
   align-self: center;
+  opacity: 0.4;
 }
 
 .mainThumbnail {
   border-style: solid;
   border-color: greenyellow;
+  opacity: 0.9 !important;
 }
 
 /*

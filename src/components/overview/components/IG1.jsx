@@ -15,7 +15,7 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
         if (index === currentIndex) {
           isCurrent = true;
         }
-        return (<IG1a thumbNailURL={photo.thumbnail_url} indexHandler={indexHandler} isCurrent={isCurrent}/>)
+        return (<IG1a thumbNailURL={photo.thumbnail_url} indexHandler={indexHandler} isCurrent={isCurrent} index={index}/>)
       }))
       .then((newGallery) => {
         setGallery(newGallery)
@@ -24,7 +24,7 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
         console.log('error in useEffect promise chain in Container1Aa', err)
       })
     }
-  }, [gallery])
+  }, [gallery, currentIndex])
 
   if (gallery === 'init') {
     return (<div>Rendering photo gallery...</div>)

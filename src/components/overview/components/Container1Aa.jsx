@@ -9,8 +9,9 @@ const Container1Aa = ({style, zoomHandler}) => {
   // Needs to format all data for image gallery IMAGE GALLERY
 
   // HANDLERS
-  let indexHandler = () => {
-    // changes the index based on which image was clicked
+  let indexHandler = (index) => {
+    console.log('index of thumnail clicked in indexHandler C1Aa.jsx:', index)
+    setCurrentIndex(index)
   }
 
   return (
