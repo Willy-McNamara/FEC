@@ -21,12 +21,18 @@ const Overview = ({product}) => {
     }
   }, [styles])
 
+  if (styles === 'init') {
+    return (
+      <h6>Fetching styles...</h6>
+    )
+  } else {
   return (
-    <div>
-      <Container1A product={product} styles={styles}/>
-      <Container1B product={product}/>
-    </div>
-  )
+      <div>
+        <Container1A product={product} styles={styles}/>
+        <Container1B product={product}/>
+      </div>
+    )
+  }
 }
 
 export default Overview;
