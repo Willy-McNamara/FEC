@@ -4,14 +4,12 @@ import IG1a from './IG1a.jsx';
 import IG1b from './IG1b.jsx';
 
 const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
-  console.log('currentIndex in IG1', currentIndex)
 
   let [gallery, setGallery] = useState('init')
   let [lastIndex, setLastIndex] = useState(currentIndex)
 
   // This useEffect allows for the async build of the mini gallery
   useEffect(() => {
-    console.log('useEffect in IG1 triggered, here is current and last index', currentIndex, lastIndex)
     if (gallery === 'init' || currentIndex !== lastIndex) {
       setLastIndex(currentIndex)
       Promise.all(style.photos.map((photo, index) => {
@@ -34,7 +32,7 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
         IG1
         <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} currentIndex={currentIndex} indexHandler={indexHandler}/>
         <div id="IG1a">
-          IG1a -- mini gallery
+          IG1a
           {gallery}
         </div>
       </div>

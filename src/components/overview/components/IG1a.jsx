@@ -5,12 +5,6 @@ const IG1a = ({thumbNailURL, indexHandler, index, currentIndex}) => {
   // THIS IS THE THUMBNAIL GALLERY
   let [hovered, setHovered] = useState('none')
 
-  let hoverHandler = () => {
-
-  }
-
-  console.log('logging the changing hovered', hovered)
-
   if (index === currentIndex) {
     return (
       // grayed out thumbnail or something special
@@ -19,7 +13,10 @@ const IG1a = ({thumbNailURL, indexHandler, index, currentIndex}) => {
   } else {
     return (
       <img id="thumbNailPhoto" class={hovered} src={`${thumbNailURL}`} index={index} onMouseEnter={(e) => {
-        setHovered(index)
+        setHovered('hovered')
+      }}
+      onMouseLeave={(e) => {
+        setHovered('none')
       }}
       onClick={(e) => {
         e.preventDefault()
