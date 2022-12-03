@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const IG1a = ({thumbNailURL, indexHandler, isCurrent, index}) => {
+const IG1a = ({thumbNailURL, indexHandler, index, currentIndex}) => {
   // THIS IS THE THUMBNAIL GALLERY
   let [hovered, setHovered] = useState('none')
 
@@ -11,7 +11,7 @@ const IG1a = ({thumbNailURL, indexHandler, isCurrent, index}) => {
 
   console.log('logging the changing hovered', hovered)
 
-  if (isCurrent) {
+  if (index === currentIndex) {
     return (
       // grayed out thumbnail or something special
       <img id="thumbNailPhoto" class="mainThumbnail" src={`${thumbNailURL}`} index={index}/>
