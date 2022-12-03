@@ -11,9 +11,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static(__dirname + '/../public'))
 
-// app.use((req, res) => {
-//   req.set('Authorization', `${APIKEY.APIKEY}`)
-// }) // some middleware that adds headers
+
+// ROUTES / CONTROLLERS
 
 app.get('/products', (req, res) => {
   let bodyParams = {
@@ -22,10 +21,15 @@ app.get('/products', (req, res) => {
     'time': new Date()
   }
   model.getAllProducts(req, res, bodyParams)
-  // .catch((err) => {
-  //   console.log('error in app.get/products :', err)
-  //   res.status(400).send(err)
-  // })
+})
+
+app.get('/productStyles/:id', (req, res) => {
+  let bodyParams = {
+    'element': 'Overview.jsx',
+    'widget': 'Overview',
+    'time': new Date()
+  }
+  model.getProductStyles(req, res, bodyParams)
 })
 
 
