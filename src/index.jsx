@@ -15,7 +15,7 @@ import axios from 'axios'
 
 axios.get('http://localhost:3001/products')
 .then((res) => {
-  console.log('res.data[0] from get request in index.jsx :', res.data[0])
+  //console.log('res.data[0] from get request in index.jsx :', res.data[0])
   ReactDOM.render(<App product={res.data[0]}/>, document.getElementById('root'))
 })
 .catch((err) => {

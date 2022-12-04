@@ -9,13 +9,13 @@ const Container1A = ({product, styles}) => {
 
   // CONTAINER 1
   let [zoom, setZoom] = useState(false)
-  let [style, setStyle] = useState(styles[2]) // making 2 while i implement sale price funcitonality
+  let [style, setStyle] = useState(styles[0])
   let [currentIndex, setCurrentIndex] = useState(0)
 
   // HANDLERS
 
-  let styleHandler = () => {
-    // does something
+  let styleHandler = (index) => {
+    setStyle(styles[index])
   }
   let zoomHandler = () => {
     setZoom(!zoom)
@@ -29,7 +29,7 @@ const Container1A = ({product, styles}) => {
     return(
       <div id="Container1A">
         <Container1Aa style={style} zoomHandler={zoomHandler} zoom={zoom} indexHandler={indexHandler} currentIndex={currentIndex}/>
-        <Container1Ab product={product} style={style} styleHandler={styleHandler} />
+        <Container1Ab product={product} style={style} styles={styles} styleHandler={styleHandler} />
       </div>
     )
   } else { // if zoom is true, only show container 3_1
