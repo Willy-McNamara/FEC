@@ -24,6 +24,11 @@ const IG1 = ({style, zoomHandler, zoom, currentIndex, indexHandler}) => {
     }
   }, [gallery, currentIndex])
 
+  // using this useEffect to trigger reRenders when style changes
+  useEffect(() => {
+    setGallery('init')
+  }, [style])
+
   if (gallery === 'init') {
     return (<div>Rendering photo gallery...</div>)
   } else {

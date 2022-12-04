@@ -23,7 +23,7 @@ const SS1B = ({style, styles, styleHandler}) => {
     .catch((err) => {
       console.log('error in SS1B useEffect', err)
     })
-  }, [styles])
+  }, [styles, style])
 
   if (stylesList === 'init') {
     return (<div> Loading Styles Selector! </div>)

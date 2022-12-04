@@ -9,13 +9,15 @@ const Container1A = ({product, styles}) => {
 
   // CONTAINER 1
   let [zoom, setZoom] = useState(false)
-  let [style, setStyle] = useState(styles[2]) // making 2 while i implement sale price funcitonality
+  let [style, setStyle] = useState(styles[0])
   let [currentIndex, setCurrentIndex] = useState(0)
 
   // HANDLERS
 
-  let styleHandler = () => {
+  let styleHandler = (index) => {
     // does something
+    console.log('styleHandler triggered, here is index arg', index)
+    setStyle(styles[index])
   }
   let zoomHandler = () => {
     setZoom(!zoom)

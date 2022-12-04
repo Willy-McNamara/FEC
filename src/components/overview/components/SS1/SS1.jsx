@@ -5,8 +5,6 @@ import SS1B from './SS1B.jsx';
 
 const SS1 = ({style, styles, styleHandler}) => {
 
-  console.log('style and styles in SS1', style, styles)
-
   return (
     <div id="SS1">
       SS1
