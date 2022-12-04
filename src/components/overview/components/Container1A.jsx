@@ -16,10 +16,8 @@ const Container1A = ({product, styles}) => {
   }
   let zoomHandler = () => {
     setZoom(!zoom)
-    console.log('zoomHandler triggered!')
   }
   let indexHandler = (index) => {
-    console.log('index of thumnail clicked in indexHandler C1Aa.jsx:', index)
     setCurrentIndex(index)
   }
 
