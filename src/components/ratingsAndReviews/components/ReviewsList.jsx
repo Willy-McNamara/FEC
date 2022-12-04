@@ -8,7 +8,7 @@ const ReviewsList = () => {
   // }, [])
 
   return (
-    <div>
+    <div className = "flex containerHalf border">
       <h3>Reviews List</h3>
     </div>
   )
