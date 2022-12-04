@@ -29,7 +29,7 @@ const Container1A = ({product, styles}) => {
     return(
       <div id="Container1A">
         <Container1Aa style={style} zoomHandler={zoomHandler} zoom={zoom} indexHandler={indexHandler} currentIndex={currentIndex}/>
-        <Container1Ab product={product} style={style} styleHandler={styleHandler} />
+        <Container1Ab product={product} style={style} styles={styles} styleHandler={styleHandler} />
       </div>
     )
   } else { // if zoom is true, only show container 3_1

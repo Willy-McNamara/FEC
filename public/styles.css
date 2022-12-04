@@ -104,24 +104,10 @@
   padding: 5px;
 }
 
-#ATC1 {
-  height: 30%;
-  border-style: solid;
-  border-color: black;
-  border-width: 3px;
-  padding: 2px;
-}
-
-#SS1 {
-  height: 30%;
-  border-style: solid;
-  border-color: black;
-  border-width: 3px;
-  padding: 2px;
-}
+/* ======= ======= ======== PI1 ======= ======= ========= ====== ==== */
 
 #PI1 {
-  height: 30%;
+  height: 28%;
   border-style: solid;
   border-color: black;
   border-width: 3px;
@@ -198,7 +184,87 @@
 }
 
 
+/* ======= ======= ======== SS1 ======= ======= ========= ====== ==== */
 
+
+#SS1 {
+  height: 37%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+#SS1A {
+  height: 13%;
+  width: 95%;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+#styleInd {
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#styleName {
+  font-weight: lighter;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#SS1B {
+  height: 83%;
+  width: 95%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 10%;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+#SS1Ba {
+  width: 20%;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
+}
+
+#fakeSS1Ba {
+  width: 20%;
+  height: auto;
+  aspect-ratio: 1/1;
+}
+
+#SSThumbnail {
+  max-width: 150%;
+  height:auto;
+  justify-self: center;
+}
+
+
+
+/* ======= ======= ======== ATC1 ======= ======= ========= ====== ==== */
+
+#ATC1 {
+  height: 26%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+}
 
 /* ========= ============ =========== =======END OF OVERVIEW WIDGET ========== ============== ================== ========== ===*/
 
