@@ -7,8 +7,7 @@ const Container1A = ({product, styles}) => {
   // CONTAINER 1
   let [zoom, setZoom] = useState(false)
   let [style, setStyle] = useState(styles[0])
-  // make request to the API to get the styles data for this particular product
-
+  let [currentIndex, setCurrentIndex] = useState(0)
 
   // HANDLERS
 
@@ -16,14 +15,19 @@ const Container1A = ({product, styles}) => {
     // does something
   }
   let zoomHandler = () => {
-    // does somethin
+    setZoom(!zoom)
+    console.log('zoomHandler triggered!')
+  }
+  let indexHandler = (index) => {
+    console.log('index of thumnail clicked in indexHandler C1Aa.jsx:', index)
+    setCurrentIndex(index)
   }
 
 
   if (!zoom) {
     return(
       <div id="Container1A">
-        <Container1Aa style={style} zoomHandler={zoomHandler}/>
+        <Container1Aa style={style} zoomHandler={zoomHandler} zoom={zoom} indexHandler={indexHandler} currentIndex={currentIndex}/>
         <Container1Ab product={product} style={style} styleHandler={styleHandler} />
       </div>
     )
@@ -31,7 +35,7 @@ const Container1A = ({product, styles}) => {
     return (
       <div>
         Container1A
-        <Container1Aa style={style} zoomHandler={zoomHandler}/>
+        <Container1Aa style={style} zoomHandler={zoomHandler} zoom={zoom} indexHandler={indexHandler} currentIndex={currentIndex}/>
       </div>
     )
   }

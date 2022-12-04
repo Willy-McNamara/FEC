@@ -71,6 +71,14 @@
   max-height: 600px;
 }
 
+.zoom-in{
+  cursor: zoom-in;
+}
+
+.zoom-out{
+  cursor: zoom-out;
+}
+
 #thumbNailPhoto {
   height: auto;
   max-width: 95%;
