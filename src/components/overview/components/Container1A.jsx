@@ -16,6 +16,7 @@ const Container1A = ({product, styles}) => {
 
   let styleHandler = (index) => {
     setStyle(styles[index])
+    setCurrentIndex(0)
   }
   let zoomHandler = () => {
     setZoom(!zoom)
