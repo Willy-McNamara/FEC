@@ -15,8 +15,6 @@ const Container1A = ({product, styles}) => {
   // HANDLERS
 
   let styleHandler = (index) => {
-    // does something
-    console.log('styleHandler triggered, here is index arg', index)
     setStyle(styles[index])
   }
   let zoomHandler = () => {
