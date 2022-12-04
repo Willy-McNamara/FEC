@@ -3,7 +3,7 @@ import axios from 'axios';
 import IG1a from './IG1a.jsx';
 import IG1b from './IG1b.jsx';
 
-const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
+const IG1 = ({style, zoomHandler, zoom, currentIndex, indexHandler}) => {
 
   let [gallery, setGallery] = useState('init')
   let [lastIndex, setLastIndex] = useState(currentIndex)
@@ -29,10 +29,8 @@ const IG1 = ({style, zoomHandler, currentIndex, indexHandler}) => {
   } else {
     return (
       <div id="IG1">
-        IG1
-        <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} currentIndex={currentIndex} indexHandler={indexHandler}/>
+        <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} zoom={zoom} currentIndex={currentIndex} indexHandler={indexHandler}/>
         <div id="IG1a">
-          IG1a
           {gallery}
         </div>
       </div>
