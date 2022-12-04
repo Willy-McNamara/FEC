@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const PI1Ba = ({}) => {
+const PI1Ba = ({category}) => {
 
   return (
     <div id="PI1Ba">
-      Category
+      {category}
     </div>
   )
 }
