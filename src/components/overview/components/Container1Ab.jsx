@@ -5,12 +5,13 @@ import SS1 from './SS1/SS1.jsx';
 import ATC1 from './ATC1/ATC1.jsx';
 
 const Container1Ab = ({product, style, styleHandler}) => {
+  console.log('show current style in C1Ab', style)
 
   return (
     <div id="Container1Ab">
       Container1Ab
-      < PI1 />
-      < SS1 />
+      < PI1 product={product} style={style}/>
+      < SS1 styleHandler={styleHandler}/>
       < ATC1 />
     </div>
   )

@@ -4,9 +4,12 @@ import Container1Aa from './Container1Aa.jsx';
 import Container1Ab from './Container1Ab.jsx';
 
 const Container1A = ({product, styles}) => {
+
+  //console.log('styles in C1A', styles)
+
   // CONTAINER 1
   let [zoom, setZoom] = useState(false)
-  let [style, setStyle] = useState(styles[0])
+  let [style, setStyle] = useState(styles[2]) // making 2 while i implement sale price funcitonality
   let [currentIndex, setCurrentIndex] = useState(0)
 
   // HANDLERS

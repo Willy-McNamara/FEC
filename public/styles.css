@@ -163,10 +163,17 @@
 
 #PI1Ba {
   font-size: medium !important;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: lighter;
 }
 
 #PI1Bb {
-  font-size: large !important;
+  font-size: x-large !important;
+  padding-left: 10px;
+  font-weight: bold;
+  justify-self: center;
 }
 
 #PI1C {
@@ -176,6 +183,18 @@
   border-width: 2px;
   height: 13%;
   align-self: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#PI1Cnormal {
+  padding: 3px;
+}
+
+#PI1Csale {
+  padding: 3px;
+  color: red;
+  text-decoration: line-through;
 }
 
 
