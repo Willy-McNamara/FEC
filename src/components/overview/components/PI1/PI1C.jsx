@@ -9,10 +9,10 @@ const PI1C = ({style}) => {
     return (
       <div id="PI1C">
         <div id="PI1Csale">
-          {style.original_price}
+          ${style.original_price}
         </div>
         <div id="PI1Cnormal">
-          {style.sale_price}
+          ${style.sale_price}
         </div>
       </div>
     )
@@ -21,7 +21,7 @@ const PI1C = ({style}) => {
     return (
       <div id="PI1C">
         <div id="PI1Cnormal">
-          {style.original_price}
+          ${style.original_price}
         </div>
       </div>
     )

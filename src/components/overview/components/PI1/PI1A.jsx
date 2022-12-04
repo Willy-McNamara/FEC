@@ -5,6 +5,15 @@ import PI1Ab from './PI1Ab.jsx';
 
 const PI1A = ({id}) => {
   // use id as a param in call
+  axios.get(`http://localhost:3001/averageReviews/${id}`)
+      .then((res) => {
+        console.log('res.data from get averageReviews in PI1A.jsx', res.data)
+        setStyles(res.data.results)
+      })
+      .catch((err) => {
+        console.log('err in get Overview.jsx', err)
+        alert('Error getting styles!')
+      })
   // Make and axios call to get all reviews for this product
   // implement algorithm on server side to average reviews
 
