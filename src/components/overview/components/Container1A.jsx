@@ -4,11 +4,13 @@ import Container1Aa from './Container1Aa.jsx';
 import Container1Ab from './Container1Ab.jsx';
 
 const Container1A = ({product, styles}) => {
+
+  //console.log('styles in C1A', styles)
+
   // CONTAINER 1
   let [zoom, setZoom] = useState(false)
-  let [style, setStyle] = useState(styles[0])
-  // make request to the API to get the styles data for this particular product
-
+  let [style, setStyle] = useState(styles[2]) // making 2 while i implement sale price funcitonality
+  let [currentIndex, setCurrentIndex] = useState(0)
 
   // HANDLERS
 
@@ -16,15 +18,17 @@ const Container1A = ({product, styles}) => {
     // does something
   }
   let zoomHandler = () => {
-    // does somethin
+    setZoom(!zoom)
+  }
+  let indexHandler = (index) => {
+    setCurrentIndex(index)
   }
 
 
   if (!zoom) {
     return(
-      <div>
-        Container1A
-        <Container1Aa style={style} zoomHandler={zoomHandler}/>
+      <div id="Container1A">
+        <Container1Aa style={style} zoomHandler={zoomHandler} zoom={zoom} indexHandler={indexHandler} currentIndex={currentIndex}/>
         <Container1Ab product={product} style={style} styleHandler={styleHandler} />
       </div>
     )
@@ -32,7 +36,7 @@ const Container1A = ({product, styles}) => {
     return (
       <div>
         Container1A
-        <Container1Aa style={style} zoomHandler={zoomHandler}/>
+        <Container1Aa style={style} zoomHandler={zoomHandler} zoom={zoom} indexHandler={indexHandler} currentIndex={currentIndex}/>
       </div>
     )
   }

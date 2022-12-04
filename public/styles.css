@@ -1,0 +1,217 @@
+/* Made a style sheet! Using it loosely until we decide on some stuff as a group :) */
+
+/* GENERAL (applies to all widgets)*/
+
+/*
+  global
+  styles
+  will
+  go
+  here
+*/
+
+/*
+  ==== =============== ============ ====== START Overview WIDGET ========== ========= =========== ============ =======
+*/
+
+#Container1A {
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+}
+
+#Container1B {
+  border-style: solid;
+  border-width: 2px;
+}
+
+#Container1Aa {
+  min-width: 60%;
+}
+
+/* Start CONTAINER1Aa*/
+
+#IG1 {
+  border-style: solid;
+  border-width: 1px;
+  padding: 3px;
+  display: grid;
+  grid-template-columns: 20% auto;
+  grid-template-rows: auto;
+}
+
+#IG1a { /* thumbnail gallery */
+  grid-area: 1 / 1 / 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  max-height: 600px;
+  overflow: auto;
+  padding: 5px;
+  direction: rtl;
+}
+
+#IG1b {
+  grid-area: 1 / 1 / 1 / 3;
+  background-color: black;
+  border-style: solid;
+  border-width: 0.5px;
+  display:grid;
+  max-width: 100%;
+}
+
+#mainPhoto {
+  justify-self: center;
+  align-self: center;
+  max-width: 100%;
+  max-height: 600px;
+}
+
+.zoom-in{
+  cursor: zoom-in;
+}
+
+.zoom-out{
+  cursor: zoom-out;
+}
+
+#thumbNailPhoto {
+  height: auto;
+  max-width: 95%;
+  align-self: center;
+  opacity: 0.25;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 8px;
+}
+
+.mainThumbnail {
+  opacity: 0.85 !important;
+}
+
+.hovered {
+  opacity: 0.95 !important;
+}
+
+/* End CONTAINER1Aa*/
+/* Start CONTAINER1Ab*/
+
+#Container1Ab {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  padding: 5px;
+}
+
+#ATC1 {
+  height: 30%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+}
+
+#SS1 {
+  height: 30%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+}
+
+#PI1 {
+  height: 30%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#PI1A {
+  width: 95%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  height: 13%;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#PI1Aa {
+  font-size: small !important;
+}
+
+#PI1Ab {
+  font-size: small !important;
+}
+
+#PI1B {
+  width: 95%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  height: 65%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#PI1Ba {
+  font-size: medium !important;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: lighter;
+}
+
+#PI1Bb {
+  font-size: x-large !important;
+  padding-left: 10px;
+  font-weight: bold;
+  justify-self: center;
+}
+
+#PI1C {
+  width: 95%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  height: 13%;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#PI1Cnormal {
+  padding: 3px;
+}
+
+#PI1Csale {
+  padding: 3px;
+  color: red;
+  text-decoration: line-through;
+}
+
+
+
+
+/* ========= ============ =========== =======END OF OVERVIEW WIDGET ========== ============== ================== ========== ===*/
+
+/*
+  Relate And Compare WIDGET
+*/
+
+
+/*
+  Questions and Answers WIDGET
+*/
+
+
+/*
+  Ratings and Reviews WIDGET
+*/
