@@ -11,7 +11,7 @@
 */
 
 /*
-  Overview WIDGET
+  ==== =============== ============ ====== START Overview WIDGET ========== ========= =========== ============ =======
 */
 
 #Container1A {
@@ -29,9 +29,7 @@
   min-width: 60%;
 }
 
-#Container1Ab {
-  min-width: 38%;
-}
+/* Start CONTAINER1Aa*/
 
 #IG1 {
   border-style: solid;
@@ -43,8 +41,6 @@
 }
 
 #IG1a { /* thumbnail gallery */
-  /* grid-column-start: 1;
-  grid-column-end: 2; */
   grid-area: 1 / 1 / 1 / 2;
   display: flex;
   flex-direction: column;
@@ -83,7 +79,7 @@
   height: auto;
   max-width: 95%;
   align-self: center;
-  opacity: 0.3;
+  opacity: 0.25;
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 8px;
@@ -96,6 +92,96 @@
 .hovered {
   opacity: 0.95 !important;
 }
+
+/* End CONTAINER1Aa*/
+/* Start CONTAINER1Ab*/
+
+#Container1Ab {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  padding: 5px;
+}
+
+#ATC1 {
+  height: 30%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+}
+
+#SS1 {
+  height: 30%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+}
+
+#PI1 {
+  height: 30%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#PI1A {
+  width: 95%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  height: 13%;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#PI1Aa {
+  font-size: small !important;
+}
+
+#PI1Ab {
+  font-size: small !important;
+}
+
+#PI1B {
+  width: 95%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  height: 65%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#PI1Ba {
+  font-size: medium !important;
+}
+
+#PI1Bb {
+  font-size: large !important;
+}
+
+#PI1C {
+  width: 95%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  height: 13%;
+  align-self: center;
+}
+
+
+
+
+/* ========= ============ =========== =======END OF OVERVIEW WIDGET ========== ============== ================== ========== ===*/
 
 /*
   Relate And Compare WIDGET
