@@ -43,6 +43,7 @@ app.get('/averageReviews/:id', (req, res) => {
   model.getAllReviewScores(req, res, bodyParams)
   .then((totalRatings)=>{
     // console.log('response from getAllReviewScores', totalRatings)
+    console.log(totalRatings)
     res.send([averageReviewsAlgo(totalRatings.ratings)])
   })
   .catch((err)=>{console.log('error getting reviews in api', err);
@@ -61,34 +62,21 @@ console.log('Listening on port 3001');
 let averageReviewsAlgo = (ratingsObject) => {
   // takes in all review
   // console.log('ratings object', ratingsObject)
-  let totalRatings = 0
-  let weightedTotals = 0;
+  let totalNumOfRatings = 0
+  let totalScoreOfRatings = 0;
   for (key in ratingsObject) {
-    totalRatings += Number(ratingsObject[key])
-    weightedTotals += Number(ratingsObject[key]) * Number(key)
+    totalNumOfRatings += Number(ratingsObject[key])
+    totalScoreOfRatings += Number(ratingsObject[key]) * Number(key)
   }
 
-  let average = weightedTotals/totalRatings;
-  let firstNumber = Math.floor(average);
-  let secondNumber = (average-firstNumber)
+  console.log('num of ratings', totalNumOfRatings)
+  console.log('total score', totalScoreOfRatings)
 
-  if (secondNumber * 4 > 3.5) {
-    firstNumber += 1;
-    secondNumber = 0;
-  } else {
-    secondNumber = Math.floor(secondNumber)
-  }
-  return [firstNumber, secondNumber];
-  // console.log('average review', weightedTotals/totalRatings)
-  // return weightedTotals/totalRatings;
-  // add them all, divide by # of reviews (maybe use reduce or map in a cool way?)
+  //outputs the raw ratings score out out of 100
+  const ratingAsPercent = totalScoreOfRatings/(totalNumOfRatings * 5) * 100
 
-  // round to nearest 0.25
-    // could instead return two whole numbers, the first indicating 0-4 stars, the second indicating 1-5 (fullness of additional star)
-    // get the remainder by subtracting total from math.floor()
-    // multiply remainder by 4
-      // if product is greater than 3.5,
-        // +1 the first number (round up to next star!)
-      // else
-        // math.floor(), set second num equal to this integer
+  //outputs the rating score rounded off to the nearest 25%
+  const ratingAsPercentRounded = (Math.round(ratingAsPercent * 4) / 4).toFixed(2)
+
+  return ratingAsPercentRounded
 }
