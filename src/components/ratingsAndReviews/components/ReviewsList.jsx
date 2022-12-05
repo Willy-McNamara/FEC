@@ -13,8 +13,6 @@ const ReviewsList = () => {
       <h4>VAR reviews sorted by VAR</h4>
       <div>
         <ReviewTile />
-        <ReviewTile />
-        <ReviewTile />
       </div>
       <div>
         <button>More Reviews</button>

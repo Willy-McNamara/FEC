@@ -13,6 +13,12 @@ const ReviewTile = () => {
         <div>****</div>
         <div>review date</div>
       </div>
+      <h4>Review Title</h4>
+      <div>Review Body</div>
+      <div>review response section: conditional rendering</div>
+      <>Helpful?</>
+      <>Yes counter</>
+      <>Report button</>
     </div>
   )
 }
