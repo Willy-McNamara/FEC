@@ -1,6 +1,0 @@
-
-//first route to test
-GET  https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products
-Authorization: need to figure out how to use variables here
-
-### all requests need to be seperated by '###'
