@@ -11,7 +11,7 @@ const Container1Ab = ({product, style, styles, styleHandler}) => {
       Container1Ab
       < PI1 product={product} style={style} styles={styles}/>
       < SS1 styleHandler={styleHandler} style={style} styles={styles}/>
-      < ATC1 />
+      < ATC1 style={style}/>
     </div>
   )
 }
