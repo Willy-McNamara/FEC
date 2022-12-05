@@ -8,8 +8,13 @@ const ReviewsList = () => {
   // }, [])
 
   return (
-    <div className = "flex containerHalf border">
-      <h3>Reviews List</h3>
+    <div className = "flex flex-column containerHalf border">
+      <h4>VAR reviews sorted by VAR</h4>
+      <div>will contain review tiles</div>
+      <div>
+        <button>More Reviews</button>
+        <button>Add Review +</button>
+      </div>
     </div>
   )
 }

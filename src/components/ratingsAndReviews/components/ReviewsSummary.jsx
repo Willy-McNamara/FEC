@@ -8,8 +8,13 @@ const ReviewsSummary = () => {
   // }, [])
 
   return (
-    <div className = "flex containerHalf border">
-      <h3>Reviews Summary</h3>
+    <div className = "flex flex-column containerHalf border">
+      <div className = "flex flex-row">
+        <div>3.5</div>
+        <div>*****</div>
+      </div>
+      <div>Review summary by stars</div>
+      <div>Review summary by charactistics</div>
     </div>
   )
 }
