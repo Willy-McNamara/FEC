@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ATC1A from './ATC1A.jsx';
-import ATC1B from './ATC1B.jsx';
 
-const ATC1 = ({style}) => {
+const ATC1Aa2= ({size, currentSizeHandler}) => {
 
   // style obj > sku property, obj of objs (SKUs as keys) > sku value obj contains key value pairs {quantity: 8, size: 'XS'}
 
   return (
-    <div id="ATC1">
-      < ATC1A style={style}/>
-      < ATC1B style={style}/>
+    <div id="ATC1Aa2" onClick={(e) => {
+      e.preventDefault();
+      currentSizeHandler(size)
+    }}>
+      {size}
     </div>
   )
 }
 
-export default ATC1;
+export default ATC1Aa2
