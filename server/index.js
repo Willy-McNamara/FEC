@@ -44,7 +44,7 @@ app.get('/averageReviews/:id', (req, res) => {
   .then((totalRatings)=>{
     // console.log('response from getAllReviewScores', totalRatings)
     console.log(totalRatings)
-    res.send([averageReviewsAlgo(totalRatings.ratings)])
+    res.send([calcRatingAverageAsPercent(totalRatings.ratings)])
   })
   .catch((err)=>{console.log('error getting reviews in api', err);
   res.send(err)
@@ -59,7 +59,7 @@ console.log('Listening on port 3001');
 
 // HELPER FUNCTIONS =========== =============== ================ ============ ============= =========
 
-let averageReviewsAlgo = (ratingsObject) => {
+let calcRatingAverageAsPercent = (ratingsObject) => {
   // takes in all review
   // console.log('ratings object', ratingsObject)
   let totalNumOfRatings = 0
