@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ReviewsSummary from './components/ReviewsSummary.jsx';
 import ReviewsList from './components/ReviewsList.jsx';
+import axios from 'axios';
 
 //capitalized file name
 
 const Reviews = ({product}) => {
-  // const [ , ] = useState( );
+  const [reviewsList ,setReviewsList ] = useState('init');
 
-  // useEffect(() => {
+  useEffect(() => {
+    if (reviewsList === 'init') {
+      axios.get(`/averageReviews/${product.id}`)
+      .then((res)=>{console.log('SERVER RESPONSE IN REVIEWS.JSX', res.data)})
+      .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
+    }
 
-  // }, [])
+  }, [product])
 
   return (
     <div className="border">

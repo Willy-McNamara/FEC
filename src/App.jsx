@@ -5,6 +5,7 @@ import Questions from './components/questionsAndAnswers/Questions.jsx'
 import Overview from './components/overview/overview.jsx'
 
 const App = ({product}) => {
+  console.log('PRODUCT', product)
   // const [ , ] = useState( );
 
   // useEffect(() => {

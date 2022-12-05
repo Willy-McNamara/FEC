@@ -33,12 +33,22 @@ app.get('/productStyles/:id', (req, res) => {
 })
 
 app.get('/averageReviews/:id', (req, res) => {
+  console.log('request received from reviews.jsx', req.params)
   let bodyParams = {
     'element': 'PI1A.jsx Overview/Product_Info',
     'widget': 'Overview',
     'time': new Date()
   }
   // call model for getting reviews
+  model.getAllReviewScores(req, res, bodyParams)
+  .then((totalRatings)=>{
+    console.log('response from getAllReviewScores', totalRatings)
+    res.send(averageReviewsAlgo(totalRatings.ratings))
+    //res.send()
+  })
+  .catch((err)=>{console.log('error getting reviews in api', err);
+  res.send(err)
+})
 
   // then manipulate data with reviews algo
 })
@@ -50,9 +60,29 @@ console.log('Listening on port 3001');
 
 // HELPER FUNCTIONS =========== =============== ================ ============ ============= =========
 
-let averageReviewsAlgo = () => {
-  // takes in all reviews
+let averageReviewsAlgo = (ratingsObject) => {
+  // takes in all review
+  console.log('ratings object', ratingsObject)
+  let totalRatings = 0
+  let weightedTotals = 0;
+  for (key in ratingsObject) {
+    totalRatings += Number(ratingsObject[key])
+    weightedTotals += Number(ratingsObject[key]) * Number(key)
+  }
 
+  let average = weightedTotals/totalRatings;
+  let firstNumber = Math.floor(average);
+  let secondNumber = (average-firstNumber)
+
+  if (secondNumber * 4 > 3.5) {
+    firstNumber += 1;
+    secondNumber = 0;
+  } else {
+    secondNumber = Math.floor(secondNumber)
+  }
+  return [firstNumber, secondNumber];
+  // console.log('average review', weightedTotals/totalRatings)
+  // return weightedTotals/totalRatings;
   // add them all, divide by # of reviews (maybe use reduce or map in a cool way?)
 
   // round to nearest 0.25
