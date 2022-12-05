@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import ReviewsSummary from './components/ReviewsSummary.jsx';
+import ReviewsList from './components/ReviewsList.jsx';
+
 //capitalized file name
 
 const Reviews = ({product}) => {
@@ -9,8 +12,12 @@ const Reviews = ({product}) => {
   // }, [])
 
   return (
-    <div>
-      <h3>Reviews</h3>
+    <div className="border">
+      <h6>Ratings & Reviews</h6>
+      <div className="flex border">
+      <ReviewsSummary />
+      <ReviewsList />
+      </div>
     </div>
   )
 }
