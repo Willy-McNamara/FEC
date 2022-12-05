@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReviewTile from './ReviewTile.jsx';
 
 const ReviewsList = () => {
   // const [ , ] = useState( );
@@ -10,7 +11,11 @@ const ReviewsList = () => {
   return (
     <div className = "flex flex-column containerHalf border">
       <h4>VAR reviews sorted by VAR</h4>
-      <div>will contain review tiles</div>
+      <div>
+        <ReviewTile />
+        <ReviewTile />
+        <ReviewTile />
+      </div>
       <div>
         <button>More Reviews</button>
         <button>Add Review +</button>
