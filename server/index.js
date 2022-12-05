@@ -33,7 +33,7 @@ app.get('/productStyles/:id', (req, res) => {
 })
 
 app.get('/averageReviews/:id', (req, res) => {
-  console.log('request received from reviews.jsx', req.params)
+  // console.log('request received from reviews.jsx', req.params)
   let bodyParams = {
     'element': 'PI1A.jsx Overview/Product_Info',
     'widget': 'Overview',
@@ -42,14 +42,12 @@ app.get('/averageReviews/:id', (req, res) => {
   // call model for getting reviews
   model.getAllReviewScores(req, res, bodyParams)
   .then((totalRatings)=>{
-    console.log('response from getAllReviewScores', totalRatings)
-    res.send(averageReviewsAlgo(totalRatings.ratings))
-    //res.send()
+    // console.log('response from getAllReviewScores', totalRatings)
+    res.send([averageReviewsAlgo(totalRatings.ratings)])
   })
   .catch((err)=>{console.log('error getting reviews in api', err);
   res.send(err)
 })
-
   // then manipulate data with reviews algo
 })
 
@@ -62,7 +60,7 @@ console.log('Listening on port 3001');
 
 let averageReviewsAlgo = (ratingsObject) => {
   // takes in all review
-  console.log('ratings object', ratingsObject)
+  // console.log('ratings object', ratingsObject)
   let totalRatings = 0
   let weightedTotals = 0;
   for (key in ratingsObject) {

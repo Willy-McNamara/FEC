@@ -11,7 +11,7 @@ const Reviews = ({product}) => {
   useEffect(() => {
     if (reviewsList === 'init') {
       axios.get(`/averageReviews/${product.id}`)
-      .then((res)=>{console.log('SERVER RESPONSE IN REVIEWS.JSX', res.data)})
+      .then((res)=>{setReviewsList(res.data)})
       .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
     }
 
