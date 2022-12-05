@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import QuestionItem from './QuestionItem.jsx';
 
-const QuestionsList = () => {
+const QuestionsList = ({product}) => {
   // const [ , ] = useState( );
 
   // useEffect(() => {
@@ -9,7 +10,7 @@ const QuestionsList = () => {
 
   return (
     <div>
-      <p>QuestionsList Here, get your questionslist!</p>
+      <QuestionItem product={product}/>
     </div>
   )
 }
