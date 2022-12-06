@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const ReviewsSummary = () => {
+const ReviewsSummary = ({reviewScores}) => {
+  console.log('SCORES AS PROPS', reviewScores);
   // const [ , ] = useState( );
 
   // useEffect(() => {
@@ -10,7 +11,7 @@ const ReviewsSummary = () => {
   return (
     <div className = "flex flex-column containerHalf border">
       <div className = "flex flex-row">
-        <div>3.5</div>
+        <div><h2>{reviewScores.ratingOutOf5}</h2></div>
         <div>*****</div>
       </div>
       <div>Review summary by stars</div>

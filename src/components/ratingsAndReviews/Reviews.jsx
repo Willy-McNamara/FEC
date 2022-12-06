@@ -6,13 +6,13 @@ import axios from 'axios';
 //capitalized file name
 
 const Reviews = ({product}) => {
-  const [reviewsList ,setReviewsList ] = useState('init');
-  console.log(reviewsList);
+  const [reviewScores ,setReviewScores ] = useState('init');
+  // console.log(reviewScores);
 
   useEffect(() => {
-    if (reviewsList === 'init') {
+    if (reviewScores === 'init') {
       axios.get(`/averageReviews/${product.id}`)
-      .then((res)=>{setReviewsList(res.data)})
+      .then((res)=>{setReviewScores(res.data)})
       .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
     }
 
@@ -22,7 +22,7 @@ const Reviews = ({product}) => {
     <div className="border">
       <h6>Ratings & Reviews</h6>
       <div className="flex border">
-      <ReviewsSummary />
+      <ReviewsSummary reviewScores={reviewScores} />
       <ReviewsList />
       </div>
     </div>
