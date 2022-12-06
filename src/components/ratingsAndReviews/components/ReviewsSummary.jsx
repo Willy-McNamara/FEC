@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StarRating from './StarRating.jsx'
 
 const ReviewsSummary = ({ reviewScores }) => {
+  console.log(reviewScores)
 
   return (
     <div className="flex flex-column containerHalf border">

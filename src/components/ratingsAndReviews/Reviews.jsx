@@ -6,7 +6,7 @@ import axios from 'axios';
 //capitalized file name
 
 const Reviews = ({product}) => {
-  const [reviewScores ,setReviewScores ] = useState('init');
+  const [reviewScores , setReviewScores ] = useState('init');
   console.log(reviewScores);
 
   useEffect(() => {

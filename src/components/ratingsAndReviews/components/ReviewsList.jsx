@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
+import reviewData from '../DummyData/reviewDummyData.js';
 
 const ReviewsList = () => {
+  console.log('Review Data', reviewData);
   // const [ , ] = useState( );
 
   // useEffect(() => {
