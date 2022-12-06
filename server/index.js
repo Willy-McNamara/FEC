@@ -56,6 +56,16 @@ app.get('/products/:product_id/related', async (req, res) => {
   res.send(data);
 })
 
+// Questions
+app.get('/qa/questions/:id', (req, res) => {
+  let bodyParams = {
+    'element': 'Questions.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.getQuestions(req, res, bodyParams);
+})
+
 app.listen(3001);
 console.log('Listening on port 3001');
 

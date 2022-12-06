@@ -76,6 +76,16 @@ const getAllReviewScores = (req, res, bodyParams) => {
   .catch((err)=>{console.log('err in getAllReviewScores', err)})
 }
 
+// Questions
+const getQuestions  = (req, res, bodyParams) => {
+  return axios.get(apiURL + `/qa/questions/?product_id=${req.params.id}`, {headers: {'Authorization': APIKEY.APIKEY}})
+    .then((APIRes)=>{
+      res.send(APIRes.data);
+      logInteraction(bodyParams);
+    })
+    .catch((err)=>{console.log('getQuestions error:', err)})
+}
+
 
 
 module.exports.getAllProducts = getAllProducts
@@ -83,3 +93,4 @@ module.exports.getProductStyles = getProductStyles
 module.exports.getRelatedProductIds = getRelatedProductIds
 module.exports.getAllRelatedProductDetails = getAllRelatedProductDetails
 module.exports.getAllReviewScores = getAllReviewScores
+module.exports.getQuestions = getQuestions
