@@ -3,7 +3,7 @@ import ReviewTile from './ReviewTile.jsx';
 import reviewData from '../DummyData/reviewDummyData.js';
 
 const ReviewsList = () => {
-  console.log('Review Data', reviewData);
+  console.log('Review Data', reviewData.reviewData.results[1]);
   // const [ , ] = useState( );
 
   // useEffect(() => {
@@ -14,7 +14,7 @@ const ReviewsList = () => {
     <div className = "flex flex-column containerHalf border">
       <h4>VAR reviews sorted by VAR</h4>
       <div>
-        <ReviewTile />
+        <ReviewTile review={reviewData.reviewData.results[1]}/>
       </div>
       <div>
         <button>More Reviews</button>
