@@ -17,7 +17,7 @@ const Reviews = ({product}) => {
     }
 
   }, [product])
-
+//what
   return (
     <div className="border">
       <h6>Ratings & Reviews</h6>
