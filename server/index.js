@@ -42,9 +42,7 @@ app.get('/averageReviews/:id', (req, res) => {
   // call model for getting reviews
   model.getAllReviewScores(req, res, bodyParams)
   .then((totalRatings)=>{
-    // console.log('response from getAllReviewScores', totalRatings)
-    console.log(totalRatings)
-    res.send([calcRatingAverageAsPercent(totalRatings.ratings)])
+    res.send(calcRatingAverages(totalRatings.ratings))
   })
   .catch((err)=>{console.log('error getting reviews in api', err);
   res.send(err)
@@ -59,7 +57,8 @@ console.log('Listening on port 3001');
 
 // HELPER FUNCTIONS =========== =============== ================ ============ ============= =========
 
-let calcRatingAverageAsPercent = (ratingsObject) => {
+//returns an object containing the rating as a % as well as the raw average of the ratings.
+let calcRatingAverages = (ratingsObject) => {
   // takes in all review
   // console.log('ratings object', ratingsObject)
   let totalNumOfRatings = 0
@@ -69,8 +68,8 @@ let calcRatingAverageAsPercent = (ratingsObject) => {
     totalScoreOfRatings += Number(ratingsObject[key]) * Number(key)
   }
 
-  console.log('num of ratings', totalNumOfRatings)
-  console.log('total score', totalScoreOfRatings)
+  //calculates rating out of 5, rounded off to 2 decimal places
+  const ratingOutOf5 = (totalScoreOfRatings/totalNumOfRatings).toFixed(2)
 
   //outputs the raw ratings score out out of 100
   const ratingAsPercent = totalScoreOfRatings/(totalNumOfRatings * 5) * 100
@@ -78,5 +77,7 @@ let calcRatingAverageAsPercent = (ratingsObject) => {
   //outputs the rating score rounded off to the nearest 25%
   const ratingAsPercentRounded = (Math.round(ratingAsPercent * 4) / 4).toFixed(2)
 
-  return ratingAsPercentRounded
+  return {ratingOutOf5: ratingOutOf5,
+    ratingAsPercentRounded: ratingAsPercentRounded
+  }
 }
