@@ -68,6 +68,13 @@ const getAllRelatedProductDetails = async (arrayOfRelatedIds) => {
 
 }
 // REVIEWS
+const getAllReviewScores = (req, res, bodyParams) => {
+  return axios.get(apiURL + `/reviews/meta/?product_id=${req.params.id}`, {headers: {'Authorization': APIKEY.APIKEY}})
+  .then((APIRes)=>{
+    return(APIRes.data)
+  })
+  .catch((err)=>{console.log('err in getAllReviewScores', err)})
+}
 
 
 
@@ -75,3 +82,4 @@ module.exports.getAllProducts = getAllProducts
 module.exports.getProductStyles = getProductStyles
 module.exports.getRelatedProductIds = getRelatedProductIds
 module.exports.getAllRelatedProductDetails = getAllRelatedProductDetails
+module.exports.getAllReviewScores = getAllReviewScores

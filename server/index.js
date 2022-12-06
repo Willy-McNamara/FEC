@@ -33,13 +33,20 @@ app.get('/productStyles/:id', (req, res) => {
 })
 
 app.get('/averageReviews/:id', (req, res) => {
+  // console.log('request received from reviews.jsx', req.params)
   let bodyParams = {
     'element': 'PI1A.jsx Overview/Product_Info',
     'widget': 'Overview',
     'time': new Date()
   }
   // call model for getting reviews
-
+  model.getAllReviewScores(req, res, bodyParams)
+  .then((totalRatings)=>{
+    res.send(calcRatingAverages(totalRatings.ratings))
+  })
+  .catch((err)=>{console.log('error getting reviews in api', err);
+  res.send(err)
+})
   // then manipulate data with reviews algo
 })
 
@@ -55,17 +62,27 @@ console.log('Listening on port 3001');
 
 // HELPER FUNCTIONS =========== =============== ================ ============ ============= =========
 
-let averageReviewsAlgo = () => {
-  // takes in all reviews
+//returns an object containing the rating as a % as well as the raw average of the ratings.
+let calcRatingAverages = (ratingsObject) => {
+  // takes in all review
+  // console.log('ratings object', ratingsObject)
+  let totalNumOfRatings = 0
+  let totalScoreOfRatings = 0;
+  for (key in ratingsObject) {
+    totalNumOfRatings += Number(ratingsObject[key])
+    totalScoreOfRatings += Number(ratingsObject[key]) * Number(key)
+  }
 
-  // add them all, divide by # of reviews (maybe use reduce or map in a cool way?)
+  //calculates rating out of 5, rounded off to 2 decimal places
+  const ratingOutOf5 = (totalScoreOfRatings/totalNumOfRatings).toFixed(2)
 
-  // round to nearest 0.25
-    // could instead return two whole numbers, the first indicating 0-4 stars, the second indicating 1-5 (fullness of additional star)
-    // get the remainder by subtracting total from math.floor()
-    // multiply remainder by 4
-      // if product is greater than 3.5,
-        // +1 the first number (round up to next star!)
-      // else
-        // math.floor(), set second num equal to this integer
+  //outputs the raw ratings score out out of 100
+  const ratingAsPercent = totalScoreOfRatings/(totalNumOfRatings * 5) * 100
+
+  //outputs the rating score rounded off to the nearest 25%
+  const ratingAsPercentRounded = (Math.round(ratingAsPercent * 4) / 4).toFixed(2)
+
+  return {ratingOutOf5: ratingOutOf5,
+    ratingAsPercentRounded: ratingAsPercentRounded
+  }
 }
