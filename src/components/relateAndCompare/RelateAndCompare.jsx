@@ -1,10 +1,8 @@
 import React from 'react';
-
-const RelateAndCompare = () => {
+import Relate from './Relate.jsx';
+const RelateAndCompare = ({product}) => {
   return(
-    <div>
-      <div data-testid="relateCompare">Related & Compared</div>
-    </div>
+      <Relate product={product}/>
   )
 }
 
