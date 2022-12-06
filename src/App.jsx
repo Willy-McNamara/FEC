@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import RelateAndCompare from './components/relateAndCompare/RelateAndCompare.jsx';
 import Reviews from './components/ratingsAndReviews/reviews.jsx'
 import Questions from './components/questionsAndAnswers/Questions.jsx'
@@ -9,8 +10,7 @@ const App = ({product}) => {
 
   // useEffect(() => {
 
-  // }, [])
-
+  // })
 
   return (
     <div>

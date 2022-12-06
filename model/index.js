@@ -41,6 +41,32 @@ const getProductStyles = (req, res, bodyParams) => {
   })
 }
 
+//Takes a product id and returns a singular object with product details.
+const getProductsOnId = async (productId) => {
+  let productDetail = await axios.get(apiURL + `/products/${productId}`, {headers: {'Authorization': APIKEY.APIKEY}})
+  .then((itemData) => {
+    return itemData.data;
+  });
+  return productDetail;
+}
+
+//returns an array of ids related to product.
+const getRelatedProductIds = async (req, res) => {
+  let relatedIds = await axios.get(apiURL + `/products/${req.params.product_id}/related`, {headers: {'Authorization': APIKEY.APIKEY}})
+  .then((data) => {
+    return data.data;
+  })
+  return relatedIds;
+}
+
+const getAllRelatedProductDetails = async (arrayOfRelatedIds) => {
+  allDetails = await Promise.all(arrayOfRelatedIds.map(async (id) => {
+    return getProductsOnId(id);
+  }))
+
+  return allDetails;
+
+}
 // REVIEWS
 const getAllReviewScores = (req, res, bodyParams) => {
   return axios.get(apiURL + `/reviews/meta/?product_id=${req.params.id}`, {headers: {'Authorization': APIKEY.APIKEY}})
@@ -54,4 +80,6 @@ const getAllReviewScores = (req, res, bodyParams) => {
 
 module.exports.getAllProducts = getAllProducts
 module.exports.getProductStyles = getProductStyles
+module.exports.getRelatedProductIds = getRelatedProductIds
+module.exports.getAllRelatedProductDetails = getAllRelatedProductDetails
 module.exports.getAllReviewScores = getAllReviewScores

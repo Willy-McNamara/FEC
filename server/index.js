@@ -50,6 +50,11 @@ app.get('/averageReviews/:id', (req, res) => {
   // then manipulate data with reviews algo
 })
 
+app.get('/products/:product_id/related', async (req, res) => {
+  let relatedIds = await model.getRelatedProductIds(req, res);
+  data = await model.getAllRelatedProductDetails(relatedIds);
+  res.send(data);
+})
 
 app.listen(3001);
 console.log('Listening on port 3001');
