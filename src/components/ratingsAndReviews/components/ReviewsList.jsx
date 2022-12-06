@@ -3,7 +3,7 @@ import ReviewTile from './ReviewTile.jsx';
 import reviewData from '../DummyData/reviewDummyData.js';
 
 const ReviewsList = () => {
-  console.log('Review Data', reviewData.reviewData.results[1]);
+  // console.log('Review Data', reviewData.reviewData.results[1]);
   // const [ , ] = useState( );
 
   // useEffect(() => {

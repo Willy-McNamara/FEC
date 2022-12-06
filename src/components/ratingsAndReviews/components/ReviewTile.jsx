@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const ReviewTile = (singleReview) => {
-  console.log('REVIEW TILE', singleReview.review)
+  // console.log('REVIEW TILE', singleReview.review)
   // const [ , ] = useState( );
 
   // useEffect(() => {
