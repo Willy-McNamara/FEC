@@ -64,7 +64,7 @@ const ATC1A= ({style}) => {
   let sizeViewHandler = (size) => {
     // toggles viewSizes true/false
     if (currentSize === size) {
-      console.log('sizeView handler triggered when size === current size')
+      //console.log('sizeView handler triggered when size === current size')
       setViewSizes(!viewSizes)
     } else {
       currentSizeHandler(size)
