@@ -8,7 +8,7 @@ const ATC1Ab1= ({qty, quantViewHandler}) => {
   return (
     <div id="ATC1Ab1" onClick={(e) => {
       e.preventDefault();
-      console.log('size onClick triggered. here is size :', qty)
+      // console.log('size onClick triggered. here is size :', qty)
       quantViewHandler(qty)
     }}>
       {qty}
