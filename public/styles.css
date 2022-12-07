@@ -372,7 +372,6 @@
   white-space: nowrap;
   overflow: hidden;
   color: #fde16d;
-  width: 80%;
 }
 .empty-stars:before, .full-stars:before {
   content:"\2605\2605\2605\2605\2605";
