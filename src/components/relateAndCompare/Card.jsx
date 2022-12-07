@@ -10,11 +10,17 @@ const Card = ({product}) => {
     if(img === '') {
       axios.get(`http://localhost:3001/productStyles/${product.id}`)
       .then((res) => {
+        let image;
         //console.log('res.data from get styles in Overview.jsx', res.data)
         let result = Math.floor(Math.random()*res.data.results.length);
         // changeImg(res.data.results[1].photos[1].thumbnail_url);
         let photo = Math.floor(Math.random()*res.data.results[result].photos.length);
-        changeImg(res.data.results[result].photos[photo].thumbnail_url);
+        if (res.data.results[result].photos[photo].thumbnail_url === null || undefined) {
+          image = 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='
+        } else {
+          image = res.data.results[result].photos[photo].thumbnail_url
+        }
+        changeImg(image);
 
       })
     }
