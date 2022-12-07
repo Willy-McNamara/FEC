@@ -277,9 +277,9 @@
 #ATC1A {
   height: 45%;
   width: 95%;
-  border-style: solid;
+  /* border-style: solid;
   border-width: 1px;
-  border-color: black;
+  border-color: red; */
   align-self: center;
   display: flex;
   flex-direction: row;
@@ -288,20 +288,75 @@
 
 #ATC1Aa {
   width: 60%;
-  height: 75%;
+  height: auto;
   border-width: 1px;
-  border-color: grey;
-  border-style: solid;
+  /* border-color: green; */
+  /* border-style: solid; */
   align-self: center;
+  /* justify-content: center; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#ATC1Aa1 { /* displays singular current size*/
+  height: 100%;
+  background-color: aliceblue;
+  /* width: 80%; */
+  border-width: 1px;
+  /* border-color: blue; */
+  /* border-style: solid; */
+  justify-self: center;
+  align-self: center;
+  /* position: absolute; */
+}
+
+#ATC1Aa2 { /* displays sizes list*/
+  height: 100%;
+  background-color: aliceblue;
+  /* width: 80%; */
+  border-width: 1px;
+  /* border-color: orange; */
+  /* border-style: solid; */
+  align-self: center;
+  /* position: absolute; */
 }
 
 #ATC1Ab {
   width: 20%;
-  height: 60%;
+  width: 60%;
+  height: auto;
   border-width: 1px;
-  border-color: grey;
-  border-style: solid;
+  /* border-color: green; */
+  /* border-style: solid; */
   align-self: center;
+  /* justify-content: center; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#ATC1Ab1 { /* displays singular current size*/
+  height: 100%;
+  background-color: aliceblue;
+  /* width: 80%; */
+  border-width: 1px;
+  /* border-color: blue; */
+  /* border-style: solid; */
+  justify-self: center;
+  align-self: center;
+  /* position: absolute; */
+}
+
+#ATC1Ab2 { /* displays sizes list*/
+  height: 100%;
+  background-color: aliceblue;
+  /* width: 80%; */
+  border-width: 1px;
+  /* border-color: orange; */
+  /* border-style: solid; */
+  align-self: center;
+  /* position: absolute; */
 }
 
 
@@ -312,6 +367,30 @@
   border-width: 1px;
   border-color: black;
   align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+#ATC1Ba {
+  width: 60%;
+  height: auto;
+  border-width: 1px;
+  border-color: green;
+  border-style: solid;
+  align-self: center;
+  /* justify-content: center; */
+}
+
+#ATC1Bb {
+  width: 20%;
+  height: auto;
+  border-width: 1px;
+  border-color: green;
+  border-style: solid;
+  align-self: center;
+  /* justify-content: center; */
 }
 
 /* ========= ============ =========== =======END OF OVERVIEW WIDGET ========== ============== ================== ========== ===*/

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ATC1Aa2= ({size, sizeViewHandler}) => {
+const ATC1Ab1= ({qty, quantViewHandler}) => {
 
   // style obj > sku property, obj of objs (SKUs as keys) > sku value obj contains key value pairs {quantity: 8, size: 'XS'}
 
   return (
-    <div id="ATC1Aa2" onClick={(e) => {
+    <div id="ATC1Ab1" onClick={(e) => {
       e.preventDefault();
-      console.log('size onClick triggered. here is size :', size)
-      sizeViewHandler(size)
+      console.log('size onClick triggered. here is size :', qty)
+      quantViewHandler(qty)
     }}>
-      {size}
+      {qty}
     </div>
   )
 }
 
-export default ATC1Aa2
+export default ATC1Ab1
