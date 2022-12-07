@@ -3,7 +3,7 @@ import StarRating from './StarRating.jsx'
 import metaData from '../DummyData/metaDummyData.js';
 
 const ReviewsSummary = ({ reviewScores }) => {
-  console.log('METADATA', metaData.metaData)
+  // console.log('METADATA', metaData.metaData)
 
   return (
     <div className="flex flex-column containerHalf border">

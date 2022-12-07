@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const Reviews = ({product}) => {
   const [reviewScores , setReviewScores ] = useState('init');
-  console.log(reviewScores);
+  // console.log(reviewScores);
 
   useEffect(() => {
     if (reviewScores === 'init') {
