@@ -3,7 +3,8 @@ import ReviewTile from './ReviewTile.jsx';
 import { reviewData } from '../DummyData/reviewDummyData.js';
 
 const ReviewsList = () => {
-  console.log('Review Data', reviewData.results);
+  // console.log('Review Data', reviewData.results.date);
+  // console.log(new Date(`${reviewData.date}`).toDateString())
   // const [ , ] = useState( );
 
   // useEffect(() => {

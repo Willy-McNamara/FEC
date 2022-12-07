@@ -13,7 +13,7 @@ const ReviewTile = (Review) => {
     <div className="border">
       <div className = 'flex flex-row space-between'>
         <ReviewTileStarRating rating={Review.review.rating * 20}/>
-        <div>{Review.review.reviewer_name} {Review.review.date}</div>
+        <div>{Review.review.reviewer_name}, {new Date(Review.review.date).toDateString()}</div>
       </div>
       <h4>{Review.review.summary}</h4>
       <div>{Review.review.body}</div>
