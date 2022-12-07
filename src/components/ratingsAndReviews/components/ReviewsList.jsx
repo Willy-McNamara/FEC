@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
+import SortReviews from './SortReviews.jsx'
 import { reviewData } from '../DummyData/reviewDummyData.js';
 
 const ReviewsList = () => {
@@ -13,7 +14,8 @@ const ReviewsList = () => {
 
   return (
     <div className = "flex flex-column containerHalf border">
-      <h4>{reviewData.results.length} reviews sorted by BUILD SORT ELEMENT</h4>
+      {/* <h4>{reviewData.results.length} reviews sorted by BUILD SORT ELEMENT</h4> */}
+      <SortReviews numReviews={reviewData.results.length} />
       <div>
         {reviewData.results.map((review, index)=>{
           return <ReviewTile key={index} review={review}/>
