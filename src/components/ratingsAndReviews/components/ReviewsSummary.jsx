@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import StarRating from './StarRating.jsx'
+import { metaData } from '../DummyData/metaDummyData.js';
 
 const ReviewsSummary = ({ reviewScores }) => {
+  // console.log('METADATA', metaData)
 
   return (
     <div className="flex flex-column containerHalf border">
