@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AnswerList = ({product}) => {
+const AnswerList = ({product, answers}) => {
+  console.log('answers', answers);
   return (
     <div>
-      <p>answer 1</p>
       <button>add answer</button>
     </div>
   );
