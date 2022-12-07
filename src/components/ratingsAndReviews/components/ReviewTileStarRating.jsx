@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const ReviewTileStarRating = (rating) => {
-  console.log('RATING', rating)
+  // console.log('RATING', rating)
 
   return (
     <div className="ratings">

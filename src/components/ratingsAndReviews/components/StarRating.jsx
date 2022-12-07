@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const StarRating = ({ data }) => {
-  console.log('FROM STAR RATING', data)
+  // console.log('FROM STAR RATING', data)
 
   return (
     <div className="ratings">

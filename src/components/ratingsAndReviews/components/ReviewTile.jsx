@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTileStarRating from './ReviewTileStarRating.jsx'
 
-const ReviewTile = (singleReview) => {
-  console.log('review tile rating', singleReview.review.rating)
-  // const [ , ] = useState( );
+const ReviewTile = (Review) => {
+  //currently hardcoded
+  const [response, setResponse ] = useState(response);
 
   // useEffect(() => {
 
   // }, [])
 
   return (
-    <div>
+    <div className="border">
       <div className = 'flex flex-row space-between'>
-        <ReviewTileStarRating rating={singleReview.review.rating * 20}/>
-        <div>review date</div>
+        <ReviewTileStarRating rating={Review.review.rating * 20}/>
+        <div>{Review.review.reviewer_name} {Review.review.date}</div>
       </div>
-      <h4>Review Title</h4>
-      <div>Review Body</div>
-      <div>review response section: conditional rendering</div>
-      <>Helpful?</>
-      <>Yes counter</>
-      <>Report button</>
+      <h4>{Review.review.summary}</h4>
+      <div>{Review.review.body}</div>
+      {response && <div>{response}</div>}
+      <span>Helpful?</span>
+      <span>{Review.review.helpfulness}</span>
+      <span>Report button</span>
     </div>
   )
 }
