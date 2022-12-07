@@ -401,11 +401,6 @@
 
 
 /*
-  Questions and Answers WIDGET
-*/
-
-
-/*
   Ratings and Reviews WIDGET
 */
 
@@ -464,3 +459,22 @@
   ==== =============== ============ ====== Relate and Compare WIDGET ========== ========= =========== ============ =======
 */
 
+
+/*
+  ==== =============== ============ ====== Questions and Answers WIDGET ========== ========= =========== ============ =======
+*/
+
+.questions-and-answers {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+.question {
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: black;
+}
+
+.helpfulScore {
+  position: relative;
+}

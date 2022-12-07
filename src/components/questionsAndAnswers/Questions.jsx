@@ -9,11 +9,10 @@ const Questions = ({product}) => {
   const [questions, setQuestions] = useState('init');
 
   useEffect(() => {
-    if (styles === 'init') {
+    if (questions === 'init') {
     axios.get(`http://localhost:3001/qa/questions/${product.id}`)
       .then((res)=>{
         setQuestions(res.data);
-        console.log('questions:', questions);
       })
       .catch((err)=>{console.log('questions get error:', err)})
     }
@@ -21,9 +20,9 @@ const Questions = ({product}) => {
 
   return (
     <div className='questions-and-answers'>
-      <h3>Questions & Answers</h3>
+      <h3 className='qna-heading'>Questions & Answers</h3>
       <input type="text" placeholder="Search Questions" />
-      <QuestionsList product={product}/>
+      <QuestionsList product={product} questions={questions}/>
       <button>Add Question</button>
     </div>
   )
