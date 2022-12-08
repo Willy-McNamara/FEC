@@ -1,7 +1,10 @@
 import React from 'react';
 import List from './List.jsx';
 import axios from 'axios';
+import ReactCardSlider from'./ReactCardSlider.jsx';
 import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCodeCompare } from '@fortawesome/free-solid-svg-icons';
 const Relate = ({product}) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   const changeRelatedProducts = (arrayOfRelatedProducts) => {
@@ -19,10 +22,12 @@ const Relate = ({product}) => {
 
 
   return(
-    <section>
-      <div>Related Products</div>
-      <List relatedProducts={relatedProducts}/>
-    </section>
+      <div className="Relate-Container">
+        <h2>Related Products</h2>
+        <section className="ReactCardSlider-body">
+          <ReactCardSlider relatedProducts={relatedProducts} icon={faCodeCompare}/>
+        </section>
+      </div>
   )
 }
 
