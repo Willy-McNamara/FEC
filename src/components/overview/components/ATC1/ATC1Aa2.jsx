@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ATC1Aa2= ({size, sizeViewHandler}) => {
+const ATC1Aa2= ({size, sku, sizeViewHandler, currentSizeHandler}) => {
 
   // style obj > sku property, obj of objs (SKUs as keys) > sku value obj contains key value pairs {quantity: 8, size: 'XS'}
 
@@ -9,7 +9,7 @@ const ATC1Aa2= ({size, sizeViewHandler}) => {
     <div id="ATC1Aa2" onClick={(e) => {
       e.preventDefault();
       // console.log('size onClick triggered. here is size :', size)
-      sizeViewHandler(size)
+      currentSizeHandler(sku)
     }}>
       {size}
     </div>

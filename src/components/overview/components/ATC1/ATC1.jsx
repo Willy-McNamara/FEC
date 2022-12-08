@@ -5,32 +5,56 @@ import ATC1B from './ATC1B.jsx';
 
 const ATC1 = ({style}) => {
 
-  // style obj > sku property, obj of objs (SKUs as keys) > sku value obj contains key value pairs {quantity: 8, size: 'XS'}
+  let [cart, setCart] = useState('init')
 
   // reformat data so it's easier to work with
-  let formattedStyle = formatter(style.skus)
+  let sizesArray = sizeFormatter(style.skus)
+  let quantsPerSize = quantFormatter(sizesArray)
+  useEffect(() => {
+    sizeFormatter(style.skus)
+    quantFormatter(sizesArray)
+  }, [style])
+
+  // HANDLER for cart ops
+  let cartHandler = (sku, size, qty) => {
+    setCart([sku, size, qty])
+  }
+  let addToCartHandler = () => {
+    alert(`${cart[2]} of Item (SKU id: ${cart[0]}) in size ${cart[1]} are now in your cart!`)
+  }
 
   return (
     <div id="ATC1">
-      < ATC1A style={formattedStyle}/>
-      < ATC1B style={formattedStyle}/>
+      < ATC1A sizesArray={sizesArray}  quantsPerSize={quantsPerSize} cartHandler={cartHandler}/>
+      < ATC1B sizesArray={sizesArray} addToCartHandler={addToCartHandler}/>
     </div>
   )
 }
 
-let formatter = (obj) => {
+let sizeFormatter = (obj) => {
   let reformat = [];
+  let sizes = {}
   for (let SKU in obj) {
-    if (obj[SKU].quantity > 0) {
+    if (obj[SKU].quantity > 0 && !sizes[obj[SKU].size]) {
       let newObj = {
         sku: SKU,
         quantity: obj[SKU].quantity,
         size: obj[SKU].size
       }
+      sizes[obj[SKU].size] = 1;
       reformat.push(newObj)
     }
   }
   return reformat;
+}
+
+let quantFormatter = (arr) => {
+  // creates an obj with indexes size and qty by SKU
+  let result = {}
+  for (let i = 0; i < arr.length; i++) {
+    result[arr[i].sku] = [arr[i].size, arr[i].quantity, arr[i].sku]
+  }
+  return result;
 }
 
 export default ATC1;

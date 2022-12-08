@@ -3,13 +3,13 @@ import axios from 'axios';
 import ATC1Ba from './ATC1Ba.jsx';
 import ATC1Bb from './ATC1Bb.jsx';
 
-const ATC1B= ({style}) => {
+const ATC1B= ({style, addToCartHandler}) => {
 
   // style obj > sku property, obj of objs (SKUs as keys) > sku value obj contains key value pairs {quantity: 8, size: 'XS'}
 
   return (
     <div id="ATC1B">
-      < ATC1Ba />
+      < ATC1Ba addToCartHandler={addToCartHandler}/>
       < ATC1Bb />
     </div>
   )
