@@ -1,0 +1,116 @@
+/*
+  ==== =============== ============ ====== Relate and Compare WIDGET ========== ========= =========== ============ =======
+*/
+.RelateAndCompare {
+  /* display: flex;
+  justify-content: center; */
+  text-align: center;
+  height: 1500px;
+  border: 1px solid black;
+  /* background-color: green; */
+}
+.Relate-Container {
+  height: 45%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.outfit {
+  height: 45%;
+  width: 100%;
+  margin-top: 50px;
+  /* background-color: bisque; */
+}
+/* Slider */
+.ReactCardSlider-body {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+  padding-bottom: 0;
+}
+
+.main-slider-container {
+  width: 90%;
+  height: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* background-color: blue; */
+  justify-content: center;
+  /* being hidden by yellow right now */
+}
+#slider {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  overflow-x: scroll;
+  display: flex;
+  align-items: center;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+#slider::-webkit-scrollbar{
+  display:none;
+}
+
+.slider-icon.left, .slider-icon.right{
+  background-color: white;
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0.5;
+  box-shadow: 2px 2px 2px 2px #0000001f;
+
+}
+
+.slider-icon.left:hover, .slider-icon.right:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.slider-icon.right {
+  right: 0;
+}
+
+.slider-icon.left {
+  left: 0;
+}
+
+/* End Slider */
+
+.card {
+  width: 320px;
+  height: 320px;
+  background-color: white;
+  border-radius: 10px;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 100px;
+  box-shadow: 10px 10px 10px 10px #0000001f;
+  padding-bottom: 35px;
+ }
+
+.cardImg {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: rgb(240 240 240 /80%);
+}
+ .card-detail {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  line-height: 80%;
+ }
+.card-category, .card-name, .card-price, .card-sale-price {
+  margin: 5px 0px 5px 10px;
+  padding: 2px;
+}
