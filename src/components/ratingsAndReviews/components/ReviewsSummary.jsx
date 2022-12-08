@@ -9,8 +9,8 @@ const ReviewsSummary = ({ reviewScores }) => {
   console.log('char breakdown', metaData.characteristics)
 
   // prototype for ratings controller function -> will be moved
-  const ratingsStackedPercentages = (ratingsObject)=>{
-    console.log('RATINGS OBJECT', ratingsObject)
+  const ratingsStackedPercentages = (ratingsObject) => {
+    // console.log('RATINGS OBJECT', ratingsObject)
     let totalNumOfRatings = 0;
 
     for (let key in ratingsObject) {
@@ -18,6 +18,13 @@ const ReviewsSummary = ({ reviewScores }) => {
     }
 
     return totalNumOfRatings
+  }
+
+  for (let char in metaData.characteristics) {
+    let value = metaData.characteristics[char]
+    if (char != undefined) {
+      console.log('WHY', char, value.value)
+    }
   }
 
   const countOfRatings = ratingsStackedPercentages(metaData.ratings);
@@ -29,14 +36,21 @@ const ReviewsSummary = ({ reviewScores }) => {
         <StarRating data={reviewScores.ratingAsPercentRounded} />
       </div>
       {Object.entries(metaData.ratings).map((rating, index) => {
-        return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings}/>
+        return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings} />
       })
       }
-      {Object.entries(metaData.characteristics).map((rating, index) => {
+      {/* {Object.entries(metaData.characteristics).map((rating, index) => {
+        console.log('RATING FROM INSIDE MAP FUNCTION'rating);
         return <FeatureBar key={index} rating={rating}/>
       })
+      } */}
+      {  for (let char in metaData.characteristics) {
+        let value = metaData.characteristics[char]
+      if (char != undefined) {
+        return <FeatureBar />
       }
-      <FeatureBar />
+  }}
+      {/* <FeatureBar /> */}
     </div>
   )
 }

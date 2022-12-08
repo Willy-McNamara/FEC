@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const RatingsBar = ({ rating, countOfRatings }) => {
-  console.log('RATING FROM RATINGS BAR', rating, countOfRatings)
+  // console.log('RATING FROM RATINGS BAR', rating, countOfRatings)
   // const [ , ] = useState( );
 
   // useEffect(() => {
