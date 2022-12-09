@@ -5,7 +5,7 @@ import ReactCardSlider from'./ReactCardSlider.jsx';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodeCompare } from '@fortawesome/free-solid-svg-icons';
-const Relate = ({product}) => {
+const Relate = ({product, choice}) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   const changeRelatedProducts = (arrayOfRelatedProducts) => {
     setRelatedProducts(arrayOfRelatedProducts);
@@ -25,7 +25,7 @@ const Relate = ({product}) => {
       <div className="Relate-Container">
         <h2>Related Products</h2>
         <section className="ReactCardSlider-body">
-          <ReactCardSlider relatedProducts={relatedProducts} icon={faCodeCompare}/>
+          <ReactCardSlider relatedProducts={relatedProducts} icon={faCodeCompare} choice={choice}/>
         </section>
       </div>
   )

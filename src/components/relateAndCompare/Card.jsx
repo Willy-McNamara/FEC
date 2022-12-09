@@ -4,7 +4,8 @@ import StarRating from './StarRating.jsx';
 import {useEffect, useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodeCompare } from '@fortawesome/free-solid-svg-icons';
-const Card = ({product, icon}) => {
+import ButtonOption from './ButtonOption.jsx';
+const Card = ({product, icon, choice}) => {
   const [img, setImg] = useState('');
   const [reviewScores ,setReviewScores ] = useState('init');
   const changeReviewScores = (review) => {
@@ -38,7 +39,7 @@ const Card = ({product, icon}) => {
   }, [product]);
   return(
     <div className="card">
-      {/* <FontAwesomeIcon icon={icon} className="relate-icon"></FontAwesomeIcon> */}
+      <ButtonOption choice={choice}/>
       <img src={img} className="cardImg"/>
       <br/>
       <div className="card-detail">
