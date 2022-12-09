@@ -6,9 +6,13 @@ import ATC1Ab2 from './ATC1Ab2.jsx';
 const ATC1Ab= ({currentSize, cartHandler}) => {
   // conditional render for first load.
   if (currentSize[0] === 'Size') {
-    return
+    return (
+      <div id="ATC1Ab">
+        <ATC1Ab1 qty={'Quantity'} quantViewHandler={()=>{}}/>
+      </div>
+    )
   }
-  let [currentQty, setCurrentQty] = useState(['Select Quantity'])
+  let [currentQty, setCurrentQty] = useState(['Quantity'])
   let [qtyElements, setQtyElements] = useState('init')
   let [viewQuants, setViewQuants] = useState(false)
   // mapping funciton for all available quants up to 15

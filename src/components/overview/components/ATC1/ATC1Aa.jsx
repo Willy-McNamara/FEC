@@ -21,24 +21,64 @@ const ATC1Aa= ({sizeElements, currentSize, currentSizeHandler}) => {
   }, [currentSize])
 
   // RETURN
-  if (!viewSizes) { // render current size
-    return (
+  return (
+    <div className="sizesDropdown">
       <div id="ATC1Aa">
         < ATC1Aa1 currentSize={currentSize[0]} sizeViewHandler={sizeViewHandler}/>
+      </div>
+      <div id="ATC1Aa">
+        <div className="sizesDDTwo">
+          {sizeElements}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ATC1Aa
+
+
+/*
+
+const ATC1Aa= ({sizeElements, currentSize, currentSizeHandler}) => {
+  let render = 0
+
+  // STATE
+  let [viewSizes, setViewSizes] = useState(false)
+
+  // HANDLER
+  let sizeViewHandler = () => {
+    setViewSizes(!viewSizes)
+  }
+
+  // EFFECT
+  useEffect(() => {
+    // if currentSize changes, viewSizes should be false
+    setViewSizes(false)
+  }, [currentSize])
+
+  // RETURN
+  if (!viewSizes) { // render current size
+    return (
+      <div className="sizesDropdown">
+        <div id="ATC1Aa">
+          < ATC1Aa1 currentSize={currentSize[0]} sizeViewHandler={sizeViewHandler}/>
+        </div>
       </div>
     )
   } else { // render list of sizes
     return (
-      <div>
+      <div className="sizesDropdown">
         <div id="ATC1Aa">
-          < ATC1Aa1 currentSize={'Size'} sizeViewHandler={sizeViewHandler}/>
+          < ATC1Aa1 currentSize={currentSize[0]} sizeViewHandler={sizeViewHandler}/>
         </div>
         <div id="ATC1Aa">
-          {sizeElements}
+          <div className="sizesDDTwo">
+            {sizeElements}
+          </div>
         </div>
       </div>
     )
   }
-}
 
-export default ATC1Aa
+  */

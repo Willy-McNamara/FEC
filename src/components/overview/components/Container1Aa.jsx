@@ -6,7 +6,6 @@ const Container1Aa = ({style, zoomHandler, zoom, indexHandler, currentIndex}) =>
 
   return (
     <div id="Container1Aa">
-      Container1Aa
       <IG1 style={style} zoomHandler={zoomHandler} zoom={zoom} currentIndex={currentIndex} indexHandler={indexHandler}/>
     </div>
   )

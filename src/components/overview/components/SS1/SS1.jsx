@@ -7,7 +7,6 @@ const SS1 = ({style, styles, styleHandler}) => {
 
   return (
     <div id="SS1">
-      SS1
       < SS1A style={style} />
       < SS1B style={style} styles={styles} styleHandler={styleHandler}/>
     </div>
