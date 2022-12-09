@@ -326,9 +326,17 @@
   pointer-events: none;
 }
 
-.active {
+.qtyDD {
   position: absolute;
   top: 150%;
+  opacity: 0;
+  pointer-events: none;
+  left: 50%;
+}
+
+.active {
+  /* position: absolute;
+  top: 150%; */
   opacity: 1;
   transition: opacity 150ms ease-in-out;
   pointer-events: auto;

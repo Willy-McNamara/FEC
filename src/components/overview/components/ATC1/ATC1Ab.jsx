@@ -52,20 +52,14 @@ const ATC1Ab= ({currentSize, cartHandler}) => {
   }, [qtyElements])
 
   // RETURN
-  if (!viewQuants) {
-    return (
-      <div id="ATC1Ab">
-        <ATC1Ab1 qty={currentQty[0]} quantViewHandler={quantViewHandler}/>
-      </div>
-    )
-  } else {
-    return (
-      <div id="ATC1Ab">
-        <ATC1Ab1 qty={'Select Quantity'} quantViewHandler={quantViewHandler}/>
+  return (
+    <div id="ATC1Ab">
+      <ATC1Ab1 qty={currentQty[0]} quantViewHandler={quantViewHandler}/>
+      <div className="qtyDD">
         {qtyElements}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 // HELPER
@@ -87,3 +81,12 @@ let formatQuantArray = (quant) => {
 }
 
 export default ATC1Ab
+
+// // RETURN
+// if (!viewQuants) {
+//   return (
+//     <div id="ATC1Ab">
+//       <ATC1Ab1 qty={currentQty[0]} quantViewHandler={quantViewHandler}/>
+//     </div>
+//   )
+// } else {
