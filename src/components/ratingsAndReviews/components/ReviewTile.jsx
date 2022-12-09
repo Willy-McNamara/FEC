@@ -25,9 +25,12 @@ const ReviewTile = (
       <h4>{summary}</h4>
       <div>{body}</div>
       {response && <div>{response}</div>}
+      {/* TODO: build out the picture component at a basic level */}
       {photos.length > 0 &&<div>{photos.length}</div>}
+      {/* TODO: build out the helpful button clicking functionality */}
       <span>Helpful?</span>
       <span>{helpfulness}</span>
+      {/* TODO: build */}
       <span>Report button</span>
     </div>
   )
