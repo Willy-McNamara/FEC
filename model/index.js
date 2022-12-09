@@ -94,3 +94,4 @@ module.exports.getRelatedProductIds = getRelatedProductIds
 module.exports.getAllRelatedProductDetails = getAllRelatedProductDetails
 module.exports.getAllReviewScores = getAllReviewScores
 module.exports.getQuestions = getQuestions
+module.exports.getProductsOnId = getProductsOnId;

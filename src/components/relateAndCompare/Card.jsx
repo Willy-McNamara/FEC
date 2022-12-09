@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodeCompare } from '@fortawesome/free-solid-svg-icons';
 import ButtonOption from './ButtonOption.jsx';
-const Card = ({product, icon, choice}) => {
+const Card = ({product, icon, choice, toggleAlreadyDisplaying, productToCompare, alreadyDisplaying, changeProductToCompare, mainProduct}) => {
   const [img, setImg] = useState('');
   const [reviewScores ,setReviewScores ] = useState('init');
   const changeReviewScores = (review) => {
@@ -38,19 +38,23 @@ const Card = ({product, icon, choice}) => {
     }
   }, [product]);
   return(
+    <>
+
     <div className="card">
-      <ButtonOption choice={choice}/>
+    <ButtonOption choice={choice} toggleAlreadyDisplaying={toggleAlreadyDisplaying} productToCompare={productToCompare} changeProductToCompare={changeProductToCompare} alreadyDisplaying={alreadyDisplaying} cardProduct={product} mainProduct={mainProduct}/>
       <img src={img} className="cardImg"/>
       <br/>
       <div className="card-detail">
         <p className="card-category">{product.category}</p>
         <p className="card-name">{product.name}</p>
         <p className="card-price">${product.default_price}</p>
-        <p className="card-sale-price">sale price</p>
+        {/* <p className="card-sale-price">sale price</p> */}
         <p className="card-sale-price">{product.sale_price}</p>
         <StarRating review={reviewScores}/>
       </div>
     </div>
+
+    </>
   )
 }
 

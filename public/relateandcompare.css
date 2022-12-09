@@ -15,8 +15,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
+
 
 .outfit {
   height: 45%;
@@ -37,6 +38,7 @@
 
 .main-slider-container {
   width: 90%;
+  /* changed height was 420px */
   height: 420px;
   position: relative;
   display: flex;
@@ -47,6 +49,7 @@
 }
 #slider {
   width: 100%;
+  /* changed height was 100% */
   height: 100%;
   white-space: nowrap;
   overflow-x: scroll;
@@ -86,6 +89,7 @@
 
 .card {
   width: 320px;
+  /* changed height was 320px */
   height: 320px;
   background-color: white;
   border-radius: 10px;
@@ -95,7 +99,7 @@
   box-shadow: 10px 10px 10px 10px #0000001f;
   padding-bottom: 35px;
   position: relative;
- }
+}
 
 .cardImg {
   width: 100%;
@@ -116,19 +120,61 @@
 }
 
 /* Compare */
-.star-icon {
+
+
+.comparison {
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+height: 100%;
+width: 100%;
+background-color: white;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+border: 2px solid red;
+z-index: 3;
+
+}
+
+.check-icon {
+  color: green;
+}
+
+.x-icon {
+  color: red;
+}
+
+.info-icon {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
   font-size: 1.5rem;
+  color: lightblue;
   border-radius: 50%;
+  opacity: .45;
   border: 1px solid black;
   background-color: gray;
-  opacity: .5;
+}
+
+.info-icon:hover {
+  opacity: 1;
   color: white;
 }
 
-.star-icon:hover {
-  color: aquamarine;
+.close-x-button {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  color: red;
+  border: 1px solid black;
+  margin: 0 auto;
 }
-/* Compare Start */
+.compare-item {
+  /* margin: 10px; */
+}
+/* Compare End */

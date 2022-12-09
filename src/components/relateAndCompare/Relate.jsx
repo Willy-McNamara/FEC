@@ -10,7 +10,6 @@ const Relate = ({product, choice}) => {
   const changeRelatedProducts = (arrayOfRelatedProducts) => {
     setRelatedProducts(arrayOfRelatedProducts);
   }
-
   useEffect(() => {
     if(relatedProducts.length === 0) {
       axios.get(`http://localhost:3001/products/${product.id}/related`)
@@ -23,9 +22,9 @@ const Relate = ({product, choice}) => {
 
   return(
       <div className="Relate-Container">
-        <h2>Related Products</h2>
+        <h2 className="relate-header">Related Products</h2>
         <section className="ReactCardSlider-body">
-          <ReactCardSlider relatedProducts={relatedProducts} icon={faCodeCompare} choice={choice}/>
+          <ReactCardSlider relatedProducts={relatedProducts} icon={faCodeCompare} choice={choice} mainProduct={product}/>
         </section>
       </div>
   )
