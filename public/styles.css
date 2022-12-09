@@ -457,6 +457,29 @@ select {
   border: none;
 }
 
+/* Ratings Bars */
+.wrapper {
+  width: 80%;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+}
+
+.progress-bar-fill {
+  display: block;
+  height: 14px;
+  background-color: green;
+  transition: width 500ms ease-in-out;
+}
+
+/* Feature Bars */
+.feature-bar {
+  position: relative;
+  width: 100%;
+}
+
 
 
 
