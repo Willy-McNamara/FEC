@@ -3,10 +3,32 @@ import StarRating from './StarRating.jsx'
 import FeatureBar from './FeatureBar.jsx'
 import RatingsBar from './RatingsBar.jsx'
 import { metaData } from '../DummyData/metaDummyData.js';
+import axios from 'axios'
 
 const ReviewsSummary = ({ reviewScores }) => {
-  // console.log('Ratings breakdown', metaData.ratings)
-  // console.log('char breakdown', metaData.characteristics)
+  //logs to be deleted
+  // console.log('current prop from ReviewsSummary', reviewScores)
+  // console.log('Data I need for ReviewScores', metaData)
+
+  //declare state to hold review metadata
+  const [reviewMetaData, setReviewMetaData] = useState('init')
+
+
+  // implement a useeffect to call an axios request to fetch it
+  useEffect(() => {
+    if(reviewMetaData === 'init') {
+      axios.get(`reviews/meta/37311`)
+      .then((res)=>{setReviewMetaData(res.data)})
+      .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
+    }
+
+  }, [reviewMetaData])
+
+  console.log('Testing Review MetaData route', reviewMetaData)
+
+
+
+  //this needs to make an axios request with use effect, getting back the data that I need to do
 
   // prototype for ratings controller function -> will be moved
   const ratingsStackedPercentages = (ratingsObject) => {

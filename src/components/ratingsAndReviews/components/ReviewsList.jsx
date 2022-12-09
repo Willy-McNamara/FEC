@@ -24,7 +24,9 @@ const ReviewsList = ({ product }) => {
         })}
       </div>
       <div>
+        {/* TODO: map out functionality for More Reviews button */}
         <button>More Reviews</button>
+        {/* TODO: map out functionality for add review button */}
         <button>Add Review +</button>
       </div>
     </div>
