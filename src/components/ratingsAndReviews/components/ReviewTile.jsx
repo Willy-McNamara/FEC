@@ -16,8 +16,9 @@ const ReviewTile = ({ review }) => {
       <h4>{summary}</h4>
       <div>{body}</div>
       {response && <div>{response}</div>}
-      {/* TODO: build out the picture component at a basic level */}
-      {photos.length > 0 ? <div>{photos.map((photo, index)=>{
+      {photos.length > 0 ? <div className ="border">{photos.map((photo, index)=>{
+        //FIXME: will need to refactor
+        if (index > 3) return;
         return (<ReviewPhoto key={index} photo={photo} />)
       })}</div> : console.log('no photo')}
       {/* TODO: build out the helpful button clicking functionality */}
