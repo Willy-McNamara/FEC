@@ -18,12 +18,12 @@ const Reviews = ({product}) => {
     }
 
   }, [product])
-  console.log('OLD review scores from Reviews.jsx', reviewScores);
+  // console.log('OLD review scores from Reviews.jsx', reviewScores);
 
+//KEEP
   // implement a useeffect to call an axios request to fetch it
   const [reviewMetaData, setReviewMetaData] = useState('init')
 
-//KEEP
   useEffect(() => {
     if(reviewMetaData === 'init') {
       axios.get(`reviews/meta/${product.id}`)
@@ -33,7 +33,7 @@ const Reviews = ({product}) => {
 
   }, [reviewMetaData]);
 
-  console.log('reviewMetaData from reviews.jsx', reviewMetaData);
+  console.log('reviewMetaData from reviews.jsx', reviewMetaData.countOfRatings);
   //request is working properly, now need to refactor.
 
 
@@ -41,7 +41,7 @@ const Reviews = ({product}) => {
     <div className="border">
       <h6>Ratings & Reviews</h6>
       <div className="flex border">
-      <ReviewsSummary reviewScores={reviewScores} />
+      <ReviewsSummary reviewMetaData={reviewMetaData}/>
       <ReviewsList product={product}/>
       </div>
     </div>
