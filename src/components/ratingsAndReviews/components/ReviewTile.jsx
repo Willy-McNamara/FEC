@@ -5,8 +5,6 @@ import ReviewPhoto from './ReviewPhoto.jsx'
 const ReviewTile = ({ review }) => {
   const { review_id, rating, reviewer_name, summary, body, helpfulness, response, date, photos } = review
 
-  console.log('Photos in rev tile', photos);
-
   return (
     <div className="border">
       <div className='flex flex-row space-between'>
@@ -16,11 +14,12 @@ const ReviewTile = ({ review }) => {
       <h4>{summary}</h4>
       <div>{body}</div>
       {response && <div>{response}</div>}
-      {photos.length > 0 ? <div className ="border">{photos.map((photo, index)=>{
+      {photos.length > 0 ?
+      <div className ="border">{photos.map((photo, index)=>{
         //FIXME: will need to refactor
         if (index > 3) return;
         return (<ReviewPhoto key={index} photo={photo} />)
-      })}</div> : console.log('no photo')}
+      })}</div> : undefined}
       {/* TODO: build out the helpful button clicking functionality */}
       <span>Helpful?</span>
       <span>{helpfulness}</span>
