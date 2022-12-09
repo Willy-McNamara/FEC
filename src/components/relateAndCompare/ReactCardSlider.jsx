@@ -2,12 +2,11 @@ import React from 'react'
 import List from './List.jsx';
 import ReactDom from 'react-dom';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-const ReactCardSlider = ({relatedProducts, icon}) => {
+const ReactCardSlider = ({relatedProducts, icon, choice, mainProduct}) => {
   const slideLeft = () => {
     const slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 500;
   }
-
   const slideRight = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft + 500;
@@ -16,7 +15,7 @@ const ReactCardSlider = ({relatedProducts, icon}) => {
     <div className="main-slider-container">
       <MdChevronLeft size={40} className="slider-icon left" onClick={slideLeft}/>
       <div id="slider">
-        <List relatedProducts={relatedProducts} icon={icon}/>
+        <List relatedProducts={relatedProducts} icon={icon} choice={choice} mainProduct={mainProduct}/>
       </div>
       <MdChevronRight size={40} className="slider-icon right" onClick={slideRight}/>
     </div>

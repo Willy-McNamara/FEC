@@ -56,6 +56,12 @@ app.get('/products/:product_id/related', async (req, res) => {
   res.send(data);
 })
 
+app.get('/products/:product_id', (req, res) => {
+  model.getProductsOnId(req.params.product_id)
+  .then((data) => {
+    res.send(data.features);
+  })
+})
 // Questions
 app.get('/qa/questions/:id', (req, res) => {
   let bodyParams = {
