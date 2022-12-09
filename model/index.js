@@ -78,7 +78,7 @@ const getAllReviewScores = (req, res, bodyParams) => {
 
 // Questions
 const getQuestions  = (req, res, bodyParams) => {
-  return axios.get(apiURL + `/qa/questions/?product_id=${req.params.id}`, {headers: {'Authorization': APIKEY.APIKEY}})
+  return axios.get(apiURL + `/qa/questions/?product_id=${req.params.id}&count=2000`, {headers: {'Authorization': APIKEY.APIKEY}})
     .then((APIRes)=>{
       res.send(APIRes.data);
       logInteraction(bodyParams);
@@ -86,6 +86,76 @@ const getQuestions  = (req, res, bodyParams) => {
     .catch((err)=>{console.log('getQuestions error:', err)})
 }
 
+const postQuestion = (req, res, bodyParams) => {
+  return axios.post(apiURL + '/qa/questions', req, {headers: {'Authorization': APIKEY.APIKEY}})
+    .then((apiRes) => {
+      console.log('successfully posted question :', apiRes.data);
+      logInteraction(bodyParams);
+    })
+    .catch((err) => {
+      console.log('err in posting question :', err);
+    })
+}
+
+const postAnswer = (req, res, bodyParams) => {
+  return axios.post(apiURL + `/qa/questions/${req.params.id}/answers`, req.body, {headers: {'Authorization': APIKEY.APIKEY}})
+    .then((apiRes) => {
+      console.log('successfully posted question :', apiRes.data);
+      logInteraction(bodyParams);
+    })
+    .catch((err) => {
+      console.log('err in posting question :', err);
+    })
+}
+
+
+
+// put requests for helpful / reported questions
+
+const putHelpfulQuestion = (req, res, bodyParams) => {
+  return axios.put(apiURL + `/qa/questions/${req.params.id}/helpful`, '', {headers: {'Authorization': APIKEY.APIKEY}})
+    .then((apiRes) => {
+      console.log('successfully marked question helpful:', apiRes.data);
+      logInteraction(bodyParams);
+    })
+    .catch((err) => {
+      console.log('err in marking question helpful:', err);
+    })
+}
+
+const putReportQuestion = (req, res, bodyParams) => {
+  return axios.put(apiURL + `/qa/questions/${req.params.id}/report`, '', {headers: {'Authorization': APIKEY.APIKEY}})
+  .then((apiRes) => {
+    console.log('successfully reported question :', apiRes.data);
+    logInteraction(bodyParams);
+  })
+  .catch((err) => {
+    console.log('err in reporting question :', err);
+  })
+}
+
+// for helpful/reported answers
+const putHelpfulAnswer = (req, res, bodyParams) => {
+  return axios.put(apiURL + `/qa/answers/${req.params.id}/helpful`, '', {headers: {'Authorization': APIKEY.APIKEY}})
+    .then((apiRes) => {
+      console.log('successfully marked question answer:', apiRes.data);
+      logInteraction(bodyParams);
+    })
+    .catch((err) => {
+      console.log('err in marking question answer:', err);
+    })
+}
+
+const putReportAnswer = (req, res, bodyParams) => {
+  return axios.put(apiURL + `/qa/answers/${req.params.id}/report`, '', {headers: {'Authorization': APIKEY.APIKEY}})
+  .then((apiRes) => {
+    console.log('successfully reported answer :', apiRes.data);
+    logInteraction(bodyParams);
+  })
+  .catch((err) => {
+    console.log('err in reporting answer :', err);
+  })
+}
 
 
 module.exports.getAllProducts = getAllProducts
@@ -94,3 +164,9 @@ module.exports.getRelatedProductIds = getRelatedProductIds
 module.exports.getAllRelatedProductDetails = getAllRelatedProductDetails
 module.exports.getAllReviewScores = getAllReviewScores
 module.exports.getQuestions = getQuestions
+module.exports.postQuestion = postQuestion
+module.exports.postAnswer = postAnswer
+module.exports.putHelpfulQuestion = putHelpfulQuestion
+module.exports.putReportQuestion = putReportQuestion
+module.exports.putHelpfulAnswer = putHelpfulAnswer
+module.exports.putReportAnswer = putReportAnswer

@@ -66,6 +66,65 @@ app.get('/qa/questions/:id', (req, res) => {
   model.getQuestions(req, res, bodyParams);
 })
 
+app.post('/qa/questions', (req, res) => {
+  let bodyParams = {
+    'element': 'Questions.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.postQuestion(req.body, res, bodyParams);
+})
+
+//post an answer
+app.post('/qa/questions/:id/answers', (req, res) => {
+  let bodyParams = {
+    'element': 'AnswerForm.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.postAnswer(req, res, bodyParams);
+})
+
+// mark question helpful
+app.put('/qa/questions/:id/helpful', (req, res) => {
+  let bodyParams = {
+    'element': 'QuestionItem.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.putHelpfulQuestion(req, res, bodyParams);
+})
+
+// report question
+app.put('/qa/questions/:id/report', (req, res) => {
+  let bodyParams = {
+    'element': 'QuestionItem.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.putReportQuestion(req, res, bodyParams);
+})
+
+// mark answer helpful
+app.put('/qa/answers/:id/helpful', (req, res) => {
+  let bodyParams = {
+    'element': 'AnswerItem.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.putHelpfulQuestion(req, res, bodyParams);
+})
+
+// report answer
+app.put('/qa/answers/:id/report', (req, res) => {
+  let bodyParams = {
+    'element': 'AnswerItem.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.putReportQuestion(req, res, bodyParams);
+})
+
 app.listen(3001);
 console.log('Listening on port 3001');
 
