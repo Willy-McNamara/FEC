@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ATC1Ab2= ({qty, quantViewHandler}) => {
+const ATC1Ab2= ({qty, size, sku, currentQtyHandler, cartHandler}) => {
 
-  // style obj > sku property, obj of objs (SKUs as keys) > sku value obj contains key value pairs {quantity: 8, size: 'XS'}
 
   return (
     <div id="ATC1Ab2" onClick={(e) => {
       e.preventDefault();
-      quantViewHandler(qty)
+      currentQtyHandler(qty, size, sku)
+      cartHandler(sku, size, qty)
     }}>
       {qty}
     </div>

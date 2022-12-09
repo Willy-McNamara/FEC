@@ -1,22 +1,15 @@
 import React from 'react';
 import Card from './Card.jsx';
-import 'react-alice-carousel/lib/alice-carousel.css';
-import AliceCarousel from 'react-alice-carousel';
 
-const List = ({relatedProducts}) => {
-  const handleDragStart = (e) => e.preventDefault();
+const List = ({relatedProducts, icon}) => {
   let relatedProductsList = relatedProducts.map((product) => {
-    return <Card product={product} key={product.id}/>
+    return <Card product={product} key={product.id} icon={icon}/>
   })
+  console.log(relatedProductsList);
   return(
-    <AliceCarousel mouseTracking items={relatedProductsList} responsive={{
-      0: {
-          items: 1,
-      },
-      1024: {
-          items: 3
-      }
-    }} infinite={true}/>
+    <div>
+      {relatedProductsList}
+    </div>
   )
 }
 
