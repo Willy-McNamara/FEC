@@ -26,7 +26,15 @@
 
 #Container1Aa {
   min-width: 60%;
+  transition: min-width 500ms ease-in-out;
 }
+
+.expander {
+  min-width: 100% !important;
+  transition: min-width 500ms ease-in-out;
+}
+
+
 
 /* Start CONTAINER1Aa*/
 
@@ -101,6 +109,12 @@
   flex-direction: column;
   justify-content:space-between;
   padding: 5px;
+  position: relative;
+}
+
+.hideContainer {
+  opacity: 0%;
+  pointer-events: none;
 }
 
 /* ======= ======= ======== PI1 ======= ======= ========= ====== ==== */
@@ -286,6 +300,7 @@
 }
 
 .sizesDropdown {
+  width: 30%;
   display: flex;
   position: relative;
   height: 100%;
@@ -299,7 +314,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 80% 0%;
+  /* padding: 80% 0%; */
 }
 
 #ATC1Aa1 { /* displays singular current size*/

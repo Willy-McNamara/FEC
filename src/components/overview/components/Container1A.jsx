@@ -19,7 +19,13 @@ const Container1A = ({product, styles}) => {
     setCurrentIndex(0)
   }
   let zoomHandler = () => {
-    setZoom(!zoom)
+    // setZoom(!zoom)
+    let c = document.getElementById('Container1Ab')
+    console.log('logging c variable in zoomHandler', c)
+    c.classList.toggle('hideContainer')
+    let a = document.getElementById('Container1Aa')
+    console.log('logging a', a)
+    a.classList.toggle('expander')
   }
   let indexHandler = (index) => {
     setCurrentIndex(index)

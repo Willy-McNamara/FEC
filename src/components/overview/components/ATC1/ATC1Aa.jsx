@@ -25,8 +25,6 @@ const ATC1Aa= ({sizeElements, currentSize, currentSizeHandler}) => {
     <div className="sizesDropdown">
       <div id="ATC1Aa">
         < ATC1Aa1 currentSize={currentSize[0]} sizeViewHandler={sizeViewHandler}/>
-      </div>
-      <div id="ATC1Aa">
         <div className="sizesDDTwo">
           {sizeElements}
         </div>
@@ -80,5 +78,14 @@ const ATC1Aa= ({sizeElements, currentSize, currentSizeHandler}) => {
       </div>
     )
   }
+
+  <div id="ATC1Aa">
+        < ATC1Aa1 currentSize={currentSize[0]} sizeViewHandler={sizeViewHandler}/>
+      </div>
+      <div id="ATC1Aa">
+        <div className="sizesDDTwo">
+          {sizeElements}
+        </div>
+      </div>
 
   */
