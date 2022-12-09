@@ -15,7 +15,7 @@ const Reviews = ({product}) => {
       axios.get(`reviews/meta/${product.id}`)
       .then((res)=>{setReviewMetaData(res.data)})
       .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
-      console.log('I FIRE ONCE')
+      // console.log('I FIRE ONCE')
     }
 
   }, [reviewMetaData]);
