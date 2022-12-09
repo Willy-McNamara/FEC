@@ -5,8 +5,8 @@ import RatingsBar from './RatingsBar.jsx'
 import { metaData } from '../DummyData/metaDummyData.js';
 
 const ReviewsSummary = ({ reviewScores }) => {
-  console.log('Ratings breakdown', metaData.ratings)
-  console.log('char breakdown', metaData.characteristics)
+  // console.log('Ratings breakdown', metaData.ratings)
+  // console.log('char breakdown', metaData.characteristics)
 
   // prototype for ratings controller function -> will be moved
   const ratingsStackedPercentages = (ratingsObject) => {
@@ -23,11 +23,17 @@ const ReviewsSummary = ({ reviewScores }) => {
   for (let char in metaData.characteristics) {
     let value = metaData.characteristics[char]
     if (char != undefined) {
-      console.log('WHY', char, value.value)
+      // console.log('WHY', char, value.value)
     }
   }
 
   const countOfRatings = ratingsStackedPercentages(metaData.ratings);
+
+  const charList = Object.keys(metaData.characteristics);
+  const firstChar = charList[0];
+
+  // console.log('from reviews summary', charList, firstChar)
+
 
   return (
     <div className="flex flex-column containerHalf border">
@@ -39,18 +45,18 @@ const ReviewsSummary = ({ reviewScores }) => {
         return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings} />
       })
       }
-      {/* {Object.entries(metaData.characteristics).map((rating, index) => {
-        console.log('RATING FROM INSIDE MAP FUNCTION'rating);
-        return <FeatureBar key={index} rating={rating}/>
+      {Object.entries(metaData.characteristics).map((entry, index) => {
+        // console.log('RATING FROM INSIDE MAP FUNCTION',entry[1].value);
+        return <FeatureBar key={index} name={entry[0]} rating={entry[1].value}/>
       })
-      } */}
-      {  for (let char in metaData.characteristics) {
+      }
+      {/* {for (let char in metaData.characteristics) {
         let value = metaData.characteristics[char]
       if (char != undefined) {
         return <FeatureBar />
       }
-  }}
-      {/* <FeatureBar /> */}
+  }} */}
+      {/* <FeatureBar name={firstChar} rating={metaData.characteristics[firstChar].value}/> */}
     </div>
   )
 }

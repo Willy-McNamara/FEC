@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const Reviews = ({product}) => {
   const [reviewScores , setReviewScores ] = useState('init');
-  // console.log(reviewScores);
 
   useEffect(() => {
     if (reviewScores === 'init') {
@@ -23,7 +22,7 @@ const Reviews = ({product}) => {
       <h6>Ratings & Reviews</h6>
       <div className="flex border">
       <ReviewsSummary reviewScores={reviewScores} />
-      <ReviewsList />
+      <ReviewsList product={product}/>
       </div>
     </div>
   )

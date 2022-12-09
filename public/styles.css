@@ -474,6 +474,13 @@ select {
   transition: width 500ms ease-in-out;
 }
 
+/* Feature Bars */
+.feature-bar {
+  position: relative;
+  width: 100%;
+}
+
+
 
 
 /*
