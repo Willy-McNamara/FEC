@@ -2,25 +2,40 @@ import React, { useState, useEffect } from 'react';
 import StarRating from './StarRating.jsx'
 import FeatureBar from './FeatureBar.jsx'
 import RatingsBar from './RatingsBar.jsx'
-import { metaData } from '../DummyData/metaDummyData.js';
 import axios from 'axios'
 
-//TODO: needs to take product id as its only prop.
-//TODO: needs to receive data from request as an object
-//something like
-/*
-{
-  ratingOutOf5: int, rating out of 5, average -> pass this to
-  ratingAsPercent: int, //rating as a % from 1-100
-  totalNumOfRatings: int, //count of total # ratings
-  rawData: the raw data being passed in
+const ReviewsSummary = ({ reviewMetaData }) => {
+  if (reviewMetaData === 'init') return
+
+  const {countOfRatings, ratingAverages, rawData} = reviewMetaData
+  const {ratingOutOf5, ratingAsPercentRounded} = ratingAverages;
+
+  return (
+    <div className="flex flex-column containerHalf border">
+      <div className="flex flex-row">
+        <div><h2>{ratingOutOf5}</h2></div>
+        <StarRating data={ratingAsPercentRounded} />
+      </div>
+      {Object.entries(rawData.ratings).map((rating, index) => {
+        return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings} />
+      })
+      }
+      {Object.entries(rawData.characteristics).map((entry, index) => {
+        return <FeatureBar key={index} name={entry[0]} rating={entry[1].value}/>
+      })
+      }
+    </div>
+  )
 }
 
-*/
-const ReviewsSummary = (props) => {
-  const { reviewMetaData: {countOfRatings, ratingAverages, rawData} } = props
-  //logs to be deleted
-  console.log('current prop from ReviewsSummary', countOfRatings)
+export default ReviewsSummary;
+
+
+//OLD CODE - EVENTUALLY DELETE
+ //logs to be deleted
+  // console.log('current prop from ReviewsSummary', ratingOutOf5) //evals to {ratingOutOf5: '3.99', ratingAsPercentRounded: '79.75'}
+
+  // console.log('Error Tracking')
   // console.log('Data I need for ReviewScores', metaData)
 
   //declare state to hold review metadata
@@ -44,23 +59,23 @@ const ReviewsSummary = (props) => {
   //this needs to make an axios request with use effect, getting back the data that I need to do
 
   // prototype for ratings controller function -> will be moved
-  const ratingsStackedPercentages = (ratingsObject) => {
-    // console.log('RATINGS OBJECT', ratingsObject)
-    let totalNumOfRatings = 0;
+  // const ratingsStackedPercentages = (ratingsObject) => {
+  //   // console.log('RATINGS OBJECT', ratingsObject)
+  //   let totalNumOfRatings = 0;
 
-    for (let key in ratingsObject) {
-      totalNumOfRatings += +ratingsObject[key]
-    }
+  //   for (let key in ratingsObject) {
+  //     totalNumOfRatings += +ratingsObject[key]
+  //   }
 
-    return totalNumOfRatings
-  }
+  //   return totalNumOfRatings
+  // }
 
-  for (let char in metaData.characteristics) {
-    let value = metaData.characteristics[char]
-    if (char != undefined) {
-      // console.log('WHY', char, value.value)
-    }
-  }
+  // for (let char in metaData.characteristics) {
+  //   let value = metaData.characteristics[char]
+  //   if (char != undefined) {
+  //     // console.log('WHY', char, value.value)
+  //   }
+  // }
 
   // const countOfRatings = ratingsStackedPercentages(metaData.ratings);
 
@@ -69,31 +84,3 @@ const ReviewsSummary = (props) => {
 
   // console.log('from reviews summary', charList, firstChar)
 
-
-  // return (
-  //   <div className="flex flex-column containerHalf border">
-  //     <div className="flex flex-row">
-  //       <div><h2>text</h2></div>
-  //       <StarRating data={ratingAsPercentRounded} />
-  //     </div>
-  //     {Object.entries(metaData.ratings).map((rating, index) => {
-  //       return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings} />
-  //     })
-  //     }
-  //     {Object.entries(metaData.characteristics).map((entry, index) => {
-  //       // console.log('RATING FROM INSIDE MAP FUNCTION',entry[1].value);
-  //       return <FeatureBar key={index} name={entry[0]} rating={entry[1].value}/>
-  //     })
-  //     }
-  //     {/* {for (let char in metaData.characteristics) {
-  //       let value = metaData.characteristics[char]
-  //     if (char != undefined) {
-  //       return <FeatureBar />
-  //     }
-  // }} */}
-  //     {/* <FeatureBar name={firstChar} rating={metaData.characteristics[firstChar].value}/> */}
-  //   </div>
-  // )
-}
-
-export default ReviewsSummary;

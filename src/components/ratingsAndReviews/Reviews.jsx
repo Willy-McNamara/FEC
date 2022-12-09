@@ -3,25 +3,11 @@ import ReviewsSummary from './components/ReviewsSummary.jsx';
 import ReviewsList from './components/ReviewsList.jsx';
 import axios from 'axios';
 
-//capitalized file name
+//WHY IS THIS RENDERING TWICE????
+//HOW to effectively investigate this?
 
 const Reviews = ({product}) => {
-//OLD CODE
-  const [reviewScores , setReviewScores ] = useState('init');
-
-
-  useEffect(() => {
-    if (reviewScores === 'init') {
-      axios.get(`/averageReviews/${product.id}`)
-      .then((res)=>{setReviewScores(res.data)})
-      .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
-    }
-
-  }, [product])
-  // console.log('OLD review scores from Reviews.jsx', reviewScores);
-
-//KEEP
-  // implement a useeffect to call an axios request to fetch it
+// console.log('product from Reviews.jsx', product) //logs twice...
   const [reviewMetaData, setReviewMetaData] = useState('init')
 
   useEffect(() => {
@@ -29,13 +15,10 @@ const Reviews = ({product}) => {
       axios.get(`reviews/meta/${product.id}`)
       .then((res)=>{setReviewMetaData(res.data)})
       .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
+      console.log('I FIRE ONCE')
     }
 
   }, [reviewMetaData]);
-
-  console.log('reviewMetaData from reviews.jsx', reviewMetaData.countOfRatings);
-  //request is working properly, now need to refactor.
-
 
   return (
     <div className="border">
