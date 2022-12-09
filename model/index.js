@@ -180,3 +180,5 @@ module.exports.putHelpfulQuestion = putHelpfulQuestion
 module.exports.putReportQuestion = putReportQuestion
 module.exports.putHelpfulAnswer = putHelpfulAnswer
 module.exports.putReportAnswer = putReportAnswer
+module.exports.getProductsOnId = getProductsOnId;
+
