@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const AnswerForm = ({id, closeModal, setQuestions}) => {
+const AnswerForm = ({id, closeModal, setQuestions, setAnswers}) => {
   const [newBody, setNewBody] = useState('');
   const [newName, setNewName] = useState('');
   const [newEmail, setNewEmail] = useState('');
@@ -26,7 +26,7 @@ const AnswerForm = ({id, closeModal, setQuestions}) => {
     // console.log('email', newEmail);
     // console.log('body', newBody);
     // console.log('photos', [`${newPhotos}`]);
-    setTimeout(() => setQuestions('init'), 200);
+    setTimeout(()=> setAnswers('init'), 200)
   };
 
   const handleBody = (e) => {

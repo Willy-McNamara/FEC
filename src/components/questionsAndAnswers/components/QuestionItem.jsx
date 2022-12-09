@@ -13,10 +13,6 @@ const QuestionItem = ({product, question, setQuestions}) => {
       .catch(function (error) {
         console.log('error in questionItem', error);
       });
-    // console.log('name', newName);
-    // console.log('email', newEmail);
-    // console.log('body', newBody);
-    // console.log('photos', [`${newPhotos}`]);
     setTimeout(() => setQuestions('init'), 200);
   };
 
@@ -28,10 +24,6 @@ const QuestionItem = ({product, question, setQuestions}) => {
       .catch(function (error) {
         console.log('error in questionItem', error);
       });
-    // console.log('name', newName);
-    // console.log('email', newEmail);
-    // console.log('body', newBody);
-    // console.log('photos', [`${newPhotos}`]);
     setTimeout(() => setQuestions('init'), 200);
   };
 

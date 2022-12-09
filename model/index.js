@@ -86,6 +86,15 @@ const getQuestions  = (req, res, bodyParams) => {
     .catch((err)=>{console.log('getQuestions error:', err)})
 }
 
+const getAnswers  = (req, res, bodyParams) => {
+  return axios.get(apiURL + `/qa/questions/${req.params.id}/answers`, {headers: {'Authorization': APIKEY.APIKEY}})
+    .then((APIRes)=>{
+      res.send(APIRes.data);
+      logInteraction(bodyParams);
+    })
+    .catch((err)=>{console.log('getAnswers error:', err)})
+}
+
 const postQuestion = (req, res, bodyParams) => {
   return axios.post(apiURL + '/qa/questions', req, {headers: {'Authorization': APIKEY.APIKEY}})
     .then((apiRes) => {
@@ -138,11 +147,11 @@ const putReportQuestion = (req, res, bodyParams) => {
 const putHelpfulAnswer = (req, res, bodyParams) => {
   return axios.put(apiURL + `/qa/answers/${req.params.id}/helpful`, '', {headers: {'Authorization': APIKEY.APIKEY}})
     .then((apiRes) => {
-      console.log('successfully marked question answer:', apiRes.data);
+      console.log('successfully marked answer helpful:', apiRes.data);
       logInteraction(bodyParams);
     })
     .catch((err) => {
-      console.log('err in marking question answer:', err);
+      console.log('err in marking answer helpful:', err);
     })
 }
 
@@ -164,6 +173,7 @@ module.exports.getRelatedProductIds = getRelatedProductIds
 module.exports.getAllRelatedProductDetails = getAllRelatedProductDetails
 module.exports.getAllReviewScores = getAllReviewScores
 module.exports.getQuestions = getQuestions
+module.exports.getAnswers = getAnswers
 module.exports.postQuestion = postQuestion
 module.exports.postAnswer = postAnswer
 module.exports.putHelpfulQuestion = putHelpfulQuestion

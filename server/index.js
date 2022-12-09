@@ -66,6 +66,16 @@ app.get('/qa/questions/:id', (req, res) => {
   model.getQuestions(req, res, bodyParams);
 })
 
+// get answers for a question
+app.get('/qa/questions/:id/answers', (req, res) => {
+  let bodyParams = {
+    'element': 'AnswerList.jsx',
+    'widget': 'Questions and Answers',
+    'time': new Date()
+  }
+  model.getAnswers(req, res, bodyParams);
+})
+
 app.post('/qa/questions', (req, res) => {
   let bodyParams = {
     'element': 'Questions.jsx',
@@ -112,7 +122,7 @@ app.put('/qa/answers/:id/helpful', (req, res) => {
     'widget': 'Questions and Answers',
     'time': new Date()
   }
-  model.putHelpfulQuestion(req, res, bodyParams);
+  model.putHelpfulAnswer(req, res, bodyParams);
 })
 
 // report answer
@@ -122,7 +132,7 @@ app.put('/qa/answers/:id/report', (req, res) => {
     'widget': 'Questions and Answers',
     'time': new Date()
   }
-  model.putReportQuestion(req, res, bodyParams);
+  model.putReportAnswer(req, res, bodyParams);
 })
 
 app.listen(3001);
