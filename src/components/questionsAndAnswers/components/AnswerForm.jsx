@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const AnswerForm = ({id, closeModal, setQuestions, setAnswers}) => {
+const AnswerForm = ({id, handleClose, setQuestions, setAnswers}) => {
   const [newBody, setNewBody] = useState('');
   const [newName, setNewName] = useState('');
   const [newEmail, setNewEmail] = useState('');
@@ -51,7 +51,7 @@ const AnswerForm = ({id, closeModal, setQuestions, setAnswers}) => {
         <input type="text" placeholder="URL to your photos" onChange={e=>handlePhotos(e.target.value)}/>
         <button onClick={(e)=> {
           handleSubmit(e)
-          closeModal(false);
+          handleClose(false);
           }}>Submit</button>
       </div>
     </div>

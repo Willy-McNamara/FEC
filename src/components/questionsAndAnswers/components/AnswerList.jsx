@@ -2,11 +2,14 @@ import React, {useState, useEffect} from 'react';
 import AnswerItem from './AnswerItem.jsx';
 import AnswerForm from './AnswerForm.jsx';
 import axios from 'axios';
+import {StyledModal} from '../../modal.jsx';
+
 
 
 const AnswerList = ({product, setQuestions, qId}) => {
   const [openAnswerModal, setAnswerModal] = useState(false);
   const [answers, setAnswers] = useState('init');
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (answers === 'init') {
@@ -33,8 +36,14 @@ const AnswerList = ({product, setQuestions, qId}) => {
     return (
       <div>
         {answers.results.slice(0,2).map(answer=><AnswerItem product={product} answer={answer} setAnswers={setAnswers} setQuestions={setQuestions}/>)}
-        <button onClick={()=>setAnswerModal(true)}>Add Answer</button>
-        {openAnswerModal && <AnswerForm closeModal={setAnswerModal} id={qId} setAnswers={setAnswers} setQuestions={setQuestions}/>}
+        <button onClick={() => setOpen(!open)}>Add Answer</button>
+        <StyledModal
+          show={open}
+          handleClose={() => setOpen(false)}
+        >
+          <AnswerForm handleClose={setOpen} id={qId} setAnswers={setAnswers} setQuestions={setQuestions}/>
+
+        </StyledModal>
       </div>
     );
   }

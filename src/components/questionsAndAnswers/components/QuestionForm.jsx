@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const QuestionForm = ({id, closeModal, setQuestions}) => {
+const QuestionForm = ({id, closeModal, setQuestions, handleClose}) => {
   const [newBody, setNewBody] = useState('');
   const [newName, setNewName] = useState('');
   const [newEmail, setNewEmail] = useState('');
@@ -42,12 +42,12 @@ const QuestionForm = ({id, closeModal, setQuestions}) => {
   return (
     <div className='modal-background'>
       <div className='modal-container'>
-        <input type="text" placeholder="Your Name" onChange={e=>handleName(e.target.value)}/>
-        <input type="text" placeholder="Your Email" onChange={e=>handleEmail(e.target.value)}/>
-        <input type="text" placeholder="Your Question" onChange={e=>handleBody(e.target.value)}/>
+        <input type="text" placeholder="Your Name" setText='""' onChange={e=>handleName(e.target.value)}/>
+        <input type="text" placeholder="Your Email" setText='""' onChange={e=>handleEmail(e.target.value)}/>
+        <input type="text" placeholder="Your Question" setText='""' onChange={e=>handleBody(e.target.value)}/>
         <button onClick={(e)=> {
-          handleSubmit(e)
-          closeModal(false);
+          handleSubmit(e);
+          handleClose(false);
           }}>Submit</button>
       </div>
     </div>
