@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import SortReviews from './SortReviews.jsx'
-import { reviewData } from '../DummyData/reviewDummyData.js';
+// import { reviewData } from '../DummyData/reviewDummyData.js';
 import axios from 'axios';
 
 const ReviewsList = ({ product }) => {
