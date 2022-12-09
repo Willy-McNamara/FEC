@@ -3,7 +3,7 @@ import Relate from './Relate.jsx';
 const RelateAndCompare = ({product}) => {
   return(
     <div className="RelateAndCompare">
-      <Relate product={product}/>
+      <Relate product={product} choice={'compare'}/>
       <div className="outfit">
 
       </div>
