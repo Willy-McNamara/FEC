@@ -5,6 +5,18 @@ import RatingsBar from './RatingsBar.jsx'
 import { metaData } from '../DummyData/metaDummyData.js';
 import axios from 'axios'
 
+//TODO: needs to take product id as its only prop.
+//TODO: needs to receive data from request as an object
+//something like
+/*
+{
+  ratingOutOf5: int, rating out of 5, average -> pass this to
+  ratingAsPercent: int, //rating as a % from 1-100
+  totalNumOfRatings: int, //count of total # ratings
+  rawData: the raw data being passed in
+}
+
+*/
 const ReviewsSummary = ({ reviewScores }) => {
   //logs to be deleted
   // console.log('current prop from ReviewsSummary', reviewScores)
@@ -23,7 +35,7 @@ const ReviewsSummary = ({ reviewScores }) => {
     }
 
   }, [reviewMetaData])
-
+  //request is working properly, now need to refactor.
   console.log('Testing Review MetaData route', reviewMetaData)
 
 

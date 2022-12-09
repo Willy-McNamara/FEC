@@ -6,7 +6,9 @@ import axios from 'axios';
 //capitalized file name
 
 const Reviews = ({product}) => {
+//OLD CODE
   const [reviewScores , setReviewScores ] = useState('init');
+
 
   useEffect(() => {
     if (reviewScores === 'init') {
@@ -16,6 +18,24 @@ const Reviews = ({product}) => {
     }
 
   }, [product])
+  console.log('OLD review scores from Reviews.jsx', reviewScores);
+
+  // implement a useeffect to call an axios request to fetch it
+  const [reviewMetaData, setReviewMetaData] = useState('init')
+
+//KEEP
+  useEffect(() => {
+    if(reviewMetaData === 'init') {
+      axios.get(`reviews/meta/${product.id}`)
+      .then((res)=>{setReviewMetaData(res.data)})
+      .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
+    }
+
+  }, [reviewMetaData]);
+
+  console.log('reviewMetaData from reviews.jsx', reviewMetaData);
+  //request is working properly, now need to refactor.
+
 
   return (
     <div className="border">
