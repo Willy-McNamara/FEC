@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
+import SortReviews from './SortReviews.jsx'
 import { reviewData } from '../DummyData/reviewDummyData.js';
+import axios from 'axios';
 
-const ReviewsList = () => {
-  // console.log('Review Data', reviewData.results.date);
-  // console.log(new Date(`${reviewData.date}`).toDateString())
-  // const [ , ] = useState( );
+const ReviewsList = ({ product }) => {
+  const [reviewsList , setReviewList ] = useState([]);
+  // console.log('reviewsList from reviewslist.jsx', reviewsList);
 
-  // useEffect(() => {
+  useEffect(() => {
+      axios.get(`/reviews/${product.id}`)
+      .then((res)=>{setReviewList(res.data.results)})
+      .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
 
-  // }, [])
+  }, [])
 
   return (
     <div className = "flex flex-column containerHalf border">
-      <h4>{reviewData.results.length} reviews sorted by BUILD SORT ELEMENT</h4>
+      <SortReviews numReviews={reviewsList.length} />
       <div>
-        {reviewData.results.map((review, index)=>{
+        {reviewsList.map((review, index)=>{
           return <ReviewTile key={index} review={review}/>
         })}
       </div>

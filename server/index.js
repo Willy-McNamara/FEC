@@ -2,7 +2,7 @@ const express = require('express');
 // const APIKEY = require('./config.js');
 const model = require('../model/index.js');
 const cors = require('cors');
-
+const reviewsRoute = require('./routes/reviews.js')
 const app = express();
 
 
@@ -10,7 +10,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 app.use(express.static(__dirname + '/../public'))
-
+app.use('/reviews', reviewsRoute)
 
 // ROUTES / CONTROLLERS
 

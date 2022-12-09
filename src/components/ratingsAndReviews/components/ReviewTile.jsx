@@ -1,46 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTileStarRating from './ReviewTileStarRating.jsx'
 
-const ReviewTile = (Review) => {
-  //currently hardcoded
-  const [response, setResponse ] = useState(response);
-
-  // useEffect(() => {
-
-  // }, [])
+const ReviewTile = (
+  { review:
+    {
+      review_id,
+      rating,
+      reviewer_name,
+      summary,
+      body,
+      helpfulness,
+      response,
+      date,
+      photos,
+    }
+  }) => {
 
   return (
     <div className="border">
       <div className = 'flex flex-row space-between'>
-        <ReviewTileStarRating rating={Review.review.rating * 20}/>
-        <span>{Review.review.reviewer_name && <span>{Review.review.reviewer_name}, </span>} {new Date(Review.review.date).toDateString()}</span>
+        <ReviewTileStarRating rating={rating * 20}/>
+        <span>{reviewer_name && <span>{reviewer_name}, </span>} {new Date(date).toDateString()}</span>
       </div>
-      <h4>{Review.review.summary}</h4>
-      <div>{Review.review.body}</div>
+      <h4>{summary}</h4>
+      <div>{body}</div>
       {response && <div>{response}</div>}
+      {photos.length > 0 &&<div>{photos.length}</div>}
       <span>Helpful?</span>
-      <span>{Review.review.helpfulness}</span>
+      <span>{helpfulness}</span>
       <span>Report button</span>
     </div>
   )
 }
 
 export default ReviewTile;
-//data shape for reference
-// {
-//   "review_id": 1277407,
-//   "rating": 2,
-//   "summary": "Great outfit",
-//   "recommend": true,
-//   "response": null,
-//   "body": "Very comfortable!",
-//   "date": "2022-10-28T00:00:00.000Z",
-//   "reviewer_name": "Brian123",
-//   "helpfulness": 1,
-//   "photos": [
-//       {
-//           "id": 2456642,
-//           "url": "http://res.cloudinary.com/dmmzqckuu/image/upload/v1666985076/zcfhcxavufcg3hijsqsc.jpg"
-//       }
-//   ]
-// },
