@@ -165,6 +165,8 @@ const putReportAnswer = (req, res, bodyParams) => {
     console.log('err in reporting answer :', err);
   })
 }
+//
+
 
 
 module.exports.getAllProducts = getAllProducts
@@ -181,4 +183,5 @@ module.exports.putReportQuestion = putReportQuestion
 module.exports.putHelpfulAnswer = putHelpfulAnswer
 module.exports.putReportAnswer = putReportAnswer
 module.exports.getProductsOnId = getProductsOnId;
+
 
