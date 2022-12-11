@@ -13,11 +13,11 @@ const App = ({product}) => {
   // })
 
   return (
-    <div onClick={(e) => {
+    <div id="appContainer" onClick={(e) => {
       e.preventDefault();
       // add an axios req and route to use the interactions API for any click
         // we need to have a uniform identifier for this to work.
-      console.log('global onClick triggered. here is e.target :', e)
+      // console.log('global onClick triggered. here is e.target :', e)
     }}>
       <Overview product={product}/>
       <RelateAndCompare product={product}/>

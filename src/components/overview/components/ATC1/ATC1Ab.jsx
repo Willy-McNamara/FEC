@@ -48,7 +48,7 @@ const ATC1Ab= ({currentSize, cartHandler}) => {
   }, [currentQty])
 
   useEffect(() => {
-    setCurrentQty(['Select Quantity'])
+    setCurrentQty(['Quantity'])
   }, [qtyElements])
 
   // RETURN
