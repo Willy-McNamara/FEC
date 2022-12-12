@@ -19,13 +19,14 @@ const Reviews = ({product}) => {
     }
 
   }, [reviewMetaData]);
+  console.log(reviewMetaData.rawData)
 
   return (
     <div className="border">
       <h6>Ratings & Reviews</h6>
       <div className="flex border">
       <ReviewsSummary reviewMetaData={reviewMetaData}/>
-      <ReviewsList product={product}/>
+      <ReviewsList product={product} metaData={reviewMetaData}/>
       </div>
     </div>
   )

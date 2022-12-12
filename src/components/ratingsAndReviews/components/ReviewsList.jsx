@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import SortReviews from './SortReviews.jsx'
-import axios from 'axios';
+import axios from 'axios'
+import Modal from './Modal.jsx'
+import ReviewForm from './ReviewForm.jsx'
 
-const ReviewsList = ({ product }) => {
 
+
+const ReviewsList = ({ product, metaData }) => {
+  if (metaData === 'init') return
   const [reviewsList , setReviewList ] = useState([]);
+  const [showModal, setShowModal ] = useState(false);
+
+
+
+
+  console.log('props from reviewslist', product.name, product.product_id)
+
 
 
   useEffect(() => {
@@ -18,15 +29,49 @@ const ReviewsList = ({ product }) => {
     <div className = "flex flex-column containerHalf border">
       <SortReviews numReviews={reviewsList.length} />
       <div>
-        {reviewsList.map((review, index)=>{
-          return <ReviewTile key={index} review={review}/>
+        {reviewsList.slice(0,2).map((review, index)=>{
+          return <ReviewTile key={index} review={review} score={metaData.rawData.recommended}/>
         })}
       </div>
       <div>
         {/* TODO: map out functionality for More Reviews button */}
         <button>More Reviews</button>
         {/* TODO: map out functionality for add review button */}
-        <button>Add Review +</button>
+        <button onClick={()=>{setShowModal(true)}}>Add Review +</button>
+        <Modal showModal={showModal} setShowModal={setShowModal}>
+          <ReviewForm name={product.name} id={product.id}/>
+        </Modal>
+        {/*
+        click the add review button
+        modal opens and contains a form
+        user fills out the form
+        - contains header stating "wrting your review about PRODUCT NAME"
+        - contains fields and options
+        -- overall rating 1 to 5 (poor to great)**
+        -- recommend yes/no**
+        -- designated charactertistics, set of up to 5 sets of 5 radio buttons each representating 1 to 5 rating of a specific char
+        -- review summary (text input of up to 60 chars)
+        -- review body text input allowing up to 1000 chars**
+        ----needs to keep a live count up until 50 characters are reached (50 min for submission, 1000 max)
+        --option to upload photos
+        --user nickname**
+        --user email**
+        --submit button (triggers validation)
+
+        user clicks submit
+        -check if all mandatory fields are filled out, if not block submission and prompt user to correct
+        -check any other clientside validation rules if not already accounted for in form
+        -send captured data to server via ajax POST
+        -server sends ajax POST to API
+        -data behind the API is updated with new review submission
+        -modal closes
+        -new reviews list is sent back to the client
+        -reviws list on client side is updated with new reviews list that was sent back
+        -client rerenders
+
+
+
+        */}
       </div>
     </div>
   )

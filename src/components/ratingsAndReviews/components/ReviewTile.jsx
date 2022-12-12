@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import ReviewTileStarRating from './ReviewTileStarRating.jsx'
 import ReviewPhoto from './ReviewPhoto.jsx'
 
-const ReviewTile = ({ review }) => {
+const ReviewTile = ({ review, score }) => {
   const { review_id, rating, reviewer_name, summary, body, helpfulness, response, date, photos } = review
+
+
+console.log('raw review from review tile', review)
+  console.log('score from reviewtile', helpfulness)
 
   return (
     <div className="border">
