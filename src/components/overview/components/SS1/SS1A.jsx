@@ -6,10 +6,10 @@ const SS1A = ({style}) => {
   return (
     <div id="SS1A">
       <div id="styleInd">
-        STYLE >
+        STYLE
       </div>
       <div id="styleName">
-        {style.name}
+        {style.name.toUpperCase()}
       </div>
     </div>
   )

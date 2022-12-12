@@ -4,6 +4,7 @@ import RelateAndCompare from './components/relateAndCompare/RelateAndCompare.jsx
 import Reviews from './components/ratingsAndReviews/reviews.jsx'
 import Questions from './components/questionsAndAnswers/Questions.jsx'
 import Overview from './components/overview/overview.jsx'
+import Banner from './components/Banner/Banner.jsx'
 
 const App = ({product}) => {
   // const [ , ] = useState( );
@@ -19,6 +20,7 @@ const App = ({product}) => {
         // we need to have a uniform identifier for this to work.
       // console.log('global onClick triggered. here is e.target :', e)
     }}>
+      <Banner />
       <Overview product={product}/>
       <RelateAndCompare product={product}/>
       <Questions product={product}/>

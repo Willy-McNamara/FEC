@@ -8,11 +8,11 @@ const ATC1Ab= ({currentSize, cartHandler}) => {
   if (currentSize[0] === 'Size') {
     return (
       <div id="ATC1Ab">
-        <ATC1Ab1 qty={'Quantity'} quantViewHandler={()=>{}}/>
+        <ATC1Ab1 qty={'Qty'} quantViewHandler={()=>{}}/>
       </div>
     )
   }
-  let [currentQty, setCurrentQty] = useState(['Quantity'])
+  let [currentQty, setCurrentQty] = useState(['Qty'])
   let [qtyElements, setQtyElements] = useState('init')
   let [viewQuants, setViewQuants] = useState(false)
   // mapping funciton for all available quants up to 15
@@ -48,7 +48,7 @@ const ATC1Ab= ({currentSize, cartHandler}) => {
   }, [currentQty])
 
   useEffect(() => {
-    setCurrentQty(['Quantity'])
+    setCurrentQty(['Qty'])
   }, [qtyElements])
 
   // RETURN
