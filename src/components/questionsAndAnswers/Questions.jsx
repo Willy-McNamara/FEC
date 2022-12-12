@@ -11,6 +11,7 @@ const Questions = ({product}) => {
   const [questions, setQuestions] = useState('init');
   const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
+  const [shownQuestions, setShownQuestions] = useState(2);
   const product_id = product.id;
 
 
@@ -30,7 +31,7 @@ const Questions = ({product}) => {
     <div className='questions-and-answers'>
       <h3 className='qna-heading'>Questions & Answers</h3>
       <input type="text" placeholder="Search Questions" />
-      <QuestionsList product={product} questions={questions} setQuestions={setQuestions}/>
+      <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={questions} setQuestions={setQuestions}/>
 
 
       <button onClick={() => setOpen(!open)}>Add Question</button>
