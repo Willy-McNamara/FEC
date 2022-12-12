@@ -497,6 +497,12 @@ select {
   border-width: 1px;
   border-color: black;
 }
+
+.qna-scroll {
+  overflow: scroll;
+  height:620px;
+}
+
 .question {
   border-style: solid;
   border-width: 0.5px;

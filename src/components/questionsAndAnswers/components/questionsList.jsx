@@ -13,7 +13,7 @@ const QuestionsList = ({showMore, shownQ, product, questions, setQuestions}) => 
     );
   } else {
     // conditional rendering
-    const [renderedQuestions, setRenderedQuestions] = useState(questions.results.sort(sortByHelpful).slice(0, shownQ));
+    const [renderedQuestions, setRenderedQuestions] = useState(questions.sort(sortByHelpful).slice(0, shownQ));
 
 
     const sortByHelpful = (a, b) => {
@@ -22,7 +22,7 @@ const QuestionsList = ({showMore, shownQ, product, questions, setQuestions}) => 
 
     const moreQuestions = () => {
       showMore(shownQ + 2);
-      setRenderedQuestions(questions.results.sort(sortByHelpful).slice(0, shownQ));
+      setRenderedQuestions(questions.sort(sortByHelpful).slice(0, shownQ));
       setQuestions('init');
     }
 

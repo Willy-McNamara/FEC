@@ -8,6 +8,7 @@ import {StyledModal} from '../modal.jsx';
 //adding comment just for fun
 
 const Questions = ({product}) => {
+  const [initQuestions, setInitQuestions] = useState('init');
   const [questions, setQuestions] = useState('init');
   const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
@@ -21,27 +22,47 @@ const Questions = ({product}) => {
     if (questions === 'init') {
     axios.get(`http://localhost:3001/qa/questions/${product.id}`)
       .then((res)=>{
-        setQuestions(res.data);
+        setInitQuestions(res.data.results);
+        setQuestions(res.data.results)
       })
       .catch((err)=>{console.log('questions get error:', err)})
     }
   }, [questions]);
 
+  const searchQuestions = (input) => {
+    if (input.length > 2 ) {
+      console.log('working as expected, input:', input);
+      console.log(questions)
+      let filteredQuestions = initQuestions.filter(question=>question.question_body.indexOf(input) !== -1);
+      console.log('filtered Questions', filteredQuestions);
+      // setQuestions(filteredQuestions);
+
+    }
+  }
+
+  const handleChange = (val) => {
+    searchQuestions(val);
+  }
+
   return (
     <div className='questions-and-answers'>
       <h3 className='qna-heading'>Questions & Answers</h3>
-      <input type="text" placeholder="Search Questions" />
-      <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={questions} setQuestions={setQuestions}/>
-
+      <input onChange={(e)=>handleChange(e.target.value)} type="text" className='qna-heading' placeholder="Search Questions" />
+      <div className='qna-scroll'>
+        <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={questions} setQuestions={setQuestions}/>
+        </div>
 
       <button onClick={() => setOpen(!open)}>Add Question</button>
-        <StyledModal
-          show={open}
-          handleClose={() => setOpen(false)}
-        >
-          <QuestionForm handleClose={setOpen} id={product_id} setQuestions={setQuestions}/>
+      <StyledModal
+        show={open}
+        handleClose={() => setOpen(false)}
+      >
+        <QuestionForm handleClose={setOpen} id={product_id} setQuestions={setQuestions}/>
 
-        </StyledModal>
+      </StyledModal>
+
+
+
 
 
 
