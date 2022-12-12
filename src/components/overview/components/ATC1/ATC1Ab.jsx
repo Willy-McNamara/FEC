@@ -6,9 +6,13 @@ import ATC1Ab2 from './ATC1Ab2.jsx';
 const ATC1Ab= ({currentSize, cartHandler}) => {
   // conditional render for first load.
   if (currentSize[0] === 'Size') {
-    return
+    return (
+      <div id="ATC1Ab">
+        <ATC1Ab1 qty={'Qty'} quantViewHandler={()=>{}}/>
+      </div>
+    )
   }
-  let [currentQty, setCurrentQty] = useState(['Select Quantity'])
+  let [currentQty, setCurrentQty] = useState(['Qty'])
   let [qtyElements, setQtyElements] = useState('init')
   let [viewQuants, setViewQuants] = useState(false)
   // mapping funciton for all available quants up to 15
@@ -44,24 +48,18 @@ const ATC1Ab= ({currentSize, cartHandler}) => {
   }, [currentQty])
 
   useEffect(() => {
-    setCurrentQty(['Select Quantity'])
+    setCurrentQty(['Qty'])
   }, [qtyElements])
 
   // RETURN
-  if (!viewQuants) {
-    return (
-      <div id="ATC1Ab">
-        <ATC1Ab1 qty={currentQty[0]} quantViewHandler={quantViewHandler}/>
-      </div>
-    )
-  } else {
-    return (
-      <div id="ATC1Ab">
-        <ATC1Ab1 qty={'Select Quantity'} quantViewHandler={quantViewHandler}/>
+  return (
+    <div id="ATC1Ab">
+      <ATC1Ab1 qty={currentQty[0]} quantViewHandler={quantViewHandler}/>
+      <div className="qtyDD">
         {qtyElements}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 // HELPER
@@ -83,3 +81,12 @@ let formatQuantArray = (quant) => {
 }
 
 export default ATC1Ab
+
+// // RETURN
+// if (!viewQuants) {
+//   return (
+//     <div id="ATC1Ab">
+//       <ATC1Ab1 qty={currentQty[0]} quantViewHandler={quantViewHandler}/>
+//     </div>
+//   )
+// } else {

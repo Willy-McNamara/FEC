@@ -6,13 +6,13 @@ const IG1b = ({currentPhoto, zoomHandler, zoom, currentIndex, indexHandler}) => 
   let [mouse, setMouse] = useState('none')
   let [magnified, setMagnified] = useState('zoom-in')
 
-  useEffect(() => {
-    if (zoom) {
-      setMagnified('zoom-out')
-    } else {
-      setMagnified('zoom-in')
-    }
-  }, [zoom])
+  // useEffect(() => {
+  //   if (zoom) {
+  //     setMagnified('zoom-out')
+  //   } else {
+  //     setMagnified('zoom-in')
+  //   }
+  // }, [zoom])
 
   return (
     <div id="IG1b">
