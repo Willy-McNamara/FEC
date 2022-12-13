@@ -19,9 +19,9 @@ const Modal = ({showModal, setShowModal, children}) => {
     alignItems: 'center',
     }
 
-    const openAndClose = ()=>{
-      setShowModal(false)
-    }
+    // const openAndClose = ()=>{
+    //   setShowModal(false)
+    // }
 
     //child container
 
@@ -34,7 +34,7 @@ const Modal = ({showModal, setShowModal, children}) => {
       {showModal && <div style={modalPosition}>
         {/* Wrapper Div */}
         <div className="border" style={{maxHeight: '75%', maxWidth: '75%', zIndex: '11'}}>
-        <button onClick={()=>setShowModal(!showModal)}>close</button>
+          <button onClick={()=>setShowModal(!showModal)}>close</button>
           {children}
 
         </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTileStarRating from './ReviewTileStarRating.jsx'
-import ReviewPhoto from './ReviewPhoto.jsx'
 import PhotoModal from './PhotoModal.jsx'
 
 const ReviewTile = ({ review, score }) => {
@@ -29,7 +28,6 @@ const ReviewTile = ({ review, score }) => {
           return (
             <div>
               <img onClick={()=>{setShowModal(true)}} src={`${photo.url}`} style={{ height: '50px', width: '50px' }} />
-              {/* <ReviewPhoto key={index} photo={photo} /> */}
               <PhotoModal showModal={showModal} setShowModal={setShowModal}>
               <img src={`${photo.url}`} style={{ height: '500px', width: '500px' }} />
               </PhotoModal>

@@ -4,41 +4,47 @@ import SortReviews from './SortReviews.jsx'
 import axios from 'axios'
 import Modal from './Modal.jsx'
 import ReviewForm from './ReviewForm.jsx'
+import MoreReviews from './ReviewScrollModal.jsx'
 
 
 
 const ReviewsList = ({ product, metaData }) => {
   if (metaData === 'init') return
-  const [reviewsList , setReviewList ] = useState([]);
-  const [showModal, setShowModal ] = useState(false);
+  const [reviewsList, setReviewList] = useState([]);
+  //TODO:refactor the states for each of the two modals...or factore into seperate components...
+  const [showModal, setShowModal] = useState(false);
+  const [showMoreReviews, setshowMoreReviews] = useState(false);
 
-
+  const operateMoreReviews = ()=> {setshowMoreReviews(!showMoreReviews)}
 
 
   console.log('props from reviewslist', metaData.rawData.characteristics)
 
-
-
   useEffect(() => {
-      axios.get(`/reviews/${product.id}`)
-      .then((res)=>{setReviewList(res.data.results)})
-      .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
+    axios.get(`/reviews/${product.id}`)
+      .then((res) => { setReviewList(res.data.results) })
+      .catch((err) => { console.log('ERROR ON REVIEWS GET ROUTE', err) })
   }, [])
 
   return (
-    <div className = "flex flex-column containerHalf border">
+    <div className="flex flex-column containerHalf border">
       <SortReviews numReviews={reviewsList.length} />
       <div>
-        {reviewsList.slice(0,2).map((review, index)=>{
-          return <ReviewTile key={index} review={review} score={metaData.rawData.recommended}/>
+        {reviewsList.slice(0, 2).map((review, index) => {
+          return <ReviewTile key={index} review={review} score={metaData.rawData.recommended} />
         })}
       </div>
       <div>
         {/* TODO: map out functionality for More Reviews button */}
-        <button>More Reviews</button>
-        <button onClick={()=>{setShowModal(true)}}>Add Review +</button>
+        <button onClick={operateMoreReviews}>More Reviews</button>
+
+        <MoreReviews showMoreReviews={showMoreReviews} setshowMoreReviews={setshowMoreReviews}>
+          <h4>Modal!</h4>
+        </MoreReviews>
+
+        <button onClick={() => { setShowModal(true) }}>Add Review +</button>
         <Modal showModal={showModal} setShowModal={setShowModal}>
-          <ReviewForm name={product.name} id={product.id} ch_data={metaData.rawData.characteristics}/>
+          <ReviewForm name={product.name} id={product.id} ch_data={metaData.rawData.characteristics} />
         </Modal>
         {/*
         click the add review button
