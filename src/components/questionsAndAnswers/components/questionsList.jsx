@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import QuestionItem from './QuestionItem.jsx';
 
-const QuestionsList = ({product, questions, setQuestions}) => {
+const QuestionsList = ({showMore, shownQ, product, questions, setQuestions}) => {
+
 
 
   if (questions === 'init') {
@@ -11,9 +12,25 @@ const QuestionsList = ({product, questions, setQuestions}) => {
       </div>
     );
   } else {
+    // conditional rendering
+    const [renderedQuestions, setRenderedQuestions] = useState(questions.sort(sortByHelpful).slice(0, shownQ));
+
+
+    const sortByHelpful = (a, b) => {
+      return a.question_helpfulness - b.question_helpfulness;
+    }
+
+    const moreQuestions = () => {
+      showMore(shownQ + 2);
+      setRenderedQuestions(questions.sort(sortByHelpful).slice(0, shownQ));
+      setQuestions('init');
+    }
+
+
     return (
       <div>
-        {questions.results.slice(0,4).map(q=><QuestionItem question={q} product={product} setQuestions={setQuestions}/>)}
+        {renderedQuestions.map(q=><QuestionItem question={q} product={product} setQuestions={setQuestions}/>)}
+        <button className="more-questions" onClick={()=>moreQuestions()}>Show More Questions</button>
       </div>
     )
   }

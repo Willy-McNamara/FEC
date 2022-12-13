@@ -31,6 +31,7 @@ const QuestionItem = ({product, question, setQuestions}) => {
     <div className='question'>
       <h5 className='question-body'>Q: {question.question_body}</h5>
       <p className='askedBy'>asked by {question.asker_name}</p>
+      <p className='askedAt'>asked at {question.question_date}</p>
       <p className='helpfulScore'>Helpful to {question.question_helpfulness} others</p>
       <button className='helpful' onClick={()=>markHelpful()}>Helpful?</button>
       <button className='report' onClick={()=>report()}>Report Question?</button>
