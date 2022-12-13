@@ -3,22 +3,35 @@ import StarRating from './StarRating.jsx';
 import CompareButton from './CompareButton.jsx';
 import axios from 'axios';
 import Modal from './Modal.jsx';
-const Card = ({product, modalState, toggleModal}) => {
+import RemoveButton from './RemoveButton.jsx';
+const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduct, choice, removeItem, selectedProduct}) => {
   const [defaultStyle, setDefaultStyle] = useState([]);
   const [reviewScore, setReviewScore] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [reviewScores ,setReviewScores ] = useState('init');
-  // const [modal, setModal] = useState(false);
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // }
+  const [modal, setModal] = useState(false);
+  const toggleModal = (e) => {
+    // e.preventDefault();
+    if (alreadyDisplayed === false) {
+      setModal(true);
+      toggleDisplay(true);
+    } else if(e.target.id === 'closeButton') {
+      setModal(false);
+      toggleDisplay(false);
+    }
+  }
+  let button;
+  if (choice === 'relate') {
+    button = <CompareButton toggleModal={toggleModal} toggleDisplay={toggleDisplay}/>
+  }
+  else {
+    button = <RemoveButton  productName={product.name} removeItem={removeItem}/>
+  }
   useEffect(() => {
     if(imageUrl === '') {
       axios.get(`http://localhost:3001/productStyles/${product.id}`)
       .then((res) => {
         let image;
-        //console.log('res.data from get styles in Overview.jsx', res.data)
-        console.log(res);
         let productStyles = res.data.results
         let chosenStyle;
         let foundDefault = false;
@@ -31,7 +44,6 @@ const Card = ({product, modalState, toggleModal}) => {
         if(foundDefault === false) {
           chosenStyle = productStyles[0]
         }
-        // changeImg(res.data.results[1].photos[1].thumbnail_url);
         if (chosenStyle.photos[0].thumbnail_url === null || undefined) {
           image = 'https://img2.storyblok.com/0x380/filters:no_upscale()/f/40252/1280x740/c07d80baff/streamline_1280x740.jpg'
         } else {
@@ -50,16 +62,24 @@ const Card = ({product, modalState, toggleModal}) => {
   }, [])
 
   return(
-    <div className="card" id={`card&productID=${product.id}?styleID=${defaultStyle['style_id']}`}>
-      <CompareButton toggleModal={toggleModal}/>
-      <img src={imageUrl} className="cardImage" id={`relatedCardImage&productID=${product.id}?styleID=${defaultStyle['style_id']}`}/>
-      <div className="detail-container" id="detailContainer&noID">
+    <div className="card" id={`card&productID=${product.id}?styleID=${defaultStyle['style_id']}`}
+    // onClick={(event) => {
+    //   pickProduct(product);
+    // }}
+    >
+      {button}
+      <img src={imageUrl} className="cardImage" id={`relatedCardImage&productID=${product.id}?styleID=${defaultStyle['style_id']}` } onClick={(event) => {
+      pickProduct(product);
+    }}/>
+      <div className="detail-container" id="detailContainer&noID" onClick={(event) => {
+      pickProduct(product);
+    }}>
         {product.category}
         <b>{product.name}</b>
         ${defaultStyle.original_price}
         <StarRating review={reviewScores}/>
-        <Modal modalState={modalState} toggleModal={toggleModal}/>
-      </div>
+        </div>
+        <Modal modalState={modal} toggleModal={toggleModal} mainProduct={mainProduct} cardProduct={product} toggleDisplay={toggleDisplay} selectedProduct={selectedProduct}/>
     </div>
   )
 }

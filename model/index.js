@@ -55,6 +55,8 @@ const getRelatedProductIds = async (req, res) => {
   let relatedIds = await axios.get(apiURL + `/products/${req.params.product_id}/related`, {headers: {'Authorization': APIKEY.APIKEY}})
   .then((data) => {
     return data.data;
+  }).catch((err) => {
+    console.log('error getting related product ids')
   })
   return relatedIds;
 }
@@ -67,6 +69,8 @@ const getAllRelatedProductDetails = async (arrayOfRelatedIds) => {
   return allDetails;
 
 }
+
+
 // REVIEWS
 const getAllReviewScores = (req, res, bodyParams) => {
   return axios.get(apiURL + `/reviews/meta/?product_id=${req.params.id}`, {headers: {'Authorization': APIKEY.APIKEY}})
@@ -183,5 +187,3 @@ module.exports.putReportQuestion = putReportQuestion
 module.exports.putHelpfulAnswer = putHelpfulAnswer
 module.exports.putReportAnswer = putReportAnswer
 module.exports.getProductsOnId = getProductsOnId;
-
-

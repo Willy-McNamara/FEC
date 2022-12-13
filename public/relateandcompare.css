@@ -21,7 +21,7 @@
 .slider {
   /* border: 2px solid blue; */
   white-space: nowrap;
-  width: 90%;
+  width: 75%;
   height: 100%;
   overflow-x: scroll;
   display: flex;
@@ -42,6 +42,13 @@
   box-shadow: 2px 2px 2px 2px #0000001f;
 }
 
+.left {
+  visibility: hidden;
+}
+.slider-icon:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
 .slider-icon:hover {
   opacity: 1;
   cursor: pointer;
@@ -55,6 +62,7 @@
 }
 
 .card{
+  min-width: 300px;
   width: 300px;
   height: 450px;
   border-radius: 10px;
@@ -63,6 +71,11 @@
   margin-right: 25px;
   box-shadow: 10px 10px 10px 10px #0000001f;
   position: relative;
+  opacity: .75;
+}
+
+.card:hover {
+  opacity: 1;
 }
 
 .cardImage {
@@ -117,24 +130,90 @@
   left: 0px;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   visibility: hidden;
   opacity: 0;
+  z-index: 999;
 }
 
 .modal {
-  width:90%;
-  height: 90%;
-  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width:60%;
+  height: 300px;
+  background-color: white;
+  /* position was relative */
   position: relative;
+  padding: 25px;
+  opacity: 1;
+
 }
 
+
+.modalTable{
+  position: relative;
+  overflow-y: scroll;
+  width: 60;
+  height: auto;
+  text-align: center;
+  border-spacing: 0 25px;
+}
+
+
+table, th, td {
+  border-collapse: collapse
+}
+
+.table-header {
+  /* text-align: center; */
+  color: #474E68;
+}
+
+.check-icon {
+  color: green;
+}
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
+  top: 25px;
+  right: 45px;
   height: 30px;
   cursor: pointer;
+  border: 1px solid black;
+  padding: 5px;
 }
 /* End of Modal */
+
+/* Outfit Card */
+.outfit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+
+  /* opacity: 1; */
+}
+
+.outfit-button:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.plus-icon {
+  position: absolute;
+  font-size: 2rem;
+  top: 25px;
+  right: 25px;
+}
+
+/* End Outfit Card */
+
+/* remove button */
+.remove-button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 1.5rem;
+  padding: 5px;
+  color: black;
+}
+/* remove button end */

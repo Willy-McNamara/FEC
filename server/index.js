@@ -61,10 +61,10 @@ app.get('/products/:product_id/related', async (req, res) => {
 app.get('/products/:product_id', (req, res) => {
   model.getProductsOnId(req.params.product_id)
   .then((data) => {
-    res.send(data.features);
+    // res.send(data.features);
+    res.send(data);
   })
 })
-
 
 // Questions
 app.get('/qa/questions/:id', (req, res) => {
