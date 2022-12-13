@@ -30,6 +30,7 @@ const AnswerItem = ({setQuestions, setAnswers, product, answer}) => {
     <div>
       <p>A: {answer.body}</p>
       <p>by: {answer.answerer_name}</p>
+      {answer.photos.map(image=> <img src={image.url} style={{height: '50px', width: '50px'}}/>)}
       <button className='helpful' onClick={()=>markHelpfulAns()}>helpful?</button>
       <button className='report' onClick={()=>reportAns()}>Report Answer?</button>
       <p className='helpfulScore'>Helpful to {answer.helpfulness} others</p>

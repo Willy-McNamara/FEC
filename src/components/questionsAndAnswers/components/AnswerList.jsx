@@ -10,6 +10,7 @@ const AnswerList = ({product, setQuestions, qId}) => {
   const [openAnswerModal, setAnswerModal] = useState(false);
   const [answers, setAnswers] = useState('init');
   const [open, setOpen] = useState(false);
+  const [shownA, setShownA] = useState(2);
 
   useEffect(() => {
     if (answers === 'init') {
@@ -33,9 +34,16 @@ const AnswerList = ({product, setQuestions, qId}) => {
       <p>loading answers...</p>
     );
   } else {
+
+    const moreA = () => {
+      setShownA(shownA + 2);
+      setAnswers('init');
+    }
+
     return (
       <div>
-        {answers.results.slice(0,2).map(answer=><AnswerItem product={product} answer={answer} setAnswers={setAnswers} setQuestions={setQuestions}/>)}
+        {answers.results.slice(0, shownA).map(answer=><AnswerItem product={product} answer={answer} setAnswers={setAnswers} setQuestions={setQuestions}/>)}
+        {answers.results.length > shownA && <button onClick={() => moreA()}>Show more answers</button>}
         <button onClick={() => setOpen(!open)}>Add Answer</button>
         <StyledModal
           show={open}

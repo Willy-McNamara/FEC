@@ -6,6 +6,7 @@ const QuestionsList = ({showMore, shownQ, product, questions, setQuestions}) => 
 
 
   if (questions === 'init') {
+    // make this the same size as the other part so that it doesn't look so janky
     return (
       <div>
         <p>loading questions...</p>
@@ -30,7 +31,7 @@ const QuestionsList = ({showMore, shownQ, product, questions, setQuestions}) => 
     return (
       <div>
         {renderedQuestions.map(q=><QuestionItem question={q} product={product} setQuestions={setQuestions}/>)}
-        <button className="more-questions" onClick={()=>moreQuestions()}>Show More Questions</button>
+        {questions.length > shownQ && <button className="more-questions" onClick={()=>moreQuestions()}>Show More Questions</button>}
       </div>
     )
   }

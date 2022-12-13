@@ -13,7 +13,11 @@ const Questions = ({product}) => {
   const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [shownQuestions, setShownQuestions] = useState(2);
+  const [inSearch, setInSearch] = useState(false);
+  const [searchQs, setSearchQs] = useState('init');
   const product_id = product.id;
+
+
 
 
 
@@ -30,13 +34,18 @@ const Questions = ({product}) => {
   }, [questions]);
 
   const searchQuestions = (input) => {
-    if (input.length > 2 ) {
-      console.log('working as expected, input:', input);
-      console.log(questions)
+    if (input.length > 2) {
+      // console.log('working as expected, input:', input);
+      // console.log(questions)
       let filteredQuestions = initQuestions.filter(question=>question.question_body.indexOf(input) !== -1);
-      console.log('filtered Questions', filteredQuestions);
+      // console.log('filtered Questions', filteredQuestions);
       // setQuestions(filteredQuestions);
-
+      setSearchQs(filteredQuestions);
+      setInSearch(true);
+      // console.log(inSearch);
+      // console.log(searchQs);
+    } else {
+      setInSearch(false);
     }
   }
 
@@ -49,7 +58,8 @@ const Questions = ({product}) => {
       <h3 className='qna-heading'>Questions & Answers</h3>
       <input onChange={(e)=>handleChange(e.target.value)} type="text" className='qna-heading' placeholder="Search Questions" />
       <div className='qna-scroll'>
-        <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={questions} setQuestions={setQuestions}/>
+        {!inSearch && <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={questions} setQuestions={setQuestions}/>}
+        {inSearch && <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={searchQs} setQuestions={setQuestions}/>}
         </div>
 
       <button onClick={() => setOpen(!open)}>Add Question</button>
