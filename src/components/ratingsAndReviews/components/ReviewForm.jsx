@@ -8,14 +8,18 @@ const ReviewForm = ({ name, id, ch_data }) => {
   //TODO:fix validation required field?
   //TODO:handle actual data submission
   //TODO:add photo-submission area + add that to validation
-
+  //TODO:add the live count for the main review body, with minimum of 50.
+  //TODO:Assess the scrolling behavior for review MODAL
+const charCount = (e) => {
+  return(e.target.value?.length)
+}
   const handleClick = (e) => {
     // form data creates a form data object**
     e.preventDefault()
     const form = new FormData(e.target.form)
     const formObject = Object.fromEntries(form.entries())
 
-    console.log('FORM OBJECT', formObject.rate_Width)
+    // console.log('FORM OBJECT', formObject.rate_Width)
 
   //FIXME: why am I having trouble validating with the loop structure? Why are only name and email appearing in the formObject?
     // for (let key in formObject) {
@@ -180,7 +184,7 @@ const ReviewForm = ({ name, id, ch_data }) => {
             {Object.entries(ch_data).map((feature, index) => {
               const attributes = charDescriptors[feature[0]];
               // const buttonValues = [1, 2, 3, 4, 5]
-              console.log('TESTING CHAR OBJECT', attributes);
+              // console.log('TESTING CHAR OBJECT', attributes);
               return (
                 <div>
                   {/* {`` + feature[0] + JSON.stringify(feature[1])} */}
@@ -232,11 +236,18 @@ const ReviewForm = ({ name, id, ch_data }) => {
                   </fieldset>
 
 
-                </div>)
+
+
+                </div>);
+
             })}
           </div>
         }
-
+                                  <input type="text" id="summary" name="summary" placeholder="summary" maxlength = "60"/>
+                                  <div>
+                                  <input onChange = {charCount}type="textarea" id="review_body" name="review_body" placeholder="Type your review" minlength="50 "maxlength = "1000"/>
+                                  <span>Need to make this dynamic</span>
+                                  </div>
 
 
 
