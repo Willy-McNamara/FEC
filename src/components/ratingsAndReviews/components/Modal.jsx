@@ -29,10 +29,12 @@ const Modal = ({showModal, setShowModal, children}) => {
     //content container can be seperate stuff that is then built out.
 
   return (
-    <div onClick={()=>setShowModal(!showModal)}>
+    <div>
+
       {showModal && <div style={modalPosition}>
         {/* Wrapper Div */}
-        <div className="border" style={{maxHeight: '75%', maxWidth: '75%'}}>
+        <div className="border" style={{maxHeight: '75%', maxWidth: '75%', zIndex: '11'}}>
+        <button onClick={()=>setShowModal(!showModal)}>close</button>
           {children}
 
         </div>

@@ -15,7 +15,7 @@ const ReviewsList = ({ product, metaData }) => {
 
 
 
-  console.log('props from reviewslist', product.name, product.product_id)
+  console.log('props from reviewslist', metaData.rawData.characteristics)
 
 
 
@@ -39,7 +39,7 @@ const ReviewsList = ({ product, metaData }) => {
         {/* TODO: map out functionality for add review button */}
         <button onClick={()=>{setShowModal(true)}}>Add Review +</button>
         <Modal showModal={showModal} setShowModal={setShowModal}>
-          <ReviewForm name={product.name} id={product.id}/>
+          <ReviewForm name={product.name} id={product.id} ch_data={metaData.rawData.characteristics}/>
         </Modal>
         {/*
         click the add review button
