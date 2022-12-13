@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import SortReviews from './SortReviews.jsx'
-import axios from 'axios'
 import Modal from './Modal.jsx'
 import ReviewForm from './ReviewForm.jsx'
 import MoreReviews from './ReviewScrollModal.jsx'
+import axios from 'axios'
 
 
 
 const ReviewsList = ({ product, metaData }) => {
   if (metaData === 'init') return
   const [reviewsList, setReviewList] = useState([]);
-  //TODO:refactor the states for each of the two modals...or factore into seperate components...
   const [showModal, setShowModal] = useState(false);
   const [showMoreReviews, setshowMoreReviews] = useState(false);
 
-  const operateMoreReviews = ()=> {setshowMoreReviews(!showMoreReviews)}
+  const viewMoreReviews = () => {setshowMoreReviews(!showMoreReviews)}
+  const viewAddReview = () =>{setShowModal(!showModal)}
 
 
   console.log('props from reviewslist', metaData.rawData.characteristics)
@@ -28,6 +28,7 @@ const ReviewsList = ({ product, metaData }) => {
 
   return (
     <div className="flex flex-column containerHalf border">
+      {/* //TODO:Update this to be as long as ALL reviews */}
       <SortReviews numReviews={reviewsList.length} />
       <div>
         {reviewsList.slice(0, 2).map((review, index) => {
@@ -36,13 +37,12 @@ const ReviewsList = ({ product, metaData }) => {
       </div>
       <div>
         {/* TODO: map out functionality for More Reviews button */}
-        <button onClick={operateMoreReviews}>More Reviews</button>
-
+        <button onClick={viewMoreReviews}>More Reviews</button>
         <MoreReviews showMoreReviews={showMoreReviews} setshowMoreReviews={setshowMoreReviews}>
           <h4>Modal!</h4>
         </MoreReviews>
 
-        <button onClick={() => { setShowModal(true) }}>Add Review +</button>
+        <button onClick={viewAddReview}>Add Review +</button>
         <Modal showModal={showModal} setShowModal={setShowModal}>
           <ReviewForm name={product.name} id={product.id} ch_data={metaData.rawData.characteristics} />
         </Modal>

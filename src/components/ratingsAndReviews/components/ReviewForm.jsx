@@ -4,6 +4,7 @@ const ReviewForm = ({ name, id, ch_data }) => {
   //need product name from reviews list
   console.log('features from review form', ch_data);
   const buttonValues = [1, 2, 3, 4, 5];
+  const [summaryWordCount, setSummaryWordCount] = useState(0)
 
   //TODO:fix validation required field?
   //TODO:handle actual data submission
@@ -12,8 +13,14 @@ const ReviewForm = ({ name, id, ch_data }) => {
   //TODO:Assess the scrolling behavior for review MODAL
   const charCount = (e) => {
     console.log(e.target.value?.length)
-    return e.target.value?.length
+    setSummaryWordCount(e.target.value?.length);
   }
+
+//   let myText = document.getElementById("review_body");
+// myText.addEventListener("input", () => {
+//     let count = (myText.value).length;
+//     document.getElementById("count-result").textContent = `Total characters: ${count}`;
+// });
 
 
   const handleClick = (e) => {
@@ -203,8 +210,8 @@ const ReviewForm = ({ name, id, ch_data }) => {
                           <div>
                             <input type="radio" id={`rate_${value}`} name={`rate_${feature[0]}`} value={`${value}`} />
                             <label for={`rate_${value}`}>{`${value}`}</label>
-                            <p>{value === 1 ? attributes[0] : undefined}</p>
-                            <p>{value === 5 ? attributes[4] : undefined}</p>
+                            <span>{value === 1 ? attributes[0] : undefined}</span>
+                            <span>{value === 5 ? attributes[4] : undefined}</span>
                           </div>
                         )
 
@@ -246,10 +253,15 @@ const ReviewForm = ({ name, id, ch_data }) => {
             })}
           </div>
         }
-        <input type="text" id="summary" name="summary" placeholder="summary" maxlength="60" />
+        <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" maxlength="60" />
         <div>
-          <input onChange={charCount} type="textarea" id="review_body" name="review_body" placeholder="Type your review" minlength="50 " maxlength="1000" />
-          <span>{`${charCount}`}</span>
+          <input onChange={charCount} type="textarea" id="review_body" name="review_body" placeholder="Why did you like the product or not?" minlength="50 " maxlength="1000" />
+          <span>{
+          50 > summaryWordCount ?
+          `Minimum required characters left: ${50 -summaryWordCount}` :
+          `Minimum Reached`
+          }
+          </span>
         </div>
 
 
