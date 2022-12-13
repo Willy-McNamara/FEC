@@ -20,11 +20,25 @@ const ATC1 = ({style}) => {
     setCart([sku, size, qty])
   }
   let addToCartHandler = () => {
-    alert(`${cart[2]} of Item (SKU id: ${cart[0]}) in size ${cart[1]} are now in your cart!`)
+    if (cart !== 'init') {
+      alert(`${cart[2]} of Item (SKU id: ${cart[0]}) in size ${cart[1]} are now in your cart!`)
+    }
   }
 
   return (
-    <div id="ATC1">
+    <div id="ATC1" onClick={(e) => {
+      if (e.target.id === 'ATC1Aa1' || e.target.id === 'ATC1Aa2') {
+        let c = document.getElementsByClassName("sizesDDTwo")
+        // console.log('c[0] in click handler for ATC', c[0])
+        c[0].classList.toggle('active')
+      } else if (e.target.id === 'ATC1Ab1' || e.target.id === 'ATC1Ab2') {
+        // console.log('REACHING THE CORRECT PLACE for qty clicker')
+        let c = document.getElementsByClassName("qtyDD")
+        if (!c[0]) {return}
+        // console.log('c[0] in click handler for ATC (qty)', c[0])
+        c[0].classList.toggle('active')
+      }
+      }}>
       < ATC1A sizesArray={sizesArray}  quantsPerSize={quantsPerSize} cartHandler={cartHandler}/>
       < ATC1B sizesArray={sizesArray} addToCartHandler={addToCartHandler}/>
     </div>

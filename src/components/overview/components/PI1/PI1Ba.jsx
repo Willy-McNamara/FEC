@@ -5,7 +5,7 @@ const PI1Ba = ({category}) => {
 
   return (
     <div id="PI1Ba">
-      {category}
+      {category.toUpperCase()}
     </div>
   )
 }

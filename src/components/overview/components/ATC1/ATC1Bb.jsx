@@ -7,7 +7,7 @@ const ATC1Bb= ({style}) => {
 
   return (
     <div id="ATC1Bb">
-      Add to Outfit
+      <img id="heartIcon" src="heartIcon.png" alt="Favorite!"/>
     </div>
   )
 }
