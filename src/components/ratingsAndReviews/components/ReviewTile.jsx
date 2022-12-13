@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTileStarRating from './ReviewTileStarRating.jsx'
 import ReviewPhoto from './ReviewPhoto.jsx'
+import PhotoModal from './PhotoModal.jsx'
 
 const ReviewTile = ({ review, score }) => {
   const { review_id, rating, reviewer_name, summary, body, helpfulness, response, date, photos } = review
+  //FIXME: why did this cause an infinite re-render cycle??
+  const [showModal, setShowModal] = useState(false);
 
 
-console.log('raw review from review tile', review)
+
+  console.log('raw review from review tile', review)
   console.log('score from reviewtile', helpfulness)
 
   return (
@@ -19,11 +23,19 @@ console.log('raw review from review tile', review)
       <div>{body}</div>
       {response && <div>{response}</div>}
       {photos.length > 0 ?
-      <div className ="border">{photos.map((photo, index)=>{
-        //FIXME: will need to refactor
-        if (index > 3) return;
-        return (<ReviewPhoto key={index} photo={photo} />)
-      })}</div> : undefined}
+        <div className="border">{photos.map((photo, index) => {
+          //FIXME: will need to refactor
+          if (index > 3) return;
+          return (
+            <div>
+              <img onClick={()=>{setShowModal(true)}} src={`${photo.url}`} style={{ height: '50px', width: '50px' }} />
+              {/* <ReviewPhoto key={index} photo={photo} /> */}
+              <PhotoModal showModal={showModal} setShowModal={setShowModal}>
+              <img src={`${photo.url}`} style={{ height: '500px', width: '500px' }} />
+              </PhotoModal>
+            </div>
+          )
+        })}</div> : undefined}
       {/* TODO: build out the helpful button clicking functionality */}
       <span>Helpful?</span>
       <span>{helpfulness}</span>

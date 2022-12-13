@@ -10,9 +10,12 @@ const ReviewForm = ({ name, id, ch_data }) => {
   //TODO:add photo-submission area + add that to validation
   //TODO:add the live count for the main review body, with minimum of 50.
   //TODO:Assess the scrolling behavior for review MODAL
-const charCount = (e) => {
-  return(e.target.value?.length)
-}
+  const charCount = (e) => {
+    console.log(e.target.value?.length)
+    return e.target.value?.length
+  }
+
+
   const handleClick = (e) => {
     // form data creates a form data object**
     e.preventDefault()
@@ -21,7 +24,7 @@ const charCount = (e) => {
 
     // console.log('FORM OBJECT', formObject.rate_Width)
 
-  //FIXME: why am I having trouble validating with the loop structure? Why are only name and email appearing in the formObject?
+    //FIXME: why am I having trouble validating with the loop structure? Why are only name and email appearing in the formObject?
     // for (let key in formObject) {
     //   console.log(formObject[key])
     //   if (!formObject[key]?.length > 9 || !formObject[key]) {
@@ -125,19 +128,19 @@ const charCount = (e) => {
       <h4>Write your review about {name}</h4>
       <form>
 
-        <input type="text" id="name" name="name" placeholder="Nickname"/>
-        <input type="email" id="email" name="email" placeholder="Enter your email"/>
+        <input type="text" id="name" name="name" placeholder="Nickname" />
+        <input type="email" id="email" name="email" placeholder="Enter your email" />
         <input type="submit" value="submit" onClick={handleClick} />
         <fieldset className='flex flex-row space-between'>
           <legend>Select a rating between 1 and 5</legend>
           {/* For and ID need to match */}
           {/* Value generally going to match inside label tag */}
-          {buttonValues.map((value, index)=>{
+          {buttonValues.map((value, index) => {
             return (
               <div>
-              <input type="radio" id={`rate_${value}`} name="rating" value={`${value}`}/>
-              <label for={`rate_${value}`}>{`${value}`}</label>
-            </div>
+                <input type="radio" id={`rate_${value}`} name="rating" value={`${value}`} />
+                <label for={`rate_${value}`}>{`${value}`}</label>
+              </div>
             )
 
           })
@@ -198,7 +201,7 @@ const charCount = (e) => {
                       buttonValues.map((value, index) => {
                         return (
                           <div>
-                            <input type="radio" id={`rate_${value}`} name={`rate_${feature[0]}`} value={`${value}`}/>
+                            <input type="radio" id={`rate_${value}`} name={`rate_${feature[0]}`} value={`${value}`} />
                             <label for={`rate_${value}`}>{`${value}`}</label>
                             <p>{value === 1 ? attributes[0] : undefined}</p>
                             <p>{value === 5 ? attributes[4] : undefined}</p>
@@ -243,11 +246,11 @@ const charCount = (e) => {
             })}
           </div>
         }
-                                  <input type="text" id="summary" name="summary" placeholder="summary" maxlength = "60"/>
-                                  <div>
-                                  <input onChange = {charCount}type="textarea" id="review_body" name="review_body" placeholder="Type your review" minlength="50 "maxlength = "1000"/>
-                                  <span>Need to make this dynamic</span>
-                                  </div>
+        <input type="text" id="summary" name="summary" placeholder="summary" maxlength="60" />
+        <div>
+          <input onChange={charCount} type="textarea" id="review_body" name="review_body" placeholder="Type your review" minlength="50 " maxlength="1000" />
+          <span>{`${charCount}`}</span>
+        </div>
 
 
 
