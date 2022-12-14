@@ -10,7 +10,9 @@ const ATC1Ba= ({style, addToCartHandler}) => {
       e.preventDefault();
       addToCartHandler();
     }}>
-      Add to Cart
+      <div id="ATC1BaText">
+        ADD TO CART
+      </div>
     </div>
   )
 }
