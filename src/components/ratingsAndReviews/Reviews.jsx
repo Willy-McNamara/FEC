@@ -5,7 +5,7 @@ import axios from 'axios';
 
 //WHY IS THIS RENDERING TWICE????
 //HOW to effectively investigate this?
-
+// console.log('API KEY', APIKEY)
 const Reviews = ({product}) => {
 // console.log('product from Reviews.jsx', product) //logs twice...
   const [reviewMetaData, setReviewMetaData] = useState('init')

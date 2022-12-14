@@ -10,6 +10,7 @@ import axios from 'axios'
 
 
 
+
 const ReviewsList = ({ product, metaData }) => {
   if (metaData === 'init') return
   const [reviewsList, setReviewList] = useState([]);
@@ -22,6 +23,33 @@ const ReviewsList = ({ product, metaData }) => {
 
   // console.log('props from reviewslist', metaData.rawData.characteristics)
 
+  //TODO:build the sort reviews functionality
+  //attach a change handler to the options - DONE
+    //on change, call the getSorted Reviews Function
+      //getSorted reviews takes one arg, the sort method
+      //getSorted will call the server route established to handle it, and will pass along the sort method
+
+
+    //function will call the use effect below, passing in the sort method
+    //axios request body will have default params of page, count, and the sort method
+
+    // const sortReviews = (e)=> {
+    //   console.log('I WORK!!')
+    //   console.log(e.target.value)
+
+    //   axios.get(`/reviews/sort/${product.id}`, {
+    //    data: {
+    //       product_id: product.id,
+    //       page: 1,
+    //       count: 1000,
+    //       sort: e.target.value.toLowerCase(),
+    //     },
+    //   })
+    //       .then((res) => console.log(res.data))
+    //       .catch((err) => { console.log('ERROR ON SORT GET ROUTE', err) })
+
+    // }
+
   useEffect(() => {
     axios.get(`/reviews/${product.id}`)
       .then((res) => { setReviewList(res.data.results) })
@@ -30,8 +58,10 @@ const ReviewsList = ({ product, metaData }) => {
 
   return (
     <div className="flex flex-column containerHalf border">
-      {/* //TODO:Update this to be as long as ALL reviews */}
-      <SortReviews numReviews={reviewsList.length} />
+      {/* //TODO:Update this to be as long as ALL reviews
+      sortReviews={sortReviews} */
+      }
+      <SortReviews numReviews={reviewsList.length}/>
       <div>
         {reviewsList.slice(0, 2).map((review, index) => {
           return <ReviewTile key={index} review={review} score={metaData.rawData.recommended} />

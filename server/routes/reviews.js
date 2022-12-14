@@ -21,10 +21,22 @@ const logInteraction = (bodyParams) => {
 }
 
 //be sure to go back and update log interaction args as needed
+//TODO: refactor
+// // get sorted reviews
+// router.get('/sort', (req, res)=>{
+//   console.log('TESTING SORT ROUTE', req.data)
+//   // .then((req)=>{
+//   //   res.status(200).send(req)
+//   // })
+//   // .catch((err)=>{
+//   //   console.log('err on sort route', err)
+//   //   res.status(400).send(err)
+//   // })
+// })
 
 //get all reviews route
 router.get('/:product_id', (req, res)=>{
-// console.log('/REVIEWS GET product id', req.params.product_id)
+// console.log('/REVIEWS GET product id', req.params)
 axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}`, {
   headers:
    {'Authorization': APIKEY}}
@@ -41,6 +53,18 @@ axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}`, {
     console.log('error in get all reviews', err)
     res.status(400).send(err)
   })
+})
+
+// get sorted reviews
+router.get('/sort', (req, res)=>{
+  console.log('TESTING SORT ROUTE', req.params)
+  // .then((req)=>{
+  //   res.status(200).send(req)
+  // })
+  // .catch((err)=>{
+  //   console.log('err on sort route', err)
+  //   res.status(400).send(err)
+  // })
 })
 
 //this is VERY similar to the above request, but purpose is to get meta data. refactor this eventually after functionality is hit.
