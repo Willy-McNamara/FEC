@@ -10,8 +10,6 @@ const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduc
   const [imageUrl, setImageUrl] = useState('');
   const [reviewScores ,setReviewScores ] = useState('init');
   const [modal, setModal] = useState(false);
-  console.log('this is the selected product', selectedProduct)
-  console.log('product in card', product);
   const toggleModal = (e) => {
     // e.preventDefault();
     if (alreadyDisplayed === false) {
@@ -22,7 +20,6 @@ const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduc
       toggleDisplay(false);
     }
   }
-  console.log(setProduct);
   let button;
   if (choice === 'relate') {
     button = <CompareButton toggleModal={toggleModal} toggleDisplay={toggleDisplay}/>

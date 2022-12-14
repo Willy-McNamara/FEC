@@ -8,7 +8,6 @@ const Modal = ({modalState, toggleModal, mainProduct, cardProduct, toggleDisplay
 
   useEffect(() => {
     if(modalState) {
-      console.log('selected producted id in modal', selectedProduct.id)
         axios.get(`/products/${selectedProduct.id}`)
         .then((selectedFeature) => {
           setMainFeatures(selectedFeature.data.features);
@@ -21,8 +20,7 @@ const Modal = ({modalState, toggleModal, mainProduct, cardProduct, toggleDisplay
         })
     }
   }, [modalState]);
-  console.log('this is the main feature', mainFeatures);
-  console.log('this is the cardfeatures', cardFeatures);
+
   let allFeatures = mainFeatures.concat(cardFeatures);
   let featureList = allFeatures.map((obj) => {
     let mainHas = false;

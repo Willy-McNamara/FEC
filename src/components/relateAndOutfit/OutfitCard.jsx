@@ -3,7 +3,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const OutfitCard = ({addItem}) => {
-  console.log('additem in outfitcard', addItem);
   return (
   <div className="card outfit-button" onClick={addItem}>
     <FontAwesomeIcon icon={faPlus} className="plus-icon"/>

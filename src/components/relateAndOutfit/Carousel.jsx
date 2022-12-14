@@ -49,8 +49,7 @@ const Carousel = ({listOfProducts, mainProduct, pickProduct, choice, setProduct,
   //   let slider = document.getElementById('slider&noID');
   //   slider.scrollLeft = slider.scrollLeft + 500;
   // }
-  console.log('pick product in carousel', pickProduct);
-  console.log('inside carousel',setProduct)
+
   return(
     <div className="main-slider-container" id="mainSliderContainer&noID">
       <MdChevronLeft className="slider-icon left" id="leftSliderIcon&noID" onClick={slideLeft}/>

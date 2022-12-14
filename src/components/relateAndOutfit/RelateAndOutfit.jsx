@@ -9,15 +9,12 @@ const RelateAndOutfit = ({mainProduct, setProduct}) => {
   useEffect(() => {
     axios.get(`/products/${mainProduct.id}`)
     .then((data) => {
-      console.log('product by id', data.data);
       setSelectedProduct(data.data);
     })
   }, [mainProduct]);
   const pickProduct = (product) => {
     setSelectedProduct(product);
-    console.log('This is the selectedProduct ', product)
   }
-  console.log('pick product in relate and outfit', pickProduct);
   return(
     <div className="relate-and-outfit-carousel-container" id="relate-and-outfit-carousel-container">
       <Related mainProduct={mainProduct} pickProduct={pickProduct} choice={'relate'} selectedProduct={selectedProduct} setProduct={setProduct}/>
