@@ -12,7 +12,7 @@ const Modal = ({showModal, setShowModal, children}) => {
     }
 
   return (
-    <div className="modal">
+    <div className="review-modal">
       {showModal &&
           <div className="grey-screen" onClick={closeModal}>
             <div className="inner-content">

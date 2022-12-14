@@ -6,7 +6,7 @@ import Container1B from './components/Container1B.jsx';
 const Overview = ({product}) => {
   // CONTAINER 1
   let [styles, setStyles] = useState('init')
-
+console.log('PRODUCT FROM OVERVIEW', product.id)
   useEffect(() => {
     console.log('useEffect triggered in Overview.jsx')
     axios.get(`http://localhost:3001/productStyles/${product.id}`)
