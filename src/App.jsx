@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import RelateAndCompare from './components/relateAndCompare/RelateAndCompare.jsx';
+import RelateAndOutfit from './components/relateAndOutfit/RelateAndOutfit.jsx';
 import Reviews from './components/ratingsAndReviews/reviews.jsx'
 import Questions from './components/questionsAndAnswers/Questions.jsx'
 import Overview from './components/overview/overview.jsx'
 import Banner from './components/Banner/Banner.jsx'
 
-const App = ({product}) => {
+const App = ({productx}) => {
   // const [ , ] = useState( );
-
+  console.log('this is productx in app', productx);
+  const [product, setProduct] = useState(productx);
   // useEffect(() => {
+  console.log('product in app', product);
 
   // })
 
@@ -22,7 +24,7 @@ const App = ({product}) => {
     }}>
       <Banner />
       <Overview product={product}/>
-      <RelateAndCompare product={product}/>
+      <RelateAndOutfit mainProduct={product} setProduct={setProduct}/>
       <Questions product={product}/>
       <Reviews product={product}/>
     </div>

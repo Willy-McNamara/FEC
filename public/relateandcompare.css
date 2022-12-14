@@ -1,57 +1,28 @@
-/*
-  ==== =============== ============ ====== Relate and Compare WIDGET ========== ========= =========== ============ =======
-*/
-.RelateAndCompare {
-  /* display: flex;
-  justify-content: center; */
-  text-align: center;
-  height: 1500px;
-  /* background-color: green; */
-}
-.Relate-Container {
-  height: 45%;
-  width: 100%;
+/* Related Component */
+.related-container {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 100px;
+  border: 5px solid green;
 }
+/* End of Related Component */
 
-
-.outfit {
-  height: 45%;
-  width: 100%;
-  margin-top: 50px;
-  /* background-color: bisque; */
-}
-/* Slider */
-.ReactCardSlider-body {
-  width: 100%;
-  height: 65%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: orange; */
-  padding-bottom: 0;
-}
-
+/* Carousel */
 .main-slider-container {
-  width: 90%;
-  /* changed height was 420px */
-  height: 420px;
+  width: 100%;
+  height: 500px;
   position: relative;
   display: flex;
   align-items: center;
-  /* background-color: blue; */
+  border: 2px solid orange;
   justify-content: center;
-  /* being hidden by yellow right now */
 }
-#slider {
-  width: 100%;
-  /* changed height was 100% */
-  height: 100%;
+
+.slider {
+  /* border: 2px solid blue; */
   white-space: nowrap;
+  width: 75%;
+  height: 100%;
   overflow-x: scroll;
   display: flex;
   align-items: center;
@@ -59,122 +30,190 @@
   scroll-behavior: smooth;
 }
 
-#slider::-webkit-scrollbar{
-  display:none;
+.slider::-webkit-scrollbar {
+  display: none;
 }
-
-.slider-icon.left, .slider-icon.right{
-  background-color: white;
-  border-radius: 100%;
+.slider-icon {
+  border-radius: 50%;
   position: absolute;
-  opacity: 0.5;
+  font-size: 40px;
+  border: 1px solid black;
+  opacity: .4;
   box-shadow: 2px 2px 2px 2px #0000001f;
-
 }
 
-.slider-icon.left:hover, .slider-icon.right:hover {
+.left {
+  visibility: hidden;
+}
+.slider-icon:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.slider-icon:hover {
   opacity: 1;
   cursor: pointer;
+}
+ .slider-icon.left {
+  left: 0;
 }
 
 .slider-icon.right {
   right: 0;
 }
 
-.slider-icon.left {
-  left: -50px;;
-}
-
-/* End Slider */
-
-.card {
-  width: 320px;
-  /* changed height was 320px */
-  height: 320px;
-  background-color: white;
+.card{
+  min-width: 300px;
+  width: 300px;
+  height: 450px;
   border-radius: 10px;
   display: inline-block;
-  margin-left: 5px;
-  margin-right: 100px;
+  margin-left: 25px;
+  margin-right: 25px;
   box-shadow: 10px 10px 10px 10px #0000001f;
-  padding-bottom: 35px;
   position: relative;
+  opacity: .75;
 }
 
-.cardImg {
-  width: 100%;
-  height: 200px;
+.card:hover {
+  opacity: 1;
+}
+
+.cardImage {
+  width: 300px;
+  height: 325px;
+  /* width: 400px;
+  height: 450px; */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: rgb(240 240 240 /80%);
+  /* border-radius: 10px; */
+  object-fit: cover;
 }
- .card-detail {
+
+.detail-container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.compare-button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: gray;
+  color: white;
+  /* width: 25px;
+  height: 25px; */
+}
+
+.compare-button:hover {
+  /* color: #f8d568; */
+  color: #ffae42;
+  background-color: white;
+  cursor: pointer;
+}
+/* End of Carousel Component*/
+
+/* Start of Modal */
+.container {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  line-height: 80%;
- }
-.card-category, .card-name, .card-price, .card-sale-price {
-  margin: 5px 0px 5px 10px;
-  padding: 2px;
+  width:60%;
+  height: 300px;
+  background-color: white;
+  /* position was relative */
+  position: relative;
+  padding: 25px;
+  opacity: 1;
+
 }
 
-/* Compare */
+
+.modalTable{
+  position: relative;
+  overflow-y: scroll;
+  width: 60;
+  height: auto;
+  text-align: center;
+  border-spacing: 0 25px;
+}
 
 
-.comparison {
-position: absolute;
-margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
-text-align: center;
-height: 100%;
-width: 100%;
-background-color: white;
-border-radius: 10px;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-border: 2px solid red;
-z-index: 3;
+table, th, td {
+  border-collapse: collapse
+}
 
+.table-header {
+  /* text-align: center; */
+  color: #474E68;
 }
 
 .check-icon {
   color: green;
 }
+.close-button {
+  position: absolute;
+  top: 25px;
+  right: 45px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 5px;
+}
+/* End of Modal */
 
-.x-icon {
-  color: red;
+/* Outfit Card */
+.outfit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+
+  /* opacity: 1; */
 }
 
-.info-icon {
+.outfit-button:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.plus-icon {
+  position: absolute;
+  font-size: 2rem;
+  top: 25px;
+  right: 25px;
+}
+
+/* End Outfit Card */
+
+/* remove button */
+.remove-button {
   position: absolute;
   top: 25px;
   right: 25px;
   font-size: 1.5rem;
-  color: lightblue;
-  border-radius: 50%;
-  opacity: .45;
-  border: 1px solid black;
-  background-color: gray;
+  padding: 5px;
+  color: black;
 }
-
-.info-icon:hover {
-  opacity: 1;
-  color: white;
-}
-
-.close-x-button {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  color: red;
-  border: 1px solid black;
-  margin: 0 auto;
-}
-.compare-item {
-  /* margin: 10px; */
-}
-/* Compare End */
+/* remove button end */
