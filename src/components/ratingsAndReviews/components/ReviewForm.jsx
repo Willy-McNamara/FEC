@@ -4,6 +4,7 @@ import Axios from 'axios';
 const ReviewForm = ({ name, id, ch_data }) => {
   const [summaryWordCount, setSummaryWordCount] = useState(0)
   const buttonValues = [1, 2, 3, 4, 5];
+  const emailValidation = "^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
 
   const charCount = (e) => {
     // console.log(e.target.value?.length)
@@ -20,20 +21,33 @@ const ReviewForm = ({ name, id, ch_data }) => {
     // });
     const form = new FormData(e.target)
     const formObject = Object.fromEntries(form.entries())
-    console.log(formObject.email.slice())
-    console.log('FORM OBJECT', formObject)
-    formObject.characteristics = {};
-    formObject.product_id = id;
-    formObject.photos = [];
+    formObject.characteristics = {}
+    const ajaxData = {
+      "product_id": id,
+      "rating": Number(formObject.rating),
+      "summary": formObject.summary,
+      "body": formObject.body,
+      "recommend": Boolean(formObject.recommend),
+      "name": formObject.name,
+      "email": formObject.email,
+      "photos": formObject.photos || [],
+      "characteristics": {
+      }
+    }
+
     for (let prop in formObject) {
+      console.log('prop of form object', prop)
       if (Number.parseInt(prop)) {
-        formObject.characteristics[prop] = formObject[prop];
+        ajaxData.characteristics[prop] = Number(formObject[prop]);
         delete formObject[prop];
       }
     }
     // Characteristics {'123': 1}
-    console.log('FORM OBJECT', formObject);
-    Axios.post('/reviews/newReview', formObject)
+    console.log('FORM OBJECT', formObject)
+    console.log('CHARS FROM FORM OBJ', formObject.characteristics)
+    console.log('AJAX DATA', ajaxData)
+
+    Axios.post('/reviews/newReview', ajaxData)
       .then((data) => {
         console.log('Response received from server: ', data);
       })
@@ -96,7 +110,9 @@ const ReviewForm = ({ name, id, ch_data }) => {
         <input type="text" id="name" name="name" placeholder="Example: jackson11!" required />
         <p class="subtitle">For privacy reasons, do not use your full name or email address”</p>
         <label>Email:</label>
-        <input type="email" id="email" name="email" placeholder="Example: jackson11@email.com" pattern="^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"required />
+        <input type="email" id="email" name="email" placeholder="Example: jackson11@email.com"
+        pattern="^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
+        required />
         <p class="subtitle">For authentication reasons, you will not be emailed”</p>
         <fieldset>
           <legend>Recommended:</legend>

@@ -9,8 +9,8 @@ const ReviewTile = ({ review, score }) => {
 
 
 
-  console.log('raw review from review tile', review)
-  console.log('score from reviewtile', helpfulness)
+  // console.log('raw review from review tile', review)
+  // console.log('score from reviewtile', helpfulness)
 
   return (
     <div className="border">

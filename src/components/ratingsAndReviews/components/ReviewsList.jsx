@@ -20,7 +20,7 @@ const ReviewsList = ({ product, metaData }) => {
   const viewAddReview = () =>{setShowModal(!showModal)}
 
 
-  console.log('props from reviewslist', metaData.rawData.characteristics)
+  // console.log('props from reviewslist', metaData.rawData.characteristics)
 
   useEffect(() => {
     axios.get(`/reviews/${product.id}`)

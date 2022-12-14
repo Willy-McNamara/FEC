@@ -19,7 +19,7 @@ const Reviews = ({product}) => {
     }
 
   }, [reviewMetaData]);
-  console.log(reviewMetaData.rawData)
+  // console.log(reviewMetaData.rawData)
 
   return (
     <div className="border" id="reviews">
