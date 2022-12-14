@@ -19,7 +19,7 @@ const Overview = ({product}) => {
         alert('Error getting styles!')
       })
     }
-  }, [styles])
+  }, [styles, product])
 
   if (styles === 'init') {
     return (

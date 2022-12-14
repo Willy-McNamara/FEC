@@ -7,7 +7,7 @@ import ATC1Aa2 from './ATC1Aa2.jsx';
 const ATC1A= ({sizesArray, quantsPerSize, cartHandler}) => {
 
   // STATE
-  let [currentSize, setCurrentSize] = useState(['Size'])
+  let [currentSize, setCurrentSize] = useState(['SIZE'])
   let [sizeElements, setSizeElements] = useState('init')
 
   // HANDLER

@@ -25,6 +25,11 @@ const Container1A = ({product, styles}) => {
     let a = document.getElementById('Container1Aa')
     // console.log('logging a', a)
     a.classList.toggle('expander')
+    let z = document.getElementById('zoomContainer')
+    // console.log('logging z in zoomHandler', z)
+    z.classList.toggle('fancyZoom')
+    let h = document.getElementById('IG1a')
+    h.classList.toggle('hideContainer')
   }
   // let indexHandler = (index) => {
   //   setCurrentIndex(index)

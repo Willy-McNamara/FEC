@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import IG1bZ from './IG1bZ.jsx';
 
 const IG1b = ({currentPhoto, zoomHandler, zoom, currentIndex, indexHandler}) => {
   // THIS IS THE CURRENT DISPLAYED PHOTO
@@ -27,6 +28,7 @@ const IG1b = ({currentPhoto, zoomHandler, zoom, currentIndex, indexHandler}) => 
         e.preventDefault()
         zoomHandler()
       }}/>
+      < IG1bZ currentPhoto={currentPhoto}/>
     </div>
   )
 }
