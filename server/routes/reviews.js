@@ -5,7 +5,8 @@ const axios = require('axios')
 const APIKEY = require('../config.js').APIKEY
 let apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe'
 
-router.use(express.json())
+// router.use(express.urlencoded({extended: true}));
+// router.use(express.json());
 
 const logInteraction = (bodyParams) => {
   axios.post(apiURL + '/interactions', bodyParams, {
@@ -70,6 +71,24 @@ router.get('/meta/:product_id', (req, res)=>{
       res.status(400).send(err)
     })
   })
+
+
+router.post('/newReview', (req, res) => {
+  console.log('REQ FROM SERVER', req.body);
+  axios.post(apiURL + '/reviews', req.body, {headers: {'Authorization': APIKEY}})
+      .then((data) => {
+        res.json(data.data);
+        logInteraction({
+          'element': 'ReviewForm.jsx',
+          'widget': 'reviews',
+          'time': new Date()
+        });
+      })
+      .catch((err) => {
+        console.error('ERROR IN newReview POST', err.response.data);
+        res.status(err.response.status).json(err);
+      });
+});
 
 //Controller functions
 let calcRatingAverages = (ratingsObject) => {

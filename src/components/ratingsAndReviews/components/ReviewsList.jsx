@@ -4,7 +4,9 @@ import SortReviews from './SortReviews.jsx'
 import Modal from './Modal.jsx'
 import ReviewForm from './ReviewForm.jsx'
 import MoreReviews from './ReviewScrollModal.jsx'
+import ReviewScrollList from './ReviewScrollList.jsx'
 import axios from 'axios'
+
 
 
 
@@ -37,10 +39,19 @@ const ReviewsList = ({ product, metaData }) => {
       </div>
       <div>
         {/* TODO: map out functionality for More Reviews button */}
-        <button onClick={viewMoreReviews}>More Reviews</button>
+        {/* <button onClick={viewMoreReviews}>More Reviews</button>
         <MoreReviews showMoreReviews={showMoreReviews} setshowMoreReviews={setshowMoreReviews}>
-          <h4>Modal!</h4>
-        </MoreReviews>
+          <ReviewScrollList productId = {product.id}/>
+        </MoreReviews> */}
+        <button onClick={() => {setshowMoreReviews(true)}}>More Reviews</button>
+
+        <Modal showModal={showMoreReviews} setShowModal={setshowMoreReviews} >
+          <div>
+            {reviewsList.map((review, index) => {
+              return <ReviewTile key={index} review={review} score={metaData.rawData.recommended} />
+            })}
+          </div>
+        </Modal>
 
         <button onClick={viewAddReview}>Add Review +</button>
         <Modal showModal={showModal} setShowModal={setShowModal}>
