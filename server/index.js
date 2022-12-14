@@ -50,18 +50,22 @@ app.get('/averageReviews/:id', (req, res) => {
   // then manipulate data with reviews algo
 })
 
+//gets an array of ids that's relatde to the product id provided
 app.get('/products/:product_id/related', async (req, res) => {
   let relatedIds = await model.getRelatedProductIds(req, res);
   data = await model.getAllRelatedProductDetails(relatedIds);
   res.send(data);
 })
 
+//gets us product detail based off of the product id
 app.get('/products/:product_id', (req, res) => {
   model.getProductsOnId(req.params.product_id)
   .then((data) => {
-    res.send(data.features);
+    // res.send(data.features);
+    res.send(data);
   })
 })
+
 // Questions
 app.get('/qa/questions/:id', (req, res) => {
   let bodyParams = {
