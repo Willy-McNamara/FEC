@@ -8,18 +8,18 @@ const Overview = ({product}) => {
   let [styles, setStyles] = useState('init')
 
   useEffect(() => {
-    if (styles === 'init') {
-      axios.get(`http://localhost:3001/productStyles/${product.id}`)
-      .then((res) => {
-        //console.log('res.data from get styles in Overview.jsx', res.data)
-        setStyles(res.data.results)
-      })
-      .catch((err) => {
-        console.log('err in get Overview.jsx', err)
-        alert('Error getting styles!')
-      })
-    }
-  }, [styles, product])
+    console.log('useEffect triggered in Overview.jsx')
+    axios.get(`http://localhost:3001/productStyles/${product.id}`)
+    .then((res) => {
+      //console.log('res.data from get styles in Overview.jsx', res.data)
+      setStyles(res.data.results)
+    })
+    .catch((err) => {
+      console.log('err in get Overview.jsx', err)
+      alert('Error getting styles!')
+    })
+  }, [product])
+  // taking out styles may cause infinit loop
 
   if (styles === 'init') {
     return (
