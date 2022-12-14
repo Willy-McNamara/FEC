@@ -55,7 +55,7 @@ const ReviewsList = ({ product, metaData }) => {
 
         <button onClick={viewAddReview}>Add Review +</button>
         <Modal showModal={showModal} setShowModal={setShowModal}>
-          <ReviewForm name={product.name} id={product.id} ch_data={metaData.rawData.characteristics} />
+          <ReviewForm name={product.name} id={product.id} ch_data={metaData.rawData.characteristics} viewAddReview={viewAddReview}/>
         </Modal>
         {/*
         click the add review button

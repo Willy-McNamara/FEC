@@ -74,7 +74,7 @@ router.get('/meta/:product_id', (req, res)=>{
 
 
 router.post('/newReview', (req, res) => {
-  console.log('REQ FROM SERVER', req.body);
+  // console.log('REQ FROM SERVER', req.body);
   axios.post(apiURL + '/reviews', req.body, {headers: {'Authorization': APIKEY}})
       .then((data) => {
         res.json(data.data);
@@ -126,6 +126,7 @@ const countRatings = (ratingsObject) => {
 
   return countOfRatings
 }
+
 
 
 

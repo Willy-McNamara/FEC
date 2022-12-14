@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
-const ReviewForm = ({ name, id, ch_data }) => {
+const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
   const [summaryWordCount, setSummaryWordCount] = useState(0)
   const buttonValues = [1, 2, 3, 4, 5];
   const emailValidation = "^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
@@ -21,7 +21,8 @@ const ReviewForm = ({ name, id, ch_data }) => {
     // });
     const form = new FormData(e.target)
     const formObject = Object.fromEntries(form.entries())
-    formObject.characteristics = {}
+    // formObject.characteristics = {}
+
     const ajaxData = {
       "product_id": id,
       "rating": Number(formObject.rating),
@@ -34,24 +35,20 @@ const ReviewForm = ({ name, id, ch_data }) => {
       "characteristics": {
       }
     }
-
     for (let prop in formObject) {
-      console.log('prop of form object', prop)
       if (Number.parseInt(prop)) {
         ajaxData.characteristics[prop] = Number(formObject[prop]);
         delete formObject[prop];
       }
     }
-    // Characteristics {'123': 1}
-    console.log('FORM OBJECT', formObject)
-    console.log('CHARS FROM FORM OBJ', formObject.characteristics)
-    console.log('AJAX DATA', ajaxData)
-
     Axios.post('/reviews/newReview', ajaxData)
       .then((data) => {
         console.log('Response received from server: ', data);
+        alert('Thanks for submitting your review')
       })
       .catch(console.error);
+      //close the modal
+      viewAddReview();
   }
 
   const charDescriptors = {
