@@ -8,7 +8,6 @@ const Outfit = ({mainProduct, choice, selectedProduct, pickProduct}) => {
   let localOutfitList = localStorage.getItem('outfitList');
 
   const addItem = () => {
-    console.log('item added');
 
     let outfitListCopy = [...outfitList];
 
@@ -26,7 +25,7 @@ const Outfit = ({mainProduct, choice, selectedProduct, pickProduct}) => {
 
     let stringOutfitList = JSON.stringify(outfitListCopy);
     localStorage.setItem('outfitList', stringOutfitList);
-    console.log('item added');
+
   }
 
   const removeItem = (itemName) => {
@@ -44,7 +43,6 @@ const Outfit = ({mainProduct, choice, selectedProduct, pickProduct}) => {
     if (localOutfitList) setOutfitList(localOutfitList)
 
   }, [])
-  console.log('outfitlist', outfitList);
   return(
     <div className="related-container outfit-container" id="relatedContainer&noID">
       <h2 className="related-header outfit-header" id="relatedHeader&noID">Outfit</h2>

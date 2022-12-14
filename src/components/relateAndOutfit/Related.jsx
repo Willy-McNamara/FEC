@@ -14,7 +14,6 @@ const Related = ({mainProduct, pickProduct, choice, selectedProduct, setProduct}
 
     }
   }, [mainProduct])
-  console.log('pick product in related', pickProduct);
 
   return(
     <div className="related-container" id="relatedContainer&noID">
@@ -23,7 +22,6 @@ const Related = ({mainProduct, pickProduct, choice, selectedProduct, setProduct}
       <Carousel listOfProducts={relatedProducts} mainProduct={mainProduct} pickProduct={pickProduct} choice={choice} selectedProduct={selectedProduct} setProduct={setProduct}/>
     </div>
   )
-  console.log(relatedProducts);
 }
 
 export default Related;
