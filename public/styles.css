@@ -436,7 +436,7 @@ font-family: 'Quicksand', sans-serif;
 }
 
 .sizesDropdown {
-  width: 30%;
+  width: 10vw;
   display: flex;
   position: relative;
   height: 3vw;

@@ -2,3 +2,6 @@
 config.js
 bundle.js
 routes.rest
+.DS_Store
+src/.DS_Store
+src/components/.DS_Store
