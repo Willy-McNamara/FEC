@@ -5,7 +5,7 @@ import PI1B from './PI1B.jsx';
 import PI1C from './PI1C.jsx';
 
 const PI1 = ({product, style}) => {
-
+  console.log('product in pi1', product);
   return (
     <div id="PI1">
       < PI1A id={product.id}/>

@@ -4,12 +4,14 @@ import CompareButton from './CompareButton.jsx';
 import axios from 'axios';
 import Modal from './Modal.jsx';
 import RemoveButton from './RemoveButton.jsx';
-const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduct, choice, removeItem, selectedProduct}) => {
+const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduct, choice, removeItem, selectedProduct, setProduct}) => {
   const [defaultStyle, setDefaultStyle] = useState([]);
   const [reviewScore, setReviewScore] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [reviewScores ,setReviewScores ] = useState('init');
   const [modal, setModal] = useState(false);
+  console.log('this is the selected product', selectedProduct)
+  console.log('product in card', product);
   const toggleModal = (e) => {
     // e.preventDefault();
     if (alreadyDisplayed === false) {
@@ -20,6 +22,7 @@ const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduc
       toggleDisplay(false);
     }
   }
+  console.log(setProduct);
   let button;
   if (choice === 'relate') {
     button = <CompareButton toggleModal={toggleModal} toggleDisplay={toggleDisplay}/>
@@ -69,11 +72,11 @@ const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduc
     >
       {button}
       <img src={imageUrl} className="cardImage" id={`relatedCardImage&productID=${product.id}?styleID=${defaultStyle['style_id']}` } onClick={(event) => {
-      pickProduct(product);
-    }}/>
+        setProduct(product);
+      }}/>
       <div className="detail-container" id="detailContainer&noID" onClick={(event) => {
-      pickProduct(product);
-    }}>
+        setProduct(product);
+      }}>
         {product.category}
         <b>{product.name}</b>
         ${defaultStyle.original_price}
