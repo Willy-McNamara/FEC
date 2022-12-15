@@ -56,13 +56,13 @@ const Questions = ({product}) => {
   return (
     <div className='questions-and-answers'>
       <h3 className='qna-heading'>Questions & Answers</h3>
-      <input onChange={(e)=>handleChange(e.target.value)} type="text" className='qna-heading' placeholder="Search Questions" />
+      <input onChange={(e)=>handleChange(e.target.value)} type="text" className='qna-search' placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." />
       <div className='qna-scroll'>
         {!inSearch && <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={questions} setQuestions={setQuestions}/>}
         {inSearch && <QuestionsList product={product} shownQ={shownQuestions} showMore={setShownQuestions} questions={searchQs} setQuestions={setQuestions}/>}
         </div>
 
-      <button onClick={() => setOpen(!open)}>Add Question</button>
+      <p className='qna-button' onClick={() => setOpen(!open)}>Add Question +</p>
       <StyledModal
         show={open}
         handleClose={() => setOpen(false)}
