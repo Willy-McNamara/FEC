@@ -3,12 +3,15 @@ import StarRating from './StarRating.jsx'
 import FeatureBar from './FeatureBar.jsx'
 import RatingsBar from './RatingsBar.jsx'
 import axios from 'axios'
+import characteristics from './characteristics.js'
 
 const ReviewsSummary = ({ reviewMetaData }) => {
   if (reviewMetaData === 'init') return
 
   const {countOfRatings, ratingAverages, rawData} = reviewMetaData
   const {ratingOutOf5, ratingAsPercentRounded} = ratingAverages;
+
+  console.log('testing characteristics import', characteristics)
 
   return (
     <div className="flex flex-column containerHalf border">
