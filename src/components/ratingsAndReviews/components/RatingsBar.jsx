@@ -18,7 +18,8 @@ const RatingsBar = ({ rating, countOfRatings, filterReviews, setFilterReviews })
         setFilterReviews([])
       }
     } else {
-      // console.log('LAST BLOCK IN IF')
+      const copy = filterReviews.slice(0)
+      console.log('copy from inside filter', copy)
     }
 
     // setFilterReviews(filterReviews.concat(filterBy))
