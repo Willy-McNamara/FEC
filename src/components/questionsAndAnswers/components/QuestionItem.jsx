@@ -29,12 +29,12 @@ const QuestionItem = ({product, question, setQuestions}) => {
 
   return (
     <div className='question'>
-      <h5 className='question-body'>Q: {question.question_body}</h5>
-      <p className='askedBy'>asked by {question.asker_name}</p>
-      <p className='askedAt'>asked at {question.question_date}</p>
-      <p className='helpfulScore'>Helpful to {question.question_helpfulness} others</p>
-      <button className='helpful' onClick={()=>markHelpful()}>Helpful?</button>
-      <button className='report' onClick={()=>report()}>Report Question?</button>
+      <div className='helpful-box'>
+        <h5 className='question-body'>Q: {question.question_body}</h5>
+        <p className='askedBy'>by {question.asker_name}, {question.question_date.substring(0, 10)}</p>
+        <p className='helpful' onClick={()=>markHelpful()}>Helpful? Yes ({question.question_helpfulness})</p>
+        <p className='report' onClick={()=>report()}>Report Question?</p>
+      </div>
       <AnswerList answers={question.answers} setQuestions={setQuestions} qId={question.question_id}/>
     </div>
   );

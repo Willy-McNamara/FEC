@@ -31,7 +31,7 @@ const QuestionsList = ({showMore, shownQ, product, questions, setQuestions}) => 
     return (
       <div>
         {renderedQuestions.map(q=><QuestionItem question={q} product={product} setQuestions={setQuestions}/>)}
-        {questions.length > shownQ && <button className="more-questions" onClick={()=>moreQuestions()}>Show More Questions</button>}
+        {questions.length > shownQ && <p className='qna-button' onClick={()=>moreQuestions()}>Show More Questions</p>}
       </div>
     )
   }

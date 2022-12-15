@@ -8,7 +8,7 @@ const ATC1Bb= ({style}) => {
   return (
     <div id="ATC1Bb" onClick={() => {
       let outfit = document.getElementsByClassName('outfit-button')
-      console.log('outfit in ATC1Bb', outfit)
+      // console.log('outfit in ATC1Bb', outfit)
       outfit[0].scrollIntoView({behavior: "smooth"})
     }}
     onMouseEnter={(e) => {

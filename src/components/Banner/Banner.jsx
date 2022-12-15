@@ -6,7 +6,7 @@ const Banner = () => {
       <div id="Banner">
         <div id="main">
           <img id="logo" src="Logo.png" alt="Logo"/>
-          <div id="searchBar"> _____________
+          <div id="searchBar"> _______________
             <img id="searchIcon" src="searchIcon.png" />
           </div>
         </div>

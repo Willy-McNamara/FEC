@@ -42,9 +42,7 @@ const AnswerList = ({product, setQuestions, qId}) => {
 
     return (
       <div>
-        {answers.results.slice(0, shownA).map(answer=><AnswerItem product={product} answer={answer} setAnswers={setAnswers} setQuestions={setQuestions}/>)}
-        {answers.results.length > shownA && <button onClick={() => moreA()}>Show more answers</button>}
-        <button onClick={() => setOpen(!open)}>Add Answer</button>
+        <p className='helpfulAns' onClick={() => setOpen(!open)}>Add Answer</p>
         <StyledModal
           show={open}
           handleClose={() => setOpen(false)}
@@ -52,6 +50,8 @@ const AnswerList = ({product, setQuestions, qId}) => {
           <AnswerForm handleClose={setOpen} id={qId} setAnswers={setAnswers} setQuestions={setQuestions}/>
 
         </StyledModal>
+        {answers.results.slice(0, shownA).map(answer=><AnswerItem product={product} answer={answer} setAnswers={setAnswers} setQuestions={setQuestions}/>)}
+        {answers.results.length > shownA && <p className='show-ans' onClick={() => moreA()}>Load More Answers</p>}
       </div>
     );
   }

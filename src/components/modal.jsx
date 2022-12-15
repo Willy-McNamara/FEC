@@ -18,7 +18,7 @@ const ContentDiv = styled.div`
     height:auto;
     padding: 2rem;
     transform: translate(-50%, -50%);
-    background: white;
+    background: #fffef5;
     z-index: -1;
     position:relative;
 `
