@@ -36,15 +36,8 @@ const ReviewsList = ({ product, metaData }) => {
       console.log('I WORK!!')
       console.log(e.target.value)
 
-      axios.get(`/reviews/sortreviews/${product.id}/sort/${e.target.value.toLowerCase()}`, {
-       params: {
-          product_id: product.id,
-          page: 1,
-          count: 1000,
-          sort: e.target.value.toLowerCase(),
-        },
-      })
-          .then((res) => console.log(res.data))
+      axios.get(`/reviews/sortreviews/${product.id}/sort/${e.target.value.toLowerCase()}`)
+          .then((res) => {setReviewList(res.data.results)})
           .catch((err) => { console.log('ERROR ON SORT GET ROUTE', err) })
 
     }
@@ -52,7 +45,7 @@ const ReviewsList = ({ product, metaData }) => {
   useEffect(() => {
     axios.get(`/reviews/${product.id}`)
       .then((res) => { setReviewList(res.data.results) })
-      .catch((err) => { console.log('ERROR ON REVIEWS GET ROUTE', err) })
+      .catch((err) => { console.log('ERROR ON REVIEWS GET ROUTE') })
   }, [])
 
   return (

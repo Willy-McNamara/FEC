@@ -36,14 +36,25 @@ const logInteraction = (bodyParams) => {
 
 // get sorted reviews
 router.get('/sortreviews/:review/sort/:sort', (req, res)=>{
-  console.log('TESTING SORT ROUTE', req.params)
-  // .then((req)=>{
-  //   res.status(200).send(req)
-  // })
-  // .catch((err)=>{
-  //   console.log('err on sort route', err)
-  //   res.status(400).send(err)
-  // })
+  // console.log('sort param', req.params)
+  console.log('productID param', req.params.review)
+  console.log('sort param', req.params.sort)
+  axios.get(apiURL + `/reviews/?product_id=${req.params.review}&page=1&count=100&sort=${req.params.sort}`, {
+    headers:
+     {'Authorization': APIKEY}}
+    )
+    .then((data)=>{
+      res.status(200).send(data.data)
+      logInteraction({
+        'element': 'Reviews.jsx',
+        'widget': 'reviews',
+        'time': new Date()
+      })
+    })
+    .catch((err)=>{
+      console.log('error in get all reviews', err)
+      res.status(400).send(err)
+    })
 })
 
 //get all reviews route
@@ -67,17 +78,17 @@ axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}`, {
   })
 })
 
-// get sorted reviews
-router.get('/sort', (req, res)=>{
-  console.log('TESTING SORT ROUTE', req.params)
-  // .then((req)=>{
-  //   res.status(200).send(req)
-  // })
-  // .catch((err)=>{
-  //   console.log('err on sort route', err)
-  //   res.status(400).send(err)
-  // })
-})
+// // get sorted reviews
+// router.get('/sort', (req, res)=>{
+//   console.log('TESTING SORT ROUTE', req.params)
+//   // .then((req)=>{
+//   //   res.status(200).send(req)
+//   // })
+//   // .catch((err)=>{
+//   //   console.log('err on sort route', err)
+//   //   res.status(400).send(err)
+//   // })
+// })
 
 //this is VERY similar to the above request, but purpose is to get meta data. refactor this eventually after functionality is hit.
 router.get('/meta/:product_id', (req, res)=>{
