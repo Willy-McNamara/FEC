@@ -78,6 +78,12 @@ font-family: 'Quicksand', sans-serif;
   padding: 2vw;
 }
 
+#searchIcon {
+  max-width: 1.8vw;
+  justify-self: center;
+  align-self: center;
+}
+
 #announcementBar {
   background-color: #390c14;
   font-size: min(1vw, 12px);

@@ -15,10 +15,13 @@ const IG1bZ = ({currentPhoto, zoom}) => {
 
   const widthSetter = () => {
     // grab the main photo element, take it's width
-    let mainPhoto = document.getElementById('mainPhoto')
-    let width = mainPhoto.offsetWidth
-    let height = mainPhoto.offsetHeight
-    setZoomDim({width: width * 2.5, height: height * 2.5})
+    setTimeout(() => {
+      // use this to allow time for my container transition (let mainPhoto grow to max height!)
+      let mainPhoto = document.getElementById('mainPhoto')
+      let width = mainPhoto.offsetWidth
+      let height = mainPhoto.offsetHeight
+      setZoomDim({width: width * 2.5, height: height * 2.5})
+    }, 500);
   }
 
   // HANDLERS
