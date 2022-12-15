@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import characteristics from './characteristics.js'
 
 const FeatureBar = ({ name, rating }) => {
-  console.log('testing characteristics import', characteristics)
-  console.log('Props from feature bar', name, rating)
-  console.log('testing access of char object', characteristics[name])
+  // console.log('testing characteristics import', characteristics)
+  // console.log('Props from feature bar', name, rating)
+  // console.log('testing access of char object', characteristics[name])
 const markerPosition = {
 position: 'absolute',
 left: `${Math.floor(rating * 20)}%`,
