@@ -5,8 +5,14 @@ const Container1B = ({product}) => {
 
   return (
     <div id="Container1B">
-      <h4>{product.slogan}</h4>
-      <h6>{product.description}</h6>
+      <div id="C1Bleft">
+        <div id="productSlogan">
+          {product.slogan}
+        </div>
+        <div id="productDescription">
+          {product.description}
+        </div>
+      </div>
     </div>
   )
 }
