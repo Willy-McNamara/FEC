@@ -4,7 +4,7 @@ import Axios from 'axios';
 const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
   const [summaryWordCount, setSummaryWordCount] = useState(0)
   const buttonValues = [1, 2, 3, 4, 5];
-  const emailValidation = "^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
+  // const emailValidation = "^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
 
   const charCount = (e) => {
     // console.log(e.target.value?.length)
@@ -13,6 +13,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
 
   const handleClick = (e) => {
     // form data creates a form data object**
+    console.log('testing submit', e.target)
     e.preventDefault()
 
     // const featuresList = document.querySelectorAll('.feature-label');
@@ -104,17 +105,17 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
 
       <form action="#" onSubmit={handleClick}>
         <label>Name:</label>
-        <input type="text" id="name" name="name" placeholder="Example: jackson11!" required />
+        <input type="text" id="name" name="name" placeholder="Example: jackson11!" required="true" />
         <p class="subtitle">For privacy reasons, do not use your full name or email address”</p>
         <label>Email:</label>
         <input type="email" id="email" name="email" placeholder="Example: jackson11@email.com"
         pattern="^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
-        required />
+        required="true" />
         <p class="subtitle">For authentication reasons, you will not be emailed”</p>
         <fieldset>
           <legend>Recommended:</legend>
           <div>
-            <input type="radio" id="yes" name="recommend" value={true} required />
+            <input type="radio" id="yes" name="recommend" value={true} required="true"/>
             <label for="yes">Yes</label>
           </div>
           <div>
@@ -131,7 +132,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
           {buttonValues.map((value, index) => {
             return (
               <div>
-                <input type="radio" id={`rate_${value}`} name="rating" value={value} required />
+                <input type="radio" id={`rate_${value}`} name="rating" value={value} required="true"/>
                 <label for={`rate_${value}`}>{`${value}`}</label>
               </div>
             )
@@ -155,7 +156,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
                       buttonValues.map((value, index) => {
                         return (
                           <div>
-                            <input type="radio" id={`rate_${value}`} name={`${feature[1].id}`} value={value} required />
+                            <input type="radio" id={`rate_${value}`} name={`${feature[1].id}`} value={value} required="true" />
                             <label for={`rate_${value}`}>{`${value}`}</label>
                             {(index === 0 || index === 4) &&
                               <p>{attributes[index]}</p>
@@ -175,7 +176,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
         <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" maxlength="60" />
         <div>
           <label>Review:</label>
-          <textarea rows="3" cols="50" onChange={charCount} id="review_body" name="body" placeholder="Why did you like the product or not?" minlength="50 " maxlength="1000" required></textarea>
+          <textarea rows="3" cols="50" onChange={charCount} id="review_body" name="body" placeholder="Why did you like the product or not?" minlength="50 " maxlength="1000" required="true"></textarea>
           <p>{
             50 > summaryWordCount ?
               `Minimum required characters left: ${50 - summaryWordCount}` :
@@ -184,6 +185,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
           </p>
         </div>
         <input type="submit" value="submit" />
+        {/* <input type='button' onClick={handleClick}/> */}
       </form>
     </div>
   )
