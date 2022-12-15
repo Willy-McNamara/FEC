@@ -6,7 +6,7 @@ import axios from 'axios'
 const ReviewTile = ({ review, score }) => {
   const { review_id, rating, reviewer_name, summary, body, helpfulness, response, date, photos, recommend } = review
 
-  console.log('REVIEW FROM REVIEWTILE', review)
+  // console.log('REVIEW FROM REVIEWTILE', review)
 
   const [showModal, setShowModal] = useState(false);
   const [isExpanded, setExpanded] = useState(false);

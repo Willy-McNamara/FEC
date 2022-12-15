@@ -3,12 +3,16 @@ import StarRating from './StarRating.jsx'
 import FeatureBar from './FeatureBar.jsx'
 import RatingsBar from './RatingsBar.jsx'
 import axios from 'axios'
+import characteristics from './characteristics.js'
 
-const ReviewsSummary = ({ reviewMetaData }) => {
+const ReviewsSummary = ({ reviewMetaData, filterReviews, setFilterReviews }) => {
   if (reviewMetaData === 'init') return
+  // console.log('testing filterReviews and setFilterReviews', filterReviews, setFilterReviews)
 
   const {countOfRatings, ratingAverages, rawData} = reviewMetaData
   const {ratingOutOf5, ratingAsPercentRounded} = ratingAverages;
+
+  // console.log('testing characteristics import', characteristics)
 
   return (
     <div className="flex flex-column containerHalf border">
@@ -16,10 +20,12 @@ const ReviewsSummary = ({ reviewMetaData }) => {
         <div><h2>{ratingOutOf5}</h2></div>
         <StarRating data={ratingAsPercentRounded} />
       </div>
+
       {Object.entries(rawData.ratings).map((rating, index) => {
-        return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings} />
+        return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings} filterReviews={filterReviews} setFilterReviews={setFilterReviews}/>
       })
       }
+
       {Object.entries(rawData.characteristics).map((entry, index) => {
         return <FeatureBar key={index} name={entry[0]} rating={entry[1].value}/>
       })

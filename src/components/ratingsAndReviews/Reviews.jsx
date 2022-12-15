@@ -9,6 +9,8 @@ import axios from 'axios';
 const Reviews = ({product}) => {
 // console.log('product from Reviews.jsx', product) //logs twice...
   const [reviewMetaData, setReviewMetaData] = useState('init')
+  const [filterReviews, setFilterReviews] = useState([])
+  // console.log('filter reviews at reviews.jsx', filterReviews)
 
   useEffect(() => {
     if(reviewMetaData === 'init') {
@@ -25,7 +27,7 @@ const Reviews = ({product}) => {
     <div className="border" id="reviews">
       <h6 id="reviewsSection">Ratings & Reviews</h6>
       <div className="flex border">
-      <ReviewsSummary reviewMetaData={reviewMetaData}/>
+      <ReviewsSummary reviewMetaData={reviewMetaData} filterReviews={filterReviews} setFilterReviews={setFilterReviews}/>
       <ReviewsList product={product} metaData={reviewMetaData}/>
       </div>
     </div>
