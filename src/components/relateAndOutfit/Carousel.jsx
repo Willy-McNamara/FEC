@@ -8,18 +8,6 @@ const Carousel = ({listOfProducts, mainProduct, pickProduct, choice, setProduct,
     let slider = document.getElementById('slider&noID');
     slider.scrollLeft = slider.scrollLeft - 500;
     var maxScrollRight = slider.scrollWidth - slider.clientWidth;
-    const leftArrow = document.getElementById('leftSliderIcon&noID');
-    const rightArrow = document.getElementById('rightSliderIcon&noID');
-    if(slider.scrollLeft === maxScrollRight) {
-      rightArrow.style.visibility = "hidden";
-    } else if (slider.scrollLeft < maxScrollRight) {
-      rightArrow.style.visibility = "visible";
-    }
-    if(slider.scrollLeft === 0) {
-      leftArrow.style.visibility = "hidden";
-    } else if (slider.scrollLeft > 0 ) {
-      leftArrow.style.visibility = "visible";
-    }
   }
 
   const slideRight = () => {
@@ -27,18 +15,6 @@ const Carousel = ({listOfProducts, mainProduct, pickProduct, choice, setProduct,
     slider.scrollLeft = slider.scrollLeft + 500;
     var maxScrollLeft = slider.scrollWidth - slider.clientWidth;
     var maxScrollRight = slider.scrollWidth - slider.clientWidth;
-    const leftArrow = document.getElementById('leftSliderIcon&noID');
-    const rightArrow = document.getElementById('rightSliderIcon&noID');
-    if(slider.scrollLeft === maxScrollRight) {
-      rightArrow.style.visibility = "hidden";
-    } else if (slider.scrollLeft < maxScrollRight) {
-      rightArrow.style.visibility = "visible";
-    }
-    if(slider.scrollLeft === 0) {
-      leftArrow.style.visibility = "hidden";
-    } else if (slider.scrollLeft > 0 ) {
-      leftArrow.style.visibility = "visible";
-    }
   }
   // const slideLeft = () => {
   //   let slider = document.getElementById('slider&noID');
