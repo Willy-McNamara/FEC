@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const SortReviews = ({numReviews}) => {
+const SortReviews = ({numReviews, sortReviews}) => {
 
   // const [,] = useState();
 
@@ -8,11 +8,13 @@ const SortReviews = ({numReviews}) => {
 
   // }, [])
 
+
+  // add back to select onChange={sortReviews}
   return (
     <div>
       <span>{numReviews} reviews, sorted by</span>
-      <select name="SortReviews" id="SortReviews">
-          <option value="Relevent" selected>Relevant</option>
+      <select name="SortReviews" id="SortReviews" onChange={sortReviews}>
+          <option value="Relevant" selected>Relevant</option>
           <option value="Helpful">Helpful</option>
           <option value="Newest">Newest</option>
       </select>

@@ -5,7 +5,8 @@ const axios = require('axios')
 const APIKEY = require('../config.js').APIKEY
 let apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe'
 
-router.use(express.json())
+// router.use(express.urlencoded({extended: true}));
+// router.use(express.json());
 
 const logInteraction = (bodyParams) => {
   axios.post(apiURL + '/interactions', bodyParams, {
@@ -20,11 +21,61 @@ const logInteraction = (bodyParams) => {
 }
 
 //be sure to go back and update log interaction args as needed
+//TODO: refactor
+// // get sorted reviews
+// router.get('/sort', (req, res)=>{
+//   console.log('TESTING SORT ROUTE', req.data)
+//   // .then((req)=>{
+//   //   res.status(200).send(req)
+//   // })
+//   // .catch((err)=>{
+//   //   console.log('err on sort route', err)
+//   //   res.status(400).send(err)
+//   // })
+// })
+
+// get sorted reviews
+router.get('/sortreviews/:review/sort/:sort', (req, res)=>{
+  // console.log('sort param', req.params)
+  console.log('productID param', req.params.review)
+  console.log('sort param', req.params.sort)
+  axios.get(apiURL + `/reviews/?product_id=${req.params.review}&count=1000&sort=${req.params.sort}`, {
+    headers:
+     {'Authorization': APIKEY}}
+    )
+    .then((data)=>{
+      res.status(200).send(data.data)
+      logInteraction({
+        'element': 'Reviews.jsx',
+        'widget': 'reviews',
+        'time': new Date()
+      })
+    })
+    .catch((err)=>{
+      console.log('error in get all reviews', err)
+      res.status(400).send(err)
+    })
+})
+
+router.put('/helpful', (req, res)=>{
+  console.log('testing helpful route', req.body)
+  const endpoint = req.body.isHelpful === 'true' ? 'helpful' : 'report'
+  console.log('testing endpoint variable', endpoint)
+  axios.put(apiURL + `/reviews/${req.body.review_id}/${endpoint}`,req.body,{headers:{'Authorization': APIKEY}})
+  .then((data)=>{
+    console.log('DATA FROM API', data.data)
+    res.status(204).send()
+  })
+  .catch((err)=>{
+    console.log('ERROR ON API', err)
+    res.status(400).send(err)
+  })
+})
 
 //get all reviews route
 router.get('/:product_id', (req, res)=>{
-// console.log('/REVIEWS GET product id', req.params.product_id)
-axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}`, {
+// console.log('/REVIEWS GET product id', req.params)
+axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}&count=1000`, {
   headers:
    {'Authorization': APIKEY}}
   )
@@ -41,6 +92,20 @@ axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}`, {
     res.status(400).send(err)
   })
 })
+
+
+
+// // get sorted reviews
+// router.get('/sort', (req, res)=>{
+//   console.log('TESTING SORT ROUTE', req.params)
+//   // .then((req)=>{
+//   //   res.status(200).send(req)
+//   // })
+//   // .catch((err)=>{
+//   //   console.log('err on sort route', err)
+//   //   res.status(400).send(err)
+//   // })
+// })
 
 //this is VERY similar to the above request, but purpose is to get meta data. refactor this eventually after functionality is hit.
 router.get('/meta/:product_id', (req, res)=>{
@@ -70,6 +135,24 @@ router.get('/meta/:product_id', (req, res)=>{
       res.status(400).send(err)
     })
   })
+
+
+router.post('/newReview', (req, res) => {
+  // console.log('REQ FROM SERVER', req.body);
+  axios.post(apiURL + '/reviews', req.body, {headers: {'Authorization': APIKEY}})
+      .then((data) => {
+        res.json(data.data);
+        logInteraction({
+          'element': 'ReviewForm.jsx',
+          'widget': 'reviews',
+          'time': new Date()
+        });
+      })
+      .catch((err) => {
+        console.error('ERROR IN newReview POST', err.response.data);
+        res.status(err.response.status).json(err);
+      });
+});
 
 //Controller functions
 let calcRatingAverages = (ratingsObject) => {
@@ -107,6 +190,7 @@ const countRatings = (ratingsObject) => {
 
   return countOfRatings
 }
+
 
 
 

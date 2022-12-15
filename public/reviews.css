@@ -1,0 +1,55 @@
+:root {
+  --primary-color: #00aeff;
+}
+
+#reviews fieldset {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#reviews fieldset p {
+  margin: 2px;
+}
+
+#reviews-form input[type="submit"] {
+  height: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+#reviews .subtitle {
+  color: #666;
+  font-size: .8em;
+  margin: 0;
+}
+
+#reviews input:required {
+  border-color: red;
+}
+
+.review-modal {
+}
+
+.review-modal .grey-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000099
+}
+
+.review-modal .inner-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+  height: 80vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+}
