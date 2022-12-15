@@ -16,16 +16,6 @@ const Carousel = ({listOfProducts, mainProduct, pickProduct, choice, setProduct,
     var maxScrollLeft = slider.scrollWidth - slider.clientWidth;
     var maxScrollRight = slider.scrollWidth - slider.clientWidth;
   }
-  // const slideLeft = () => {
-  //   let slider = document.getElementById('slider&noID');
-  //   slider.scrollLeft = slider.scrollLeft - 500;
-  // }
-
-  // const slideRight = () => {
-  //   let slider = document.getElementById('slider&noID');
-  //   slider.scrollLeft = slider.scrollLeft + 500;
-  // }
-
   return(
     <div className="main-slider-container" id="mainSliderContainer&noID">
       <MdChevronLeft className="slider-icon left" id="leftSliderIcon&noID" onClick={slideLeft}/>
