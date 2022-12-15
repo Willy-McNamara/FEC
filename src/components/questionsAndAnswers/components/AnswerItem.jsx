@@ -27,13 +27,14 @@ const AnswerItem = ({setQuestions, setAnswers, product, answer}) => {
   // add in axios put requests on helpful and report
   // trigger a get request after each one is marked helpful or reported
   return (
-    <div>
-      <p>A: {answer.body}</p>
-      <p>by: {answer.answerer_name}</p>
-      {answer.photos.map(image=> <img src={image.url} style={{height: '50px', width: '50px'}}/>)}
-      <button className='helpful' onClick={()=>markHelpfulAns()}>helpful?</button>
-      <button className='report' onClick={()=>reportAns()}>Report Answer?</button>
-      <p className='helpfulScore'>Helpful to {answer.helpfulness} others</p>
+    <div className='answer-item'>
+      <div className='helpful-box'>
+        <h5 className='answer'>A: {answer.body}</h5>
+        {answer.photos.map(image=> <img src={image.url} style={{height: '50px', width: '50px'}}/>)}
+        <p className='askedBy'>by {answer.answerer_name}, {answer.date.substring(0, 10)}</p>
+        <p className='helpfulAns' onClick={()=>markHelpfulAns()}>Helpful? Yes ({answer.helpfulness})</p>
+        <p className='reportAns' onClick={()=>reportAns()}>Report Answer?</p>
+      </div>
     </div>
   );
 }

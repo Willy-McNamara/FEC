@@ -843,10 +843,95 @@ select {
   ==== =============== ============ ====== Questions and Answers WIDGET ========== ========= =========== ============ =======
 */
 
-.questions-and-answers {
+.helpful-box {
+  position: relative;
+}
+
+.addAns {
+  font-size:x-small;
+  top: 0px;
+  right: 50px;
+  position: absolute;
+}
+
+.qna-heading {
+  font-size: small;
+  font-weight: normal;
+}
+
+.answer {
+  font-weight: normal;
+}
+
+.askedBy {
+  font-size: x-small;
+}
+
+.helpful {
+  font-size:x-small;
+  top: 0px;
+  right: 50px;
+  position: absolute;
+}
+
+.helpful:hover {
+  text-decoration: underline;
+}
+.report {
+  font-size:x-small;
+  top: 0px;
+  right: 150px;
+  position: absolute;
+}
+
+.report:hover {
+  text-decoration: underline;
+}
+
+.helpfulAns {
+  font-size:x-small;
+
+}
+
+.helpfulAns:hover {
+  text-decoration: underline;
+}
+.reportAns {
+  font-size:x-small;
+
+}
+
+.reportAns:hover {
+  text-decoration: underline;
+}
+
+.qna-button {
+  height: 30px;
+  width: 100px;
   border-style: solid;
-  border-width: 1px;
-  border-color: black;
+  border-width: 0.5px;
+  font-size: small;
+  border-color:#390c14;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.qna-button:hover {
+  background-color: #390c14;
+  color:#a5497e;
+}
+
+.show-ans {
+  font-weight: bold;
+  font-size: x-small;
+}
+
+.show-ans:hover {
+  text-decoration: underline;
+}
+
+.qna-search {
+  width: 99%;
+  height: 30px;
 }
 
 .qna-scroll {
@@ -854,11 +939,6 @@ select {
   height:620px;
 }
 
-.question {
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: black;
-}
 
 
 .modal-container {
@@ -867,10 +947,10 @@ select {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
-  background-color: white;
+  padding: 30px;
+  background-color: #fffef5;
   box-shadow: black, 0px 5px 15px;
-
+  z-index: -1;
 }
 
 .helpfulScore {
