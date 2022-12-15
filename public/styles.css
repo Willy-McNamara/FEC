@@ -76,6 +76,7 @@ font-family: 'Quicksand', sans-serif;
 
 #searchBar {
   padding: 2vw;
+  font-size: min(1.5vw, 16px);
 }
 
 #searchIcon {
@@ -306,7 +307,7 @@ font-family: 'Quicksand', sans-serif;
 
 #iconGall {
   position: absolute;
-  top: 92%;
+  top: 90%;
   justify-self: center;
   width: auto;
   height: auto;
@@ -650,7 +651,7 @@ font-family: 'Quicksand', sans-serif;
 
 #ATC1Ab1 { /* displays singular current size*/
   height: auto;
-  /* background-color: white; */
+  background-color: none;
   border-width: 1px;
   justify-self: center;
   align-self: center;
