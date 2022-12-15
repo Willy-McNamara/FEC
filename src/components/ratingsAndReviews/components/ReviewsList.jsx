@@ -19,27 +19,13 @@ const ReviewsList = ({ product, metaData }) => {
   const viewMoreReviews = () => {setshowMoreReviews(!showMoreReviews)}
   const viewAddReview = () =>{setShowModal(!showModal)}
 
-
-  // console.log('props from reviewslist', metaData.rawData.characteristics)
-
-  //TODO:build the sort reviews functionality
-  //attach a change handler to the options - DONE
-    //on change, call the getSorted Reviews Function
-      //getSorted reviews takes one arg, the sort method
-      //getSorted will call the server route established to handle it, and will pass along the sort method
-
-
-    //function will call the use effect below, passing in the sort method
-    //axios request body will have default params of page, count, and the sort method
-
     const sortReviews = (e)=> {
       console.log('I WORK!!')
       console.log(e.target.value)
-
+      setReviewList([])
       axios.get(`/reviews/sortreviews/${product.id}/sort/${e.target.value.toLowerCase()}`)
           .then((res) => {setReviewList(res.data.results)})
           .catch((err) => { console.log('ERROR ON SORT GET ROUTE', err) })
-
     }
 
   useEffect(() => {
@@ -50,9 +36,6 @@ const ReviewsList = ({ product, metaData }) => {
 
   return (
     <div className="flex flex-column containerHalf border">
-      {/* //TODO:Update this to be as long as ALL reviews
-      sortReviews={sortReviews} */
-      }
       <SortReviews numReviews={reviewsList.length} sortReviews={sortReviews}/>
       <div>
         {reviewsList.slice(0, 2).map((review, index) => {
@@ -60,13 +43,9 @@ const ReviewsList = ({ product, metaData }) => {
         })}
       </div>
       <div>
-        {/* TODO: map out functionality for More Reviews button */}
-        {/* <button onClick={viewMoreReviews}>More Reviews</button>
-        <MoreReviews showMoreReviews={showMoreReviews} setshowMoreReviews={setshowMoreReviews}>
-          <ReviewScrollList productId = {product.id}/>
-        </MoreReviews> */}
-        <button onClick={() => {setshowMoreReviews(true)}}>More Reviews</button>
 
+        <button onClick={() => {setshowMoreReviews(true)}}>More Reviews</button>
+        <button onClick={viewAddReview}>Add Review +</button>
         <Modal showModal={showMoreReviews} setShowModal={setshowMoreReviews} >
           <div>
             {reviewsList.map((review, index) => {
@@ -75,7 +54,7 @@ const ReviewsList = ({ product, metaData }) => {
           </div>
         </Modal>
 
-        <button onClick={viewAddReview}>Add Review +</button>
+
         <Modal showModal={showModal} setShowModal={setShowModal}>
           <ReviewForm name={product.name} id={product.id} ch_data={metaData.rawData.characteristics} viewAddReview={viewAddReview}/>
         </Modal>
