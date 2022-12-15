@@ -22,7 +22,12 @@ const ATC1Aa= ({sizeElements, currentSize, currentSizeHandler}) => {
 
   // RETURN
   return (
-    <div className="sizesDropdown">
+    <div className="sizesDropdown" onMouseEnter={(e) => {
+      e.target.classList.toggle('hoverBackground')
+    }}
+    onMouseLeave={(e) => {
+      e.target.classList.toggle('hoverBackground')
+    }}>
       <div id="ATC1Aa">
         < ATC1Aa1 currentSize={currentSize[0]} sizeViewHandler={sizeViewHandler}/>
         <div className="sizesDDTwo">

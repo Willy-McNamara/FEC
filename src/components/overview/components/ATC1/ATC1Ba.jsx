@@ -9,6 +9,12 @@ const ATC1Ba= ({style, addToCartHandler}) => {
     <div id="ATC1Ba" onClick={(e) => {
       e.preventDefault();
       addToCartHandler();
+    }}
+    onMouseEnter={(e) => {
+      e.target.classList.toggle('hoverBackground')
+    }}
+    onMouseLeave={(e) => {
+      e.target.classList.toggle('hoverBackground')
     }}>
       <div id="ATC1BaText">
         ADD TO CART

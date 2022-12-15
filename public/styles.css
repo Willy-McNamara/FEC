@@ -39,7 +39,7 @@ font-family: 'Quicksand', sans-serif;
   flex-direction: column;
   /* max-width: 1200px;
   min-width: 600px; */
-  width: 70vw;
+  width: 64vw;
   overflow: hidden;
   justify-self: center;
 }
@@ -53,7 +53,7 @@ font-family: 'Quicksand', sans-serif;
 #Banner {
   grid-column-start: 2;
   grid-column-end: 3;
-  width: 70vw;
+  width: 64vw;
   height: 8vw;
   display: flex;
   flex-direction: column;
@@ -80,7 +80,9 @@ font-family: 'Quicksand', sans-serif;
 
 #announcementBar {
   background-color: #390c14;
-  font-size: min(1.2vw, 14px);
+  font-size: min(1vw, 12px);
+  font-weight: 200;
+  font-style: italic;
   color: #fffef5;
   width: 100%;
   height: 2vw;
@@ -139,6 +141,15 @@ font-family: 'Quicksand', sans-serif;
   align-items: flex-start;
 }
 
+#C1Bright {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 #productSlogan {
   font-weight: 500;
   /* font-style: italic; */
@@ -151,6 +162,38 @@ font-family: 'Quicksand', sans-serif;
   font-size: min(1.3vw, 15px);
   padding: 0 1vw 1vw;
   /* font-style: italic; */
+}
+
+#featureList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#featureCheck {
+  width: 1.5vw;
+  aspect-ratio: 1/1;
+  margin-right: 1vw;
+}
+
+#listedFeature {
+  font-weight: 200;
+  font-size: min(1.2vw, 12px);
+  /* font-style: italic; */
+}
+
+
+/* #featureList::marker {
+  font-size: 0.1vw !important;
+} */
+
+#OverviewFeatures {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding-left: 3vw;
+  border-left-style: solid;
+  border-width: 0.15vw;
 }
 
 
@@ -207,6 +250,8 @@ font-family: 'Quicksand', sans-serif;
   height: 100%;
   pointer-events: none;
   display: grid;
+  z-index: 30;
+  cursor: none;
 }
 
 .fancyZoom {
@@ -216,6 +261,7 @@ font-family: 'Quicksand', sans-serif;
 #mouseDiv {
   background-color: white;
   pointer-events: none;
+  border-radius: 5%;
 }
 
 #mainPhoto {
@@ -252,6 +298,23 @@ font-family: 'Quicksand', sans-serif;
   opacity: 0.95 !important;
 }
 
+#iconGall {
+  position: absolute;
+  top: 92%;
+  justify-self: center;
+  width: auto;
+  height: auto;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0%;
+  transition: opacity 500ms ease-in-out;
+}
+
+#thumbnailIcon {
+  width: 4vw;
+  height: auto;
+}
+
 /* End CONTAINER1Aa*/
 /* Start CONTAINER1Ab*/
 
@@ -272,6 +335,12 @@ font-family: 'Quicksand', sans-serif;
   transition: opacity 500ms ease-in-out;
 }
 
+.revealContainer {
+  opacity: 100% !important;
+  pointer-events: all !important;
+  transition: opacity 500ms ease-in-out;
+}
+
 /* ======= ======= ======== PI1 ======= ======= ========= ====== ==== */
 
 #PI1 {
@@ -286,7 +355,7 @@ font-family: 'Quicksand', sans-serif;
 }
 
 #PI1A {
-  width: 95%;
+  width: 100%;
   /* border-style: solid;
   border-color: black;
   border-width: 2px; */
@@ -294,15 +363,23 @@ font-family: 'Quicksand', sans-serif;
   /* align-self: center; */
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 #PI1Aa {
-  font-size: min(1.2vw, 14px);
   padding-bottom: 0.5vw;
+  margin-right: 1vw;
 }
 
 #PI1Ab {
-  font-size: min(1.2vw, 14px);
+  font-size: min(0.85vw, 10px);
+  font-weight: 200;
+  text-decoration: underline;
+  font-style: italic;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  margin-left: 1vw;
 }
 
 #PI1B {
@@ -343,7 +420,8 @@ font-family: 'Quicksand', sans-serif;
   display: flex;
   flex-direction: row;
   padding-bottom: 0.5vw;
-  font-size: min(1.5vw, 18px)
+  font-size: min(1.5vw, 18px);
+  font-weight: 200;
 }
 
 #PI1Cnormal {
@@ -414,17 +492,32 @@ font-family: 'Quicksand', sans-serif;
   height: auto;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  overflow: hidden;
-  border-style: solid;
-  border-color: #a5497e;
-  border-width: 0.15vw;
+  /* overflow: hidden; */
+  /* border-style: solid; */
+  /* border-color: #a5497e; */
+  /* border-width: 0.15vw; */
+  /* position: relative; */
+  margin-right: 3%;
   position: relative;
 }
 
-#selectedCheck {
+#styleCheck {
   position: absolute;
-  top: 5%;
-  left: 70%;
+  left: 65%;
+  width: 1.8vw;
+  z-index: 10;
+
+}
+
+#thumbnailContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #a5497e;
+  /* border-width: 0.15vw; */
+  position: relative;
 }
 
 #fakeSS1Ba {
@@ -435,11 +528,10 @@ font-family: 'Quicksand', sans-serif;
 
 #SSThumbnail {
   max-width: 200%;
-  height:auto;
-  justify-self: center;
-  top: -25%;
-  left: -25%;
-  position: absolute;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
 }
 
 
@@ -489,21 +581,22 @@ font-family: 'Quicksand', sans-serif;
   position: relative;
   display: flex;
   flex-direction: column;
+  background: none;
   /* padding: 80% 0%; */
 }
 
 #ATC1Aa1 { /* displays singular current size*/
   height: 100%;
-  background-color: white;
   border-width: 1px;
   align-self: center;
+  background: none;
 }
 
 #ATC1Aa2 { /* displays sizes list*/
   /* height: 100%;
   top: 100%; */
   position: relative;
-  background-color: white;
+  background-color: #fbf6f7;
   border-width: 1px;
   /* align-self: center; */
   padding: 0.5vw;
@@ -559,7 +652,7 @@ font-family: 'Quicksand', sans-serif;
 
 #ATC1Ab2 { /* displays sizes list*/
   height: 100%;
-  background-color: white;
+  background-color: #fbf6f7;
   /* width: 80%; */
   border-width: 1px;
   /* border-color: orange; */
@@ -624,6 +717,10 @@ font-family: 'Quicksand', sans-serif;
   align-self: center;
 }
 
+.hoverBackground {
+  background-color: #fbf6f7;
+}
+
 /* ========= ============ =========== =======END OF OVERVIEW WIDGET ========== ============== ================== ========== ===*/
 
 /*
@@ -679,9 +776,26 @@ font-family: 'Quicksand', sans-serif;
   color: #fde16d;
 }
 
+/* Made a special version of these two stars things with a W at the end for me to use in overview! */
+.empty-starsW:before, .full-starsW:before {
+  content:"\2605\2605\2605\2605\2605";
+  font-size: 1vw;
+}
+
+.full-starsW {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fde16d;
+}
+
+/* end of special willy version lol */
+
 .empty-stars:before, .full-stars:before {
   content:"\2605\2605\2605\2605\2605";
-  font-size: 14pt;
+  font-size: 12pt;
 }
 
 select {

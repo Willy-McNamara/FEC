@@ -36,6 +36,8 @@ const Container1A = ({product, styles}) => {
     z.classList.toggle('fancyZoom')
     let h = document.getElementById('IG1a')
     h.classList.toggle('hideContainer')
+    let i = document.getElementById('iconGall')
+    i.classList.toggle('revealContainer')
   }
   // let indexHandler = (index) => {
   //   setCurrentIndex(index)

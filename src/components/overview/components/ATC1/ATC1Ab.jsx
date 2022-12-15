@@ -53,7 +53,12 @@ const ATC1Ab= ({currentSize, cartHandler}) => {
 
   // RETURN
   return (
-    <div id="ATC1Ab">
+    <div id="ATC1Ab" onMouseEnter={(e) => {
+      e.target.classList.toggle('hoverBackground')
+    }}
+    onMouseLeave={(e) => {
+      e.target.classList.toggle('hoverBackground')
+    }}>
       <ATC1Ab1 qty={currentQty[0]} quantViewHandler={quantViewHandler}/>
       <div className="qtyDD">
         {qtyElements}
