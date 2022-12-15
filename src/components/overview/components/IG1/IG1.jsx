@@ -41,7 +41,7 @@ const IG1 = ({style, zoomHandler}) => {
   } else {
     return (
       <div id="IG1">
-        <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} currentIndex={currentIndex} indexHandler={indexHandler}/>
+        <IG1b currentPhoto={style.photos[currentIndex]} zoomHandler={zoomHandler} currentIndex={currentIndex} indexHandler={indexHandler} gallery={gallery}/>
         <div id="IG1a">
           {gallery}
         </div>

@@ -25,7 +25,7 @@ const Reviews = ({product}) => {
 
   return (
     <div className="border" id="reviews">
-      <h6>Ratings & Reviews</h6>
+      <h6 id="reviewsSection">Ratings & Reviews</h6>
       <div className="flex border">
       <ReviewsSummary reviewMetaData={reviewMetaData} filterReviews={filterReviews} setFilterReviews={setFilterReviews}/>
       <ReviewsList product={product} metaData={reviewMetaData}/>

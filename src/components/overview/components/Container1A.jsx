@@ -8,7 +8,7 @@ const Container1A = ({product, styles}) => {
   // console.log('Container1A render')
 
   //console.log('styles in C1A', styles)
-  console.log('Container 1A render, here is product and styles :', product, styles)
+  // console.log('Container 1A render, here is product and styles :', product, styles)
 
   // CONTAINER 1
   let [style, setStyle] = useState(styles[0])
@@ -36,6 +36,8 @@ const Container1A = ({product, styles}) => {
     z.classList.toggle('fancyZoom')
     let h = document.getElementById('IG1a')
     h.classList.toggle('hideContainer')
+    let i = document.getElementById('iconGall')
+    i.classList.toggle('revealContainer')
   }
   // let indexHandler = (index) => {
   //   setCurrentIndex(index)
