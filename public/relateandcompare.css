@@ -197,6 +197,10 @@ table, th, td {
 .close-button:hover{
   filter: brightness(125%);
 }
+
+.close-button:active {
+  transform: scale(0.9);
+}
 /* End of Modal */
 
 /* Outfit Card */
