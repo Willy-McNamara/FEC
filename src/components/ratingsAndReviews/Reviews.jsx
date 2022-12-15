@@ -10,7 +10,7 @@ const Reviews = ({product}) => {
 // console.log('product from Reviews.jsx', product) //logs twice...
   const [reviewMetaData, setReviewMetaData] = useState('init')
   const [filterReviews, setFilterReviews] = useState([])
-  // console.log('filter reviews at reviews.jsx', filterReviews)
+  console.log('filter reviews at reviews.jsx', filterReviews)
 
   useEffect(() => {
     if(reviewMetaData === 'init') {

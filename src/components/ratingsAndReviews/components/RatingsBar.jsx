@@ -19,7 +19,10 @@ const RatingsBar = ({ rating, countOfRatings, filterReviews, setFilterReviews })
       }
     } else {
       const copy = filterReviews.slice(0)
-      console.log('copy from inside filter', copy)
+      // console.log('copy from inside filter', copy)
+      copy.splice(copy.indexOf(filterBy),1)
+      // console.log('spliced copy', copy)
+      setFilterReviews(copy)
     }
 
     // setFilterReviews(filterReviews.concat(filterBy))

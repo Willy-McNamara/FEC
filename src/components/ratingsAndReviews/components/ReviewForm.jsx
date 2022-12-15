@@ -4,7 +4,7 @@ import Axios from 'axios';
 const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
   const [summaryWordCount, setSummaryWordCount] = useState(0)
   const buttonValues = [1, 2, 3, 4, 5];
-  const emailValidation = "^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
+  // const emailValidation = "^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$"
 
   const charCount = (e) => {
     // console.log(e.target.value?.length)
@@ -114,7 +114,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
         <fieldset>
           <legend>Recommended:</legend>
           <div>
-            <input type="radio" id="yes" name="recommend" value={true} required />
+            <input type="radio" id="yes" name="recommend" value={true} required/>
             <label for="yes">Yes</label>
           </div>
           <div>
@@ -131,7 +131,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
           {buttonValues.map((value, index) => {
             return (
               <div>
-                <input type="radio" id={`rate_${value}`} name="rating" value={value} required />
+                <input type="radio" id={`rate_${value}`} name="rating" value={value} required/>
                 <label for={`rate_${value}`}>{`${value}`}</label>
               </div>
             )

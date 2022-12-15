@@ -1,8 +1,12 @@
+require('dotenv').config()
 const axios = require('axios');
-const APIKEY = require('../server/config.js');
+// const APIKEY = require('../server/config.js');
+const APIKEY = process.env
 
-let apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe'
 
+// let apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe'
+const apiURL = process.env.API_URL
+console.log('testing new API', apiURL)
 // ALL INTERACTIONS METHOD
 
 const logInteraction = (bodyParams) => {
