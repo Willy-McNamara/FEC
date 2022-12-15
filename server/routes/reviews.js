@@ -57,6 +57,21 @@ router.get('/sortreviews/:review/sort/:sort', (req, res)=>{
     })
 })
 
+router.put('/helpful', (req, res)=>{
+  console.log('testing helpful route', req.body)
+  const endpoint = req.body.isHelpful === 'true' ? 'helpful' : 'report'
+  console.log('testing endpoint variable', endpoint)
+  axios.put(apiURL + `/reviews/${req.body.review_id}/${endpoint}`,req.body,{headers:{'Authorization': APIKEY}})
+  .then((data)=>{
+    console.log('DATA FROM API', data.data)
+    res.status(204).send()
+  })
+  .catch((err)=>{
+    console.log('ERROR ON API', err)
+    res.status(400).send(err)
+  })
+})
+
 //get all reviews route
 router.get('/:product_id', (req, res)=>{
 // console.log('/REVIEWS GET product id', req.params)
@@ -77,6 +92,8 @@ axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}&count=1000`, {
     res.status(400).send(err)
   })
 })
+
+
 
 // // get sorted reviews
 // router.get('/sort', (req, res)=>{
