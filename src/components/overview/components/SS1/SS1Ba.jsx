@@ -9,18 +9,22 @@ const SS1Ba = ({thumbnail, isSelected, styleHandler, index}) => {
     return (
       // special render with checkmark
       <div id="SS1Ba">
-        <img id="SSThumbnail" src={`${thumbnail}`} index={index}/>
-        <div id="selectedCheck">X</div>
+        <img id="styleCheck" src="checkIcon.png"/>
+        <div id="thumbnailContainer">
+          <img id="SSThumbnail" src={`${thumbnail}`} index={index}/>
+        </div>
       </div>
     )
   } else {
     //normal render as a thumbnail div
     return (
       <div id="SS1Ba">
-        <img id="SSThumbnail" src={`${thumbnail}`} index={index} onClick={(e) => {
-          e.preventDefault()
-          styleHandler(index)
-        }}/>
+        <div id="thumbnailContainer">
+          <img id="SSThumbnail" src={`${thumbnail}`} index={index} onClick={(e) => {
+            e.preventDefault()
+            styleHandler(index)
+          }}/>
+        </div>
       </div>
     )
   }

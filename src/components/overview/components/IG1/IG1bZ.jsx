@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const IG1bZ = ({currentPhoto}) => {
+const IG1bZ = ({currentPhoto, zoom}) => {
   // THIS IS THE funky styled photo
 
   // state for styled comp
@@ -11,14 +11,17 @@ const IG1bZ = ({currentPhoto}) => {
 
   useEffect(() => {
     widthSetter()
-  }, [currentPhoto])
+  }, [currentPhoto, zoom])
 
   const widthSetter = () => {
     // grab the main photo element, take it's width
-    let mainPhoto = document.getElementById('mainPhoto')
-    let width = mainPhoto.offsetWidth
-    let height = mainPhoto.offsetHeight
-    setZoomDim({width: width * 2, height: height * 2})
+    setTimeout(() => {
+      // use this to allow time for my container transition (let mainPhoto grow to max height!)
+      let mainPhoto = document.getElementById('mainPhoto')
+      let width = mainPhoto.offsetWidth
+      let height = mainPhoto.offsetHeight
+      setZoomDim({width: width * 2.5, height: height * 2.5})
+    }, 500);
   }
 
   // HANDLERS
@@ -60,6 +63,8 @@ const IG1bZ = ({currentPhoto}) => {
       z.classList.toggle('fancyZoom')
       let h = document.getElementById('IG1a')
       h.classList.toggle('hideContainer')
+      let i = document.getElementById('iconGall')
+      i.classList.toggle('revealContainer')
       widthSetter()
     }}>
         <MouseDiv id="mouseDiv" offset={offset} opacity={opacity} alt="mouseDiv">

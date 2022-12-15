@@ -8,10 +8,10 @@ import Banner from './components/Banner/Banner.jsx'
 
 const App = ({productx}) => {
   // const [ , ] = useState( );
-  console.log('this is productx in app', productx);
+  // console.log('this is productx in app', productx);
   const [product, setProduct] = useState(productx);
   // useEffect(() => {
-  console.log('product in app', product);
+  // console.log('product in app', product);
 
   // })
 
