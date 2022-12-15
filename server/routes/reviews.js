@@ -39,7 +39,7 @@ router.get('/sortreviews/:review/sort/:sort', (req, res)=>{
   // console.log('sort param', req.params)
   console.log('productID param', req.params.review)
   console.log('sort param', req.params.sort)
-  axios.get(apiURL + `/reviews/?product_id=${req.params.review}&page=1&count=100&sort=${req.params.sort}`, {
+  axios.get(apiURL + `/reviews/?product_id=${req.params.review}&page=1&count=1000&sort=${req.params.sort}`, {
     headers:
      {'Authorization': APIKEY}}
     )
@@ -60,7 +60,7 @@ router.get('/sortreviews/:review/sort/:sort', (req, res)=>{
 //get all reviews route
 router.get('/:product_id', (req, res)=>{
 // console.log('/REVIEWS GET product id', req.params)
-axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}`, {
+axios.get(apiURL + `/reviews/?product_id=${req.params.product_id}&page=1&count=1000`, {
   headers:
    {'Authorization': APIKEY}}
   )
