@@ -6,14 +6,14 @@ const IG1bX = ({indexHandler, index, currentIndex}) => {
 
   if (index === currentIndex) {
     return (
-      <img id="thumbnailIcon" src="thumbnailIcon2.png" index={index} onClick={(e) => {
+      <img id="thumbnailIcon" src="rectIcon2.png" index={index} onClick={(e) => {
         e.preventDefault()
         indexHandler(index)
       }}/>
     )
   } else {
     return (
-      <img id="thumbnailIcon" src="thumbnailIcon.png" index={index} onClick={(e) => {
+      <img id="thumbnailIcon" src="rectIcon.png" index={index} onClick={(e) => {
         e.preventDefault()
         indexHandler(index)
       }}/>
