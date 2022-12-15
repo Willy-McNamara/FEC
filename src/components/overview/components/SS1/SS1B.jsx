@@ -42,6 +42,9 @@ const SS1B = ({style, styles, styleHandler}) => {
 // add that many fake style styles!
 
 let stylesHelper = (styles) => {
+  if (styles.length % 4 === 0) {
+    return styles
+  }
   let numOfFakeStyles = 4 - (styles.length % 4)
   let fakeStyles = [];
   for (let i = 0; i < numOfFakeStyles; i++) {
