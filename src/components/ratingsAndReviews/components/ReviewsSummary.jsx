@@ -19,10 +19,12 @@ const ReviewsSummary = ({ reviewMetaData }) => {
         <div><h2>{ratingOutOf5}</h2></div>
         <StarRating data={ratingAsPercentRounded} />
       </div>
+
       {Object.entries(rawData.ratings).map((rating, index) => {
         return <RatingsBar key={index} rating={rating} countOfRatings={countOfRatings} />
       })
       }
+
       {Object.entries(rawData.characteristics).map((entry, index) => {
         return <FeatureBar key={index} name={entry[0]} rating={entry[1].value}/>
       })
