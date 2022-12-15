@@ -10,7 +10,6 @@ import axios from 'axios'
 
 
 
-
 const ReviewsList = ({ product, metaData }) => {
   if (metaData === 'init') return
   const [reviewsList, setReviewList] = useState([]);
@@ -33,22 +32,22 @@ const ReviewsList = ({ product, metaData }) => {
     //function will call the use effect below, passing in the sort method
     //axios request body will have default params of page, count, and the sort method
 
-    // const sortReviews = (e)=> {
-    //   console.log('I WORK!!')
-    //   console.log(e.target.value)
+    const sortReviews = (e)=> {
+      console.log('I WORK!!')
+      console.log(e.target.value)
 
-    //   axios.get(`/reviews/sort/${product.id}`, {
-    //    data: {
-    //       product_id: product.id,
-    //       page: 1,
-    //       count: 1000,
-    //       sort: e.target.value.toLowerCase(),
-    //     },
-    //   })
-    //       .then((res) => console.log(res.data))
-    //       .catch((err) => { console.log('ERROR ON SORT GET ROUTE', err) })
+      axios.get(`/reviews/sortreviews/${product.id}/sort/${e.target.value.toLowerCase()}`, {
+       params: {
+          product_id: product.id,
+          page: 1,
+          count: 1000,
+          sort: e.target.value.toLowerCase(),
+        },
+      })
+          .then((res) => console.log(res.data))
+          .catch((err) => { console.log('ERROR ON SORT GET ROUTE', err) })
 
-    // }
+    }
 
   useEffect(() => {
     axios.get(`/reviews/${product.id}`)
@@ -61,10 +60,10 @@ const ReviewsList = ({ product, metaData }) => {
       {/* //TODO:Update this to be as long as ALL reviews
       sortReviews={sortReviews} */
       }
-      <SortReviews numReviews={reviewsList.length}/>
+      <SortReviews numReviews={reviewsList.length} sortReviews={sortReviews}/>
       <div>
         {reviewsList.slice(0, 2).map((review, index) => {
-          return <ReviewTile key={index} review={review} score={metaData.rawData.recommended} />
+          return <ReviewTile key={index} review={review} score={metaData.rawData.recommended}/>
         })}
       </div>
       <div>

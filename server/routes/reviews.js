@@ -34,6 +34,18 @@ const logInteraction = (bodyParams) => {
 //   // })
 // })
 
+// get sorted reviews
+router.get('/sortreviews/:review/sort/:sort', (req, res)=>{
+  console.log('TESTING SORT ROUTE', req.params)
+  // .then((req)=>{
+  //   res.status(200).send(req)
+  // })
+  // .catch((err)=>{
+  //   console.log('err on sort route', err)
+  //   res.status(400).send(err)
+  // })
+})
+
 //get all reviews route
 router.get('/:product_id', (req, res)=>{
 // console.log('/REVIEWS GET product id', req.params)
