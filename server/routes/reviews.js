@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios')
-
-const APIKEY = require('../config.js').APIKEY
-let apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe'
+// const APIKEY = require('../config.js').APIKEY
+const APIKEY = process.env.APIKEY
+const apiURL = process.env.API_URL
+// let apiURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe'
 
 // router.use(express.urlencoded({extended: true}));
 // router.use(express.json());
