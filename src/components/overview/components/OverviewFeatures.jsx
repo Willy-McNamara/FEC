@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const OverviewFeatures = ({id}) => {
 
-  console.log('id in OVerviewFeatures', id)
+  // console.log('id in OVerviewFeatures', id)
 
   // map out features onto this list
   let [list, setList] = useState('init')
@@ -16,7 +16,7 @@ const OverviewFeatures = ({id}) => {
 
     axios.get(`/products/${id}`)
     .then((data) => {
-      console.log('logging data.data in OverviewFeatures getRequest', data.data.features)
+      // console.log('logging data.data in OverviewFeatures getRequest', data.data.features)
       Promise.all(data.data.features.map((featureObj) => {
         // return an <li> with the featureObj.value as the text of the li
         return (
@@ -34,7 +34,7 @@ const OverviewFeatures = ({id}) => {
     })
   }, [id])
 
-  console.log('logging list in OverviewFeatures', list)
+  // console.log('logging list in OverviewFeatures', list)
 
 
   // if (list[0]) {

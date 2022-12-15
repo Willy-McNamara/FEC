@@ -8,7 +8,7 @@ const Container1A = ({product, styles}) => {
   // console.log('Container1A render')
 
   //console.log('styles in C1A', styles)
-  console.log('Container 1A render, here is product and styles :', product, styles)
+  // console.log('Container 1A render, here is product and styles :', product, styles)
 
   // CONTAINER 1
   let [style, setStyle] = useState(styles[0])

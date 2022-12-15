@@ -26,7 +26,7 @@ const PI1A = ({id}) => {
 
   useEffect(() => {
     axios.get(`reviews/meta/${id}`)
-    .then((res)=>{setReviewInfo({stars: res.data.ratingAverages.ratingAsPercentRounded, number: res.data.countOfRatings}); console.log('logging res.data from successful axios request in PI1A', res.data)})
+    .then((res)=>{setReviewInfo({stars: res.data.ratingAverages.ratingAsPercentRounded, number: res.data.countOfRatings})})
     .catch((err)=>{console.log('ERROR ON REVIEWS GET ROUTE', err)})
     // console.log('I FIRE ONCE'
   }, [id]);
