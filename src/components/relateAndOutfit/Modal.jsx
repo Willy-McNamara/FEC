@@ -85,8 +85,12 @@ const Modal = ({modalState, toggleModal, mainProduct, cardProduct, toggleDisplay
       <div className="modal" style={{
         visibility: modalState ? 'visible' : '',
       }}>
-        <h3>Comparing</h3>
         <table className="modalTable">
+          <tr>
+            <td colSpan={3}>
+              <b className="compare-header">Comparing</b>
+            </td>
+          </tr>
           <tr>
             <td colSpan={3}>&nbsp;</td>
           </tr>
