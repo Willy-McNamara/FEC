@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import characteristics from './characteristics.js'
+import characteristics from './Characteristics.js'
 
 const FeatureBar = ({ name, rating }) => {
   // console.log('testing characteristics import', characteristics)
