@@ -13,16 +13,21 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
 
   const handleClick = (e) => {
     // form data creates a form data object**
-    console.log('testing submit', e.target)
+    console.log('testing submit', e)
+    let formEl = document.getElementById('reviewForm')
+    console.log('testing for element retrieval', formEl)
     e.preventDefault()
 
     // const featuresList = document.querySelectorAll('.feature-label');
     // featuresList.forEach((item) => {
     //   console.log(item.dataset.id)
     // });
-    const form = new FormData(e.target)
+    const form = new FormData(formEl)
     const formObject = Object.fromEntries(form.entries())
     // formObject.characteristics = {}
+
+    console.log('formObject in revewForm', formObject)
+
 
     const ajaxData = {
       "product_id": id,
@@ -98,12 +103,12 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
     ]
   }
 
-
+  let namee = name.slice();
   return (
     <div id="reviews-form">
-      <h4>Write your review about {name}</h4>
+      <h4>Write your review about {namee}</h4>
 
-      <form action="#" onSubmit={handleClick}>
+      <form id="reviewForm" onSubmit={handleClick}>
         <label>Name:</label>
         <input type="text" id="name" name="name" placeholder="Example: jackson11!" required="true" />
         <p class="subtitle">For privacy reasons, do not use your full name or email address”</p>
@@ -184,7 +189,7 @@ const ReviewForm = ({ name, id, ch_data, viewAddReview}) => {
           }
           </p>
         </div>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit" onClick={(e) => {handleClick(e)}}/>
         {/* <input type='button' onClick={handleClick}/> */}
       </form>
     </div>
