@@ -24,7 +24,7 @@ const Questions = ({product}) => {
 
   useEffect(() => {
     if (questions === 'init') {
-    axios.get(`http://localhost:3001/qa/questions/${product.id}`)
+    axios.get(`/qa/questions/${product.id}`)
       .then((res)=>{
         setInitQuestions(res.data.results);
         setQuestions(res.data.results)

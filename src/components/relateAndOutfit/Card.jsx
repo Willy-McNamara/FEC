@@ -29,7 +29,7 @@ const Card = ({product, mainProduct, alreadyDisplayed, toggleDisplay, pickProduc
   }
   useEffect(() => {
     if(imageUrl === '') {
-      axios.get(`http://localhost:3001/productStyles/${product.id}`)
+      axios.get(`/productStyles/${product.id}`)
       .then((res) => {
         let image;
         let productStyles = res.data.results

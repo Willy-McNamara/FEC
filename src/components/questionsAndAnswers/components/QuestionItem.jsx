@@ -6,7 +6,7 @@ const QuestionItem = ({product, question, setQuestions}) => {
   // add in axios put requests on helpful and report
   // trigger a get request after each one is marked helpful or reported
   const markHelpful = (e) => {
-    axios.put(`http://localhost:3001/qa/questions/${question.question_id}/helpful`)
+    axios.put(`/qa/questions/${question.question_id}/helpful`)
       .then(function (response) {
         console.log(response);
       })
@@ -17,7 +17,7 @@ const QuestionItem = ({product, question, setQuestions}) => {
   };
 
   const report = (e) => {
-    axios.put(`http://localhost:3001/qa/questions/${question.question_id}/report`)
+    axios.put(`/qa/questions/${question.question_id}/report`)
       .then(function (response) {
         console.log(response);
       })

@@ -4,7 +4,7 @@ import axios from 'axios';
 const AnswerItem = ({setQuestions, setAnswers, product, answer}) => {
 
   const markHelpfulAns = (e) => {
-    axios.put(`http://localhost:3001/qa/answers/${answer.answer_id}/helpful`)
+    axios.put(`/qa/answers/${answer.answer_id}/helpful`)
       .then(function (response) {
         console.log(response);
       })
@@ -15,7 +15,7 @@ const AnswerItem = ({setQuestions, setAnswers, product, answer}) => {
   };
 
   const reportAns = (e) => {
-    axios.put(`http://localhost:3001/qa/answers/${answer.answer_id}/report`)
+    axios.put(`/qa/answers/${answer.answer_id}/report`)
       .then(function (response) {
         console.log(response);
       })

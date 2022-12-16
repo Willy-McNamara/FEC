@@ -10,7 +10,7 @@ const AnswerForm = ({id, handleClose, setQuestions, setAnswers}) => {
   //GO in and put the setQuestions within the .then statement so it re-renders as soon as request is handled
   //axios.post
   const handleSubmit = (e) => {
-    axios.post(`http://localhost:3001/qa/questions/${id}/answers`, {
+    axios.post(`/qa/questions/${id}/answers`, {
       body: `${newBody}`,
       name: `${newName}`,
       email: `${newEmail}`,

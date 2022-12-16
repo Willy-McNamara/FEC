@@ -19,19 +19,9 @@ const RatingsBar = ({ rating, countOfRatings, filterReviews, setFilterReviews })
       }
     } else {
       const copy = filterReviews.slice(0)
-      // console.log('copy from inside filter', copy)
       copy.splice(copy.indexOf(filterBy),1)
-      // console.log('spliced copy', copy)
       setFilterReviews(copy)
     }
-
-    // setFilterReviews(filterReviews.concat(filterBy))
-    //create a structure to hold the current values to use when sorting
-    //this structure needs to be able to
-      //add values if they are not present
-      //eleminate values if they are present
-      //be easy to test for being empty
-      //probably use an object to control this functionality
 
       //loop over the current reviews list
       //check if the correct field is included in the filter object

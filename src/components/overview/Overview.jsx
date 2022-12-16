@@ -9,7 +9,7 @@ const Overview = ({product}) => {
 // console.log('PRODUCT FROM OVERVIEW', product.id)
   useEffect(() => {
     // console.log('useEffect triggered in Overview.jsx')
-    axios.get(`http://localhost:3001/productStyles/${product.id}`)
+    axios.get(`/productStyles/${product.id}`)
     .then((res) => {
       //console.log('res.data from get styles in Overview.jsx', res.data)
       setStyles(res.data.results)
