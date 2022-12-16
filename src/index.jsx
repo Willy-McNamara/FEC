@@ -14,7 +14,7 @@ import { useState } from 'react';
 
 // initial get request to pass a Product to all DOM components
 
-axios.get('http://localhost:3001/products')
+axios.get('/products')
 .then((res) => {
   //console.log('res.data[0] from get request in index.jsx :', res.data[0])
   console.log(res.data);

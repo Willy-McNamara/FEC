@@ -14,7 +14,7 @@ const AnswerList = ({product, setQuestions, qId}) => {
 
   useEffect(() => {
     if (answers === 'init') {
-    axios.get(`http://localhost:3001/qa/questions/${qId}/answers`)
+    axios.get(`/qa/questions/${qId}/answers`)
       .then((res)=>{
         setAnswers(res.data);
       })
