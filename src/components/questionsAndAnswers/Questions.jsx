@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import QuestionsList from './components/QuestionsList.jsx';
+import QuestionsList from './components/questionsList.jsx';
 import QuestionItem from './components/QuestionItem.jsx';
 import AnswerList from './components/AnswerList.jsx';
 import QuestionForm from './components/QuestionForm.jsx';
