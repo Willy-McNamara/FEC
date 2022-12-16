@@ -3,7 +3,7 @@ import StarRating from './StarRating.jsx'
 import FeatureBar from './FeatureBar.jsx'
 import RatingsBar from './RatingsBar.jsx'
 import axios from 'axios'
-import characteristics from './characteristics.js'
+import characteristics from './Characteristics.js'
 
 const ReviewsSummary = ({ reviewMetaData, filterReviews, setFilterReviews }) => {
   if (reviewMetaData === 'init') return
