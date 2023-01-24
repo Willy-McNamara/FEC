@@ -22,7 +22,7 @@ Here is a look at some of my planning and visualization before diving into the b
 # Main Page and Alternating Styles
 A challenge here was formatting in a uniform fashion with a set of images that varied greatly in size!
 
-<img src="http://g.recordit.co/QhkzPmANTz.gif" width=500px>
+<img src="http://g.recordit.co/utRjzHaYYP.gif" width=500px>
 
 
 # Zoom Functionality
