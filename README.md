@@ -36,7 +36,7 @@ If embedded gif not visible, see this link: http://g.recordit.co/nS5yhk39vl.gif
 I opted to create my own dropdowns using vanilla CSS and React to accomplish what felt like a more cohesive UI in place of standard HTML. 
 This gif also displays a different product (one of thousands) that could be selected for viewing! 
 
-<img src="http://g.recordit.co/Oejcg01Fjh.gif">
+<img src="https://github.com/Willy-McNamara/FrontEndCapstone/blob/main/FECgif3.gif">
 If embedded gif not visible, see this link: http://g.recordit.co/Oejcg01Fjh.gif
 
 
