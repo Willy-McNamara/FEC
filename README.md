@@ -28,7 +28,7 @@ A challenge here was formatting in a uniform fashion with a set of images that v
 # Zoom Functionality
 This was the most technically challenging functionality to build. The zoom on mouse over required superimposing a much larger version of the given image, and calculating it's ideal position relative to the mouses location in the standard image. It was fun to needle away at an algorithm which would account for the variety of image sizes that accompanied each product and style! 
 
-<img src="http://g.recordit.co/nS5yhk39vl.gif" width=700px >
+<img src="http://g.recordit.co/YeGartMC46.gif" width="700"/>
 
 # Select Size and Quantity
 I opted to create my own dropdowns using vanilla CSS and React to accomplish what felt like a more cohesive UI in place of standard HTML. 
