@@ -22,21 +22,21 @@ Here is a look at some of my planning and visualization before diving into the b
 # Main Page and Alternating Styles
 A challenge here was formatting in a uniform fashion with a set of images that varied greatly in size!
 
-<img src="http://g.recordit.co/QhkzPmANTz.gif" width="700">
+<img src="http://g.recordit.co/QhkzPmANTz.gif">
 If embedded gif not visible, see this link: http://g.recordit.co/QhkzPmANTz.gif
 
 
 # Zoom Functionality
 This was the most technically challenging functionality to build. The zoom on mouse over required superimposing a much larger version of the given image, and calculating it's ideal position relative to the mouses location in the standard image. It was fun to needle away at an algorithm which would account for the variety of image sizes that accompanied each product and style! 
 
-<img src="http://g.recordit.co/nS5yhk39vl.gif" width="700"/>
+<img src="http://g.recordit.co/nS5yhk39vl.gif">
 If embedded gif not visible, see this link: http://g.recordit.co/nS5yhk39vl.gif
 
 # Select Size and Quantity
 I opted to create my own dropdowns using vanilla CSS and React to accomplish what felt like a more cohesive UI in place of standard HTML. 
 This gif also displays a different product (one of thousands) that could be selected for viewing! 
 
-<img src="http://g.recordit.co/Oejcg01Fjh.gif" width="700">
+<img src="http://g.recordit.co/Oejcg01Fjh.gif">
 If embedded gif not visible, see this link: http://g.recordit.co/Oejcg01Fjh.gif
 
 
