@@ -7,7 +7,7 @@
 
 # Front-end, eCommerce Project
 
-Given client specifications for functionality and the mock up pictured below, I was tasked with standing up the front for a clothing E-tailer, specifically the Product Overview (top section). Using a list of provided API routes to retrieve information about any given product, I build and deployed the fully functional user interface you see below in about a weeks time.  
+Given client specifications for functionality and the mock up pictured below, my team was tasked with standing up the front for a clothing E-tailer. I was specifically responsible for the Product Overview (top section), which is demo'd below. Using a list of provided API routes to retrieve information about any given product, I build and deployed this fully functional user interface in about a weeks time.  
 
 # Client Mock Up
 This is what I was attempting to recreate, with a hint of my own flavor!
@@ -28,6 +28,7 @@ A challenge here was formatting in a uniform fashion with a set of images that v
 This was the most technically challenging functionality to build. The zoom on mouse over required superimposing a much larger version of the given image, and calculating it's ideal position relative to the mouses location in the standard image. It was fun to needle away at an algorithm which would account for the variety of image sizes that accompanied each product and style! 
 
 <img src="http://g.recordit.co/83kOU6XVhZ.gif" width=500px/> 
+<img src="http://g.recordit.co/YeGartMC46.gif" width="700"/>
 
 # Select Size and Quantity
 I opted to create my own dropdowns using vanilla CSS and React to accomplish what felt like a more cohesive UI in place of standard HTML. 
