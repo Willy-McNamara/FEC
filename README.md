@@ -17,7 +17,7 @@ This is what I was attempting to recreate, with a hint of my own flavor!
 # Diagramming and Planning
 Here is a look at some of my planning and visualization before diving into the build, including wire frames and what became a very helpful react component/state tree. 
 
-<img src="http://g.recordit.co/utRjzHaYYP.gif" width="500"/> 
+<img src="http://g.recordit.co/utRjzHaYYP.gif" width="700"/> 
 
 # Main Page and Alternating Styles
 A challenge here was formatting in a uniform fashion with a set of images that varied greatly in size!
