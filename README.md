@@ -7,7 +7,7 @@
 
 # Front-end, eCommerce Project
 
-Given client specifications for functionality and the mock up pictured below, my team was tasked with standing up the front for a clothing E-tailer. I was specifically responsible for the Product Overview (top section), which is demo'd below. Using a list of provided API routes to retrieve information about any given product, I build and deployed this fully functional user interface in about a weeks time.  
+Given client specifications for functionality and the mock up pictured below, my team was tasked with standing up the front for a clothing E-tailer. I was specifically responsible for the Product Overview (top section), which is demo'd below. Using a list of provided API routes to retrieve information about any given product, I built and deployed (on an AWS c2) this fully functional user interface in about a weeks time.  
 
 # Client Mock Up
 This is what I was attempting to recreate, with a hint of my own flavor!
