@@ -15,7 +15,7 @@ This is what I was attempting to recreate, with a hint of my own flavor!
 <img src="https://github.com/Willy-McNamara/FEC/blob/main/FECMockUp.png" width=500px/> 
 
 # Diagramming and Planning
-Here is a look at some of my planning and visualization before diving into the build. 
+Here is a look at some of my planning and visualization before diving into the build, including wire frames and what became a very helpful react component/state tree. 
 
 <img src="http://g.recordit.co/utRjzHaYYP.gif" width=500px/> 
 
