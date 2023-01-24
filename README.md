@@ -33,7 +33,7 @@ This was the most technically challenging functionality to build. The zoom on mo
 I opted to create my own dropdowns using vanilla CSS and React to accomplish what felt like a more cohesive UI in place of standard HTML. 
 This gif also displays a different product (one of thousands) that could be selected for viewing! 
 
-<img src="http://g.recordit.co/FIZMQjkZRb.gif" width=500px/> 
+<img src="http://g.recordit.co/FIZMQjkZRb.gif" width=700px/> 
 
 
 
